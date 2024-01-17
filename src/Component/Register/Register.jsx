@@ -7,7 +7,7 @@ export default function Register() {
 
    <div className={`${style.registerBody}`}>
 
-   </div>
+</div>
 
 
 
