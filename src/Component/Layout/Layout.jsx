@@ -6,7 +6,6 @@ export default function Layout() {
   return (
     <>
       {/* <Navbar /> */}
-      <h1>ahmed</h1>
       <Outlet></Outlet>
       {/* <Footer /> */}
 
