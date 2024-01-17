@@ -1,0 +1,7 @@
+.registerBody{
+background: url(../../images/register-background.jpg);
+width: 100%;
+height: 100vh;
+background-position: center center;
+background-size: cover;
+}
