@@ -4,4 +4,205 @@ width: 100%;
 height: 100vh;
 background-position: center center;
 background-size: cover;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+
+.parentForm{
+    background-color: white;
+    border-radius: 30px;
+    padding: 25px;
+    width: 50%;
+}
+
+.headerFirstRegister{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.LeftIcon{
+    background-color: #024FA9;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.LeftIcon i{
+    color: white;
+    font-size:20px;
+}
+
+.rightIcon{
+    background-color:white;
+    border: 2px #5E6E82 solid;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.rightIcon i{
+    color:#5E6E82;
+    font-size:20px;
+}
+
+
+.headerFirstRegister::before {
+    content: "";
+    position: absolute;
+    height: 2px; 
+    width:calc(100% - 60px * 2); 
+    background-color: #5E6E82;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+
+.passwordsInpust{
+    display: flex;
+}
+
+.firstPassword{
+    width: 45%;
+    margin-right: 10%;
+}
+
+.rePassword{
+    width: 45%;
+}
+
+
+.firstRegisterBody label{
+    color:#5E6E82 !important;
+}
+
+.nextButton{
+    display: flex;
+    justify-content: flex-end;
+}
+.nextButton button{
+    background: linear-gradient(99.78deg, #0258A9 24.68%, #199BEE 109.55%); 
+    color:white ;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 9px;
+}
+
+.default-button{
+    padding: 5px;
+    padding-left: 10px;
+    border: 1px solid #b9cee9;
+    border-radius: 10px;
+}
+
+.default-button:focus{
+    outline: none;
+}
+
+.error-input{
+    outline: none;  
+    border: 1px solid #FF0000;
+}
+
+.success-input{
+    outline: none;  
+    border: 1px solid #00FF0A;
+}
+.error-text{
+    font-size: 14px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .passwordsInpust{
+        display: block;
+    }
+    
+    .firstPassword{
+        width: 100%;
+    }
+    .rePassword{
+        width: 100%;
+    }
+    .nextButton{
+        display: block;
+        width: 100%;
+        font-size: 15px;
+    }
+    .nextButton button{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+    .nextButton button i{
+        margin-left: 5px;
+        margin-top: 1.2px;
+    }
+    .parentForm{
+        padding: 10px 7px 20px;
+        border-radius: 15px;
+        width: 80%;
+    }
+    .error-text{
+        font-size: 12px;
+    }
+    .headerFirstRegister{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 800px) {
+    .passwordsInpust{
+        display: block;
+    }
+    
+    .firstPassword{
+        width: 100%;
+    }
+    .rePassword{
+        width: 100%;
+    }
+    .nextButton{
+        display: block;
+        width: 100%;
+        font-size: 15px;
+    }
+    .nextButton button{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+    .nextButton button i{
+        margin-left: 5px;
+        margin-top: 1.2px;
+    }
+    .parentForm{
+        border-radius: 15px;
+        width: 80%;
+    }
+}
+
+
+
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+    .parentForm{
+        border-radius: 15px;
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    
 }
