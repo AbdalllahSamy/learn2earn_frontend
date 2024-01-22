@@ -4,4 +4,100 @@ width: 100%;
 height: 100vh;
 background-position: center center;
 background-size: cover;
+display: flex;
+align-items: center;
+justify-content: center;
 }
+
+
+.parentForm{
+    background-color: white;
+    border-radius: 30px;
+    padding: 25px;
+}
+
+.headerFirstRegister{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.LeftIcon{
+    background-color: #024FA9;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.LeftIcon i{
+    color: white;
+    font-size:20px;
+}
+
+.rightIcon{
+    background-color:white;
+    border: 2px #5E6E82 solid;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.rightIcon i{
+    color:#5E6E82;
+    font-size:20px;
+}
+
+
+.headerFirstRegister::before {
+    content: "";
+    position: absolute;
+    height: 2px; 
+    width:calc(100% - 60px * 2); 
+    background-color: #5E6E82;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+
+.passwordsInpust{
+    display: flex;
+}
+
+.firstPassword{
+    width: 45%;
+    margin-right: 10%;
+}
+
+.rePassword{
+    width: 45%;
+}
+
+
+.firstRegisterBody label{
+    color:#5E6E82 !important;
+}
+
+.nextButton{
+    display: flex;
+    justify-content: flex-end;
+}
+.nextButton button{
+    background: linear-gradient(99.78deg, #0258A9 24.68%, #199BEE 109.55%); 
+    color:white ;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 9px;
+}
+
+
+
+
+
