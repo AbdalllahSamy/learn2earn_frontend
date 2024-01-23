@@ -12,15 +12,81 @@ export default function Register() {
 
   const [isLoad, setIsLoad] = useState(false);
 
+
+
+
+
+
+
+
+
+
+
+
   const handleNextButton = () => {
     if (currentStep === 1) {
-      // Perform any necessary validation or data processing for the first part
-      // ...
 
-      // Move to the second part
+      let NameInput = document.getElementById("name");
+let PhoneInput = document.getElementById("phone");
+let EmailInput = document.getElementById("email");
+let passwordInput =  document.getElementById("password");
+let passwordConfirmInput =  document.getElementById("Confirm-Password");
+
+
+      let semiUser ={
+        name:NameInput.value,
+        phone:PhoneInput.value,
+        password:passwordInput.value,
+        password_confirmation:passwordConfirmInput.value,
+        email:EmailInput.value
+      }
+
+async function sendSemiData(semiUser) {
+  setIsLoad(true);
+  try {
+    const response = await axios.post(
+      "https://api-test.llearn2earn.com/api/auth/semi-register",
+      semiUser
+    );
+    if (response.status === 200) {
       setCurrentStep(2);
     }
-  };
+  } catch (error) {
+    setErrorMsg(error.response.data.message);
+  }
+  setIsLoad(false);
+}
+sendSemiData(semiUser);
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   let user = {
     name: "",
@@ -31,7 +97,7 @@ export default function Register() {
     age: "",
     gender: "male",
     type_user: "student",
-  };
+};
 
   async function sendData(values) {
     setIsLoad(true);
