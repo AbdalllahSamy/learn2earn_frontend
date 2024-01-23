@@ -41,9 +41,11 @@ export default function Register() {
           if (response.status === 200) {
             setIsTopActive(true);
             setCurrentStep(2);
+            setErrorMsg(null);
           }
         } catch (error) {
           setErrorMsg(error.response.data.message);
+          
         }
         setIsLoad(false);
       }
@@ -71,6 +73,7 @@ export default function Register() {
       );
       if (response.status === 200) {
         navigateFunction("/login");
+        setErrorMsg(null);
       }
     } catch (error) {
       setErrorMsg(error.response.data.message);
@@ -88,7 +91,7 @@ export default function Register() {
       setErrorMsg(null);
 
       const errors = {};
-      if (values.name.length > 30 || values.name.length < 3) {
+      if (!values.name.match(/^[a-zA-Z ]{3,30}$/)) {
         errors.name = "Name Size must be between 3 and 30 Character";
       }
 

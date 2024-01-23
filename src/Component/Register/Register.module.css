@@ -1,37 +1,38 @@
 @keyframes progressAnimation {
     to {
-        width:calc(100% - 60px * 2); 
+        width: calc(100% - 60px * 2);
         background-color: #00FF0A;
     }
-  }
+}
 
-.registerBody{
-background: url(../../images/register-background.jpg);
-width: 100%;
-height: 100vh;
-background-position: center center;
-background-size: cover;
-display: flex;
-align-items: center;
-justify-content: center;
+.registerBody {
+    background: url(../../images/register-background.jpg);
+    width: 100%;
+    min-height: 100vh;
+    padding: 50px 0;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
-.parentForm{
+.parentForm {
     background-color: white;
     border-radius: 30px;
     padding: 25px;
     width: 50%;
 }
 
-.headerFirstRegister{
+.headerFirstRegister {
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
 }
 
-.LeftIcon{
+.LeftIcon {
     background-color: #024FA9;
     width: 60px;
     height: 60px;
@@ -42,13 +43,13 @@ justify-content: center;
     transition: 0.5s;
 }
 
-.LeftIcon i{
+.LeftIcon i {
     color: white;
-    font-size:20px;
+    font-size: 20px;
 }
 
-.rightIcon{
-    background-color:white;
+.rightIcon {
+    background-color: white;
     border: 2px #5E6E82 solid;
     width: 60px;
     height: 60px;
@@ -60,35 +61,35 @@ justify-content: center;
     transition-delay: 1.5s;
 }
 
-.rightIcon i{
-    color:#5E6E82;
+.rightIcon i {
+    color: #5E6E82;
     transition: 0.5s;
     transition-delay: 1.5s;
-    font-size:20px;
+    font-size: 20px;
 }
 
-.headerFirstRegister.active .LeftIcon{
+.headerFirstRegister.active .LeftIcon {
     background-color: #00FF0A;
 }
 
-.headerFirstRegister.active .rightIcon{
+.headerFirstRegister.active .rightIcon {
     background-color: #024FA9;
 }
 
-.headerFirstRegister.active .rightIcon i{
-    color:white;
+.headerFirstRegister.active .rightIcon i {
+    color: white;
 }
 
 .headerFirstRegister::before {
     content: "";
     position: absolute;
-    height: 2px; 
-    width:calc(100% - 60px * 2); 
+    height: 2px;
+    width: calc(100% - 60px * 2);
     background-color: #5E6E82;
-    top: 50%; 
+    top: 50%;
     left: 50%;
     transition: 0.5s;
-    transform: translate(-50%, -50%); 
+    transform: translate(-50%, -50%);
 }
 
 .headerFirstRegister.active::before {
@@ -97,127 +98,141 @@ justify-content: center;
 }
 
 
-.passwordsInpust{
+.passwordsInpust {
     display: flex;
 }
 
-.firstPassword{
+.firstPassword {
     width: 45%;
     margin-right: 10%;
 }
 
-.rePassword{
+.rePassword {
     width: 45%;
 }
 
 
-.firstRegisterBody label{
-    color:#5E6E82 !important;
+.firstRegisterBody label {
+    color: #5E6E82 !important;
 }
 
-.nextButton{
+.nextButton {
     display: flex;
     justify-content: flex-end;
 }
-.nextButton button{
-    background: linear-gradient(99.78deg, #0258A9 24.68%, #199BEE 109.55%); 
-    color:white ;
+
+.nextButton button {
+    background: linear-gradient(99.78deg, #0258A9 24.68%, #199BEE 109.55%);
+    color: white;
     border: none;
     padding: 10px 30px;
     border-radius: 9px;
 }
 
-.default-button{
+.default-button {
     padding: 5px;
     padding-left: 10px;
     border: 1px solid #b9cee9;
     border-radius: 10px;
 }
 
-.default-button:focus{
+.default-button:focus {
     outline: none;
 }
 
-.error-input{
-    outline: none;  
+.error-input {
+    outline: none;
     border: 1px solid #FF0000;
 }
 
-.success-input{
-    outline: none;  
+.success-input {
+    outline: none;
     border: 1px solid #00FF0A;
 }
-.error-text{
+
+.error-text {
     font-size: 14px;
 }
 
 
 @media screen and (max-width: 600px) {
-    .passwordsInpust{
+    .passwordsInpust {
         display: block;
     }
-    
-    .firstPassword{
+
+    .firstPassword {
         width: 100%;
     }
-    .rePassword{
+
+    .rePassword {
         width: 100%;
     }
-    .nextButton{
+
+    .nextButton {
         display: block;
         width: 100%;
         font-size: 15px;
     }
-    .nextButton button{
+
+    .nextButton button {
         display: flex;
         align-items: center;
         width: 100%;
         justify-content: center;
     }
-    .nextButton button i{
+
+    .nextButton button i {
         margin-left: 5px;
         margin-top: 1.2px;
     }
-    .parentForm{
+
+    .parentForm {
         padding: 10px 7px 20px;
         border-radius: 15px;
         width: 80%;
     }
-    .error-text{
+
+    .error-text {
         font-size: 12px;
     }
-    .headerFirstRegister{
+
+    .headerFirstRegister {
         display: none;
     }
 }
 
 @media screen and (min-width: 601px) and (max-width: 800px) {
-    .passwordsInpust{
+    .passwordsInpust {
         display: block;
     }
-    
-    .firstPassword{
+
+    .firstPassword {
         width: 100%;
     }
-    .rePassword{
+
+    .rePassword {
         width: 100%;
     }
-    .nextButton{
+
+    .nextButton {
         display: block;
         width: 100%;
         font-size: 15px;
     }
-    .nextButton button{
+
+    .nextButton button {
         display: flex;
         align-items: center;
         width: 100%;
         justify-content: center;
     }
-    .nextButton button i{
+
+    .nextButton button i {
         margin-left: 5px;
         margin-top: 1.2px;
     }
-    .parentForm{
+
+    .parentForm {
         border-radius: 15px;
         width: 80%;
     }
@@ -226,12 +241,10 @@ justify-content: center;
 
 
 @media screen and (min-width: 801px) and (max-width: 1024px) {
-    .parentForm{
+    .parentForm {
         border-radius: 15px;
         width: 80%;
     }
 }
 
-@media screen and (min-width: 1025px) {
-    
-}
+@media screen and (min-width: 1025px) {}
