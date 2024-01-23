@@ -10,15 +10,15 @@ export default function Login() {
       <link
         href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet"></link>
-      <div className='d-flex'>
-        <div className={`${Style.backG} col-md-6 `}>
+      <div className={`d-flex align-items-center vh-100`}>
+        <div className={`col-md-6  ${Style.backG}`}>
           <div className={`${Style.underImg} position-relative col-md-7`}>
             <img src={img1} alt="woman" className={`${Style.womanImg} w-100 position-absolute col-md-6`} />
             <p className={`position-absolute col-md-6 ${Style.pWoman}`}>Learn <br />TO <br />Earn</p>
           </div>
         </div>
-        <div className={`col-md-6  ${Style.loginFormSide}`}>
-          <div className={`${Style.smallCard} pb-5`}>
+        <div className={`col-md-6 d-flex justify-content-center  bg-info ${Style.loginFormSide}`}>
+          <div className={`${Style.smallCard} w-100`}>
             <div className='text-center'>
               <h3 className={`${Style.h3Login} `}>login</h3>
               <p className={`${Style.pLogin}`}>Welcome back to Learn2Earn education platform</p>
