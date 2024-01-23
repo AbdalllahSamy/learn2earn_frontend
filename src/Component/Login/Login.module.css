@@ -1,0 +1,209 @@
+.backG {
+    background-image: url(../../imgs/Rectangle\ 4.jpg);
+}
+
+.underImg {
+    height: 70%;
+    margin: auto;
+    flex-shrink: 0;
+    border-radius: 46px;
+    border: 1px solid rgba(255, 255, 255, 0.52);
+    background: rgba(255, 255, 255, 0.21);
+    backdrop-filter: blur(6.800000190734863px);
+}
+
+.womanImg {
+    left: -50px;
+    bottom: 0px;
+}
+
+.pWoman {
+    color: #FFF;
+    right: -4px;
+    top: 10px;
+    font-family: Poppins;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px;
+}
+
+.h3Login {
+    position: relative;
+    margin-top: 6rem !important;
+    color: #000;
+    font-family: Poppins;
+    font-size: 65px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.h3Login::after {
+    content: '';
+    position: absolute;
+    width: 137px;
+    height: 3px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    background: #024FA9;
+    left: 42%;
+    top: 80%;
+}
+
+.pLogin {
+    color: #525252;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.loginForm {
+    border-radius: 10px !important;
+    height: 55px !important;
+    background: rgba(220, 232, 255, 0.80) !important;
+}
+
+.submitForm {
+    color: #FFF !important;
+    font-family: Poppins !important;
+    font-size: 21px !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    line-height: normal !important;
+    border-radius: 16px !important;
+    background: linear-gradient(100deg, #0258A9 24.68%, #199BEE 109.55%) !important;
+    box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16) !important;
+    height: 63px !important;
+    margin: auto !important;
+    border: 0px !important;
+}
+
+.forgetPassword {
+    display: flex;
+    justify-content: center;
+    color: #024FA9;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.loginWithGoogle {
+    height: 63px !important;
+    background: #FFF;
+    border-radius: 16px !important;
+    border: 2.5px solid rgba(132, 132, 132, 0.60) !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.regularSpan {
+    color: #1C1C1C;
+    font-family: Poppins;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.googleSpan {
+    color: #1C1C1C;
+    font-family: Poppins;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.donotHaveAcc {
+    color: #525252;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.Signin {
+    color: #024FA9;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+@media screen and (max-width:1023px) {
+
+    .backG {
+        display: none;
+    }
+
+    .loginFormSide {
+        background-image: url(../../imgs/Rectangle\ 4.jpg);
+        width: 100% !important;
+    }
+
+    .smallCard {
+        background-color: #fff;
+        margin: 30px;
+        border-radius: 35px;
+
+        box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16) !important;
+
+
+    }
+
+    .h3Login {
+        font-size: 50px;
+        font-weight: 700;
+    }
+
+    .h3Login::after {
+        display: none;
+    }
+
+    .loginWithGoogle {
+        /* background-color: #fff !important; */
+        height: 50px !important;
+        padding: 2px !important;
+    }
+
+    .regularSpan {
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .googleSpan {
+        font-weight: 500;
+
+    }
+
+    .googleImg {
+        width: 15%;
+        margin-bottom: 7px;
+
+    }
+
+    .submitForm {
+        font-size: 20px !important;
+        font-weight: 700 !important;
+        height: 50px !important;
+    }
+
+    .forgetPassword {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .donotHaveAcc,
+    .Signin,
+    .pLogin {
+        font-size: 21px;
+    }
+}

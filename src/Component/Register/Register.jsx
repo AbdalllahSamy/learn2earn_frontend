@@ -8,85 +8,48 @@ import { ThreeCircles } from "react-loader-spinner";
 export default function Register() {
   const [currentStep, setCurrentStep] = useState(1);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [isTopActive, setIsTopActive] = useState(false);
   const navigateFunction = useNavigate();
 
   const [isLoad, setIsLoad] = useState(false);
-
-
-
-
-
-
-
-
-
-
-
 
   const handleNextButton = () => {
     if (currentStep === 1) {
 
       let NameInput = document.getElementById("name");
-let PhoneInput = document.getElementById("phone");
-let EmailInput = document.getElementById("email");
-let passwordInput =  document.getElementById("password");
-let passwordConfirmInput =  document.getElementById("Confirm-Password");
+      let PhoneInput = document.getElementById("phone");
+      let EmailInput = document.getElementById("email");
+      let passwordInput = document.getElementById("password");
+      let passwordConfirmInput = document.getElementById("Confirm-Password");
 
 
-      let semiUser ={
-        name:NameInput.value,
-        phone:PhoneInput.value,
-        password:passwordInput.value,
-        password_confirmation:passwordConfirmInput.value,
-        email:EmailInput.value
+      let semiUser = {
+        name: NameInput.value,
+        phone: PhoneInput.value,
+        password: passwordInput.value,
+        password_confirmation: passwordConfirmInput.value,
+        email: EmailInput.value
       }
 
-async function sendSemiData(semiUser) {
-  setIsLoad(true);
-  try {
-    const response = await axios.post(
-      "https://api-test.llearn2earn.com/api/auth/semi-register",
-      semiUser
-    );
-    if (response.status === 200) {
-      setCurrentStep(2);
+      async function sendSemiData(semiUser) {
+        setIsLoad(true);
+        try {
+          const response = await axios.post(
+            "https://api-test.llearn2earn.com/api/auth/semi-register",
+            semiUser
+          );
+          if (response.status === 200) {
+            setIsTopActive(true);
+            setCurrentStep(2);
+          }
+        } catch (error) {
+          setErrorMsg(error.response.data.message);
+        }
+        setIsLoad(false);
+      }
+      sendSemiData(semiUser);
     }
-  } catch (error) {
-    setErrorMsg(error.response.data.message);
-  }
-  setIsLoad(false);
-}
-sendSemiData(semiUser);
-    }
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  };
 
   let user = {
     name: "",
@@ -97,7 +60,7 @@ sendSemiData(semiUser);
     age: "",
     gender: "male",
     type_user: "student",
-};
+  };
 
   async function sendData(values) {
     setIsLoad(true);
@@ -113,7 +76,7 @@ sendSemiData(semiUser);
       setErrorMsg(error.response.data.message);
     }
 
-    
+
 
     setIsLoad(false);
   }
@@ -136,8 +99,8 @@ sendSemiData(semiUser);
         errors.email = "Email invalid , It shoud contain @ and . ";
       }
 
-      if (!values.phone.match(/^(002|\+2)01[0125]\d{8}$/)) {
-        errors.phone = "phone is invalid , It must start with 002 or +2 ";
+      if (!values.phone.match(/^\+201[0125]\d{8}$/)) {
+        errors.phone = "phone is invalid , It must start with +2 ";
       }
 
       if (
@@ -166,7 +129,7 @@ sendSemiData(semiUser);
       <form onSubmit={formikObject.handleSubmit}>
         <div className={`${style.registerBody}`}>
           <div className={`${style.parentForm} `}>
-            <div className={`${style.headerFirstRegister}`}>
+            <div className={`${style.headerFirstRegister} ${isTopActive ? style.active : ''}`}>
               <div className={`${style.LeftIcon}`}>
                 <i className="fa-solid fa-lock"></i>
               </div>
@@ -257,7 +220,7 @@ sendSemiData(semiUser);
                           onBlur={formikObject.handleBlur}
                         />
                         {formikObject.errors.password &&
-                        formikObject.touched.password ? (
+                          formikObject.touched.password ? (
                           <div className={`text-danger ${style['error-text']}`}>
                             {" "}
                             {formikObject.errors.password}
@@ -282,7 +245,7 @@ sendSemiData(semiUser);
                           onBlur={formikObject.handleBlur}
                         />
                         {formikObject.errors.password_confirmation &&
-                        formikObject.touched.password_confirmation ? (
+                          formikObject.touched.password_confirmation ? (
                           <div className={`text-danger ${style['error-text']}`}>
                             {" "}
                             {formikObject.errors.password_confirmation}
@@ -294,7 +257,7 @@ sendSemiData(semiUser);
                     </div>
 
                     <div className={`${style.nextButton} mt-4`}>
-                      <button onClick={handleNextButton}>
+                      <button type="submit" onClick={handleNextButton}>
                         Next <i className="fa-solid fa-angle-right"></i>
                       </button>
                     </div>

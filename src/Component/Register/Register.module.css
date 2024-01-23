@@ -1,3 +1,10 @@
+@keyframes progressAnimation {
+    to {
+        width:calc(100% - 60px * 2); 
+        background-color: #00FF0A;
+    }
+  }
+
 .registerBody{
 background: url(../../images/register-background.jpg);
 width: 100%;
@@ -32,6 +39,7 @@ justify-content: center;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    transition: 0.5s;
 }
 
 .LeftIcon i{
@@ -48,13 +56,28 @@ justify-content: center;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    transition: 0.5s;
+    transition-delay: 1.5s;
 }
 
 .rightIcon i{
     color:#5E6E82;
+    transition: 0.5s;
+    transition-delay: 1.5s;
     font-size:20px;
 }
 
+.headerFirstRegister.active .LeftIcon{
+    background-color: #00FF0A;
+}
+
+.headerFirstRegister.active .rightIcon{
+    background-color: #024FA9;
+}
+
+.headerFirstRegister.active .rightIcon i{
+    color:white;
+}
 
 .headerFirstRegister::before {
     content: "";
@@ -63,8 +86,14 @@ justify-content: center;
     width:calc(100% - 60px * 2); 
     background-color: #5E6E82;
     top: 50%; 
-    left: 50%; 
+    left: 50%;
+    transition: 0.5s;
     transform: translate(-50%, -50%); 
+}
+
+.headerFirstRegister.active::before {
+    animation: progressAnimation 1s ease-out forwards;
+    animation-delay: 0.5s;
 }
 
 
