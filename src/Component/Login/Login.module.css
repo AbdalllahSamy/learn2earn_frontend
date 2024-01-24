@@ -1,14 +1,14 @@
-
-.main-div{
+.main-div {
     min-height: 100vh;
     display: flex;
     align-items: center;
     align-content: center;
 }
+
 .backG {
-    background-image: url(../../imgs/Rectangle\ 4.jpg); 
-    background-repeat: no-repeat;
+    background-image: url(../../imgs/Rectangle\ 4.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
     min-height: 100vh;
     width: 50%;
@@ -16,7 +16,8 @@
     justify-content: center;
     align-items: center;
 }
-.loginFormSide{
+
+.loginFormSide {
     width: 50%;
     height: 100%;
     min-height: 100vh;
@@ -27,19 +28,31 @@
 }
 
 .underImg {
-    /* margin: 10rem 0; */
-    /* margin: auto; */
     border-radius: 46px;
     border: 1px solid rgba(255, 255, 255, 0.52);
     background: rgba(255, 255, 255, 0.21);
-    min-height: 70vh ;
-    max-height: 70vh ;
+    max-height: 70vh;
+}
+
+
+.womanDiv {
+    width: 100%;
+    position: relative;
+    margin: 0 -50px 0 0;
+    z-index: 1;
+    overflow-y: hidden;
 }
 
 .womanImg {
-    left: -90px;
-    bottom: 0px;
-    width: 600px;
+    position: relative;
+    width: 100%;
+}
+
+.textDiv {
+    width: 30%;
+    padding: 30px 30px 0 0;
+    margin: 0 -10px 0 -50px;
+    z-index: 2;
 }
 
 .pWoman {
@@ -64,7 +77,8 @@
     text-transform: uppercase;
     margin: 0;
 }
-.line{
+
+.line {
     display: block;
     background-color: #024FA9;
     height: 3px;
@@ -113,16 +127,17 @@
 }
 
 .loginWithGoogle {
-    height: 63px ;
+    height: 63px;
     width: 100%;
     background: #FFF;
-    border-radius: 30px ;
-    border: 1px solid rgba(132, 132, 132, 0.60) ;
+    border-radius: 30px;
+    border: 1px solid rgba(132, 132, 132, 0.60);
     justify-content: center;
     align-items: center;
     text-decoration: none;
 }
-.googleImg{
+
+.googleImg {
     width: 40px;
 }
 
@@ -169,25 +184,31 @@
     .backG {
         display: none;
     }
+
     .loginFormSide {
         background-image: url(../../imgs/Rectangle\ 4.jpg);
-        width: 100% ;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
         padding: 0;
     }
-    .line{
+
+    .line {
         width: 30%;
     }
+
     .h3Login {
         font-size: 50px;
         font-weight: 700;
     }
 
     .smallCard {
-        padding: 15px 20px ;
+        padding: 15px 20px;
         background-color: #fff;
         margin: 30px;
         border-radius: 35px;
-        box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16) ;
+        box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
     }
 
     .submitForm {
@@ -221,13 +242,13 @@
         margin-left: 0;
     }
 
-    .googleDiv{
+    .googleDiv {
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .googleImg{
+    .googleImg {
         display: block;
         width: 70%;
     }
@@ -242,26 +263,23 @@
 
 @media screen and (min-width: 816px) and (max-width: 1200px) {
     .womanImg {
-        width: 380px;
-        left: -40px;
+        width: 80%;
+        left: -10px;
+    }
+
+    .womanDiv {
+        width: 100%;
+        position: relative;
+        margin: 0 -65px 0 0;
     }
 
     .pWoman {
-        color: #FFF;
-        right: 0px;
-        top: 10px;
-        font-family: Poppins;
-        font-size: 50px;
-        font-weight: 700;
-        line-height: 47px;
+        font-size: 35px;
+        line-height: 35px;
+        margin-top: -5px;
     }
 
-    .underImg {
-        margin: 7rem 0;
-        width: 80%;
-    }
-    
-    .loginFormSide{
+    .loginFormSide {
         padding: 0 20px;
     }
 
@@ -275,40 +293,55 @@
 
 
 
-@media screen and (min-width: 1201px) and (max-width: 1600px) {
+@media screen and (min-width: 1201px) and (max-width: 1601px) {
     .womanImg {
-        width: 440px;
-        left: -70px;
+        width: 70%;
+        position: relative;
+        left: -10px;
+        bottom: -6px;
+        
+    }
+
+    .womanDiv {
+        width: 100%;
+        position: relative;
+        margin: 0 -120px 0 0;
     }
 
     .pWoman {
-        right: -50px;
-        top: 10px;
         font-size: 50px;
         font-weight: 700;
         line-height: 47px;
+        margin-top: -10px;
     }
 
     .underImg {
-        width: 75%;
+        min-height: 60vh;
     }
+
 }
 
 @media screen and (min-width: 1601px) {
     .womanImg {
-        width: 450px;
-        left: -70px;
+        width: 80%;
+        left: -20px;
+
+    }
+
+    .womanDiv {
+        width: 90%;
+        position: relative;
+        margin: 0 -100px 0 0;
     }
 
     .pWoman {
-        right: -50px;
-        top: 10px;
-        font-size: 50px;
+        font-size: 70px;
         font-weight: 700;
-        line-height: 47px;
+        line-height: 70px;
+        margin: 0 -10px 0 -60px;
     }
 
     .underImg {
-        width: 75% !important;
+        min-height: 70vh;
     }
 }

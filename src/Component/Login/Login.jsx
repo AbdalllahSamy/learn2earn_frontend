@@ -12,9 +12,13 @@ export default function Login() {
         rel="stylesheet"></link>
       <div className={`${Style['main-div']}`}>
         <div className={`col-md-6 ${Style.backG}`}>
-          <div className={`${Style.underImg} position-relative col-md-9`}>
-            <img src={img1} alt="woman" className={`${Style.womanImg} position-absolute d-block`} />
-            <p className={`position-absolute col-md-6 ${Style.pWoman}`}>Learn <br />TO <br />Earn</p>
+          <div className={`${Style.underImg} col-8 d-flex`}>
+            <div className={`${Style.womanDiv}`}>
+              <img src={img1} alt="woman" className={`${Style.womanImg} d-block`} />
+            </div>
+            <div className={`${Style.textDiv}`}>
+              <p className={`${Style.pWoman}`}>Learn <br />TO <br />Earn</p>
+            </div>
           </div>
         </div>
         <div className={`${Style.loginFormSide}`}>
@@ -37,7 +41,7 @@ export default function Login() {
               <Link type="button" className={`${Style.loginWithGoogle} d-flex`} to='#'>
                 <div className={`text-center d-flex align-items-center`}>
                   <div className='googleDiv'>
-                  <img src={google} className={`${Style.googleImg}`} alt="google" />
+                    <img src={google} className={`${Style.googleImg}`} alt="google" />
                   </div>
                   <span className={`${Style.regularSpan}`}> Login with <span className={`${Style.googleSpan}`}>google</span></span>
                 </div>
