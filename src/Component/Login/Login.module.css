@@ -3,48 +3,51 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
+    align-content: center;
 }
 .backG {
     background-image: url(../../imgs/Rectangle\ 4.jpg); 
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     min-height: 100vh;
     width: 50%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 .loginFormSide{
     width: 50%;
     height: 100%;
     min-height: 100vh;
+    padding: 0 100px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .underImg {
-    /* height: 70%; */
+    /* margin: 10rem 0; */
     /* margin: auto; */
-    /* margin-top: 6rem !important; */
-    /* flex-shrink: 0;   */
     border-radius: 46px;
     border: 1px solid rgba(255, 255, 255, 0.52);
     background: rgba(255, 255, 255, 0.21);
-    /* backdrop-filter: blur(6.800000190734863px); */
+    min-height: 70vh ;
+    max-height: 70vh ;
 }
 
 .womanImg {
-    left: -50px;
+    left: -90px;
     bottom: 0px;
+    width: 600px;
 }
 
 .pWoman {
     color: #FFF;
-    right: -4px;
+    right: -45px;
     top: 10px;
     font-family: Poppins;
-    font-size: 50px;
+    font-size: 65px;
     font-style: normal;
     font-weight: 700;
     line-height: 60px;
@@ -52,28 +55,21 @@
 }
 
 .h3Login {
-    position: relative;
     color: #000;
-    /* leading-trim: both;
-    text-edge: cap; */
     font-family: Poppins;
     font-size: 65px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
+    margin: 0;
 }
-
-.h3Login::after {
-    content: '';
-    position: absolute;
-    width: 137px;
+.line{
+    display: block;
+    background-color: #024FA9;
     height: 3px;
-    flex-shrink: 0;
-    border-radius: 6px;
-    background: #024FA9;
-    left: 42%;
-    top: 80%;
+    width: 20%;
+    margin: 0 auto 4px;
 }
 
 .pLogin {
@@ -86,44 +82,48 @@
 }
 
 .loginForm {
-    border-radius: 10px !important;
-    height: 55px !important;
+    border-radius: 10px;
+    height: 55px;
+    border-radius: 20px;
     background: rgba(220, 232, 255, 0.80) !important;
 }
 
 .submitForm {
-    color: #FFF !important;
-    font-family: Poppins !important;
-    font-size: 21px !important;
-    font-style: normal !important;
-    font-weight: 700 !important;
-    line-height: normal !important;
-    border-radius: 16px !important;
-    background: linear-gradient(100deg, #0258A9 24.68%, #199BEE 109.55%) !important;
-    box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16) !important;
-    height: 63px !important;
-    margin: auto !important;
-    border: 0px !important;
+    color: #FFF;
+    width: 100%;
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 30px;
+    background: linear-gradient(100deg, #0258A9 24.68%, #199BEE 109.55%);
+    box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
+    height: 60px;
+    border: 0px;
 }
 
 .forgetPassword {
-    display: flex;
-    justify-content: center;
+    text-align: left;
     color: #024FA9;
     font-family: Poppins;
     font-size: 20px;
     font-style: normal;
+    margin: 10px 0 15px;
     font-weight: 700;
     line-height: normal;
 }
 
 .loginWithGoogle {
-    height: 63px !important;
+    height: 63px ;
+    width: 100%;
     background: #FFF;
-    border-radius: 16px !important;
-    border: 2.5px solid rgba(132, 132, 132, 0.60) !important;
+    border-radius: 30px ;
+    border: 1px solid rgba(132, 132, 132, 0.60) ;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+}
+.googleImg{
+    width: 40px;
 }
 
 .regularSpan {
@@ -132,6 +132,8 @@
     font-size: 23px;
     font-style: normal;
     font-weight: 400;
+    display: block;
+    margin-left: 10px;
     line-height: normal;
 }
 
@@ -162,68 +164,151 @@
     line-height: normal;
 }
 
-@media screen and (max-width:1023px) {
+
+@media screen and (max-width: 816px) {
     .backG {
         display: none;
     }
-
     .loginFormSide {
         background-image: url(../../imgs/Rectangle\ 4.jpg);
-        width: 100% !important;
+        width: 100% ;
+        padding: 0;
     }
-    .smallCard {
-        padding-bottom:2rem;
-        background-color: #fff;
-        margin: 30px;
-        border-radius: 35px;
-        box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16) !important;
+    .line{
+        width: 30%;
     }
-
     .h3Login {
         font-size: 50px;
         font-weight: 700;
     }
 
-    .h3Login::after {
-        display: none;
-    }
-
-    .loginWithGoogle {
-        /* background-color: #fff !important; */
-        height: 50px !important;
-        padding: 2px !important;
-    }
-
-    .regularSpan {
-        font-size: 20px;
-        font-weight: 400;
-    }
-
-    .googleSpan {
-        font-weight: 500;
-
-    }
-
-    .googleImg {
-        width: 15%;
-        margin-bottom: 7px;
-
+    .smallCard {
+        padding: 15px 20px ;
+        background-color: #fff;
+        margin: 30px;
+        border-radius: 35px;
+        box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16) ;
     }
 
     .submitForm {
-        font-size: 20px !important;
-        font-weight: 700 !important;
-        height: 50px !important;
+        font-size: 15px;
+        font-weight: 700;
+        height: 40px;
     }
 
-    .forgetPassword {
-        font-size: 20px;
-        font-weight: 700;
+    .loginForm {
+        border-radius: 10px;
+        height: 40px;
+        background: rgba(220, 232, 255, 0.80);
     }
 
     .donotHaveAcc,
     .Signin,
     .pLogin {
-        font-size: 21px;
+        font-size: 15px;
+    }
+
+    .loginWithGoogle {
+        height: 50px;
+        padding: 2px;
+        font-size: 20px;
+    }
+
+    .regularSpan {
+        font-size: 15px;
+        display: block;
+        margin-left: 10px;
+        margin-left: 0;
+    }
+
+    .googleDiv{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .googleImg{
+        display: block;
+        width: 70%;
+    }
+
+    .forgetPassword {
+        font-size: 15px;
+        font-weight: 700;
+        margin: 7px 0 15px;
+        text-align: left;
+    }
+}
+
+@media screen and (min-width: 816px) and (max-width: 1200px) {
+    .womanImg {
+        width: 370px;
+        left: -40px;
+    }
+
+    .pWoman {
+        color: #FFF;
+        right: 0px;
+        top: 10px;
+        font-family: Poppins;
+        font-size: 50px;
+        font-weight: 700;
+        line-height: 47px;
+    }
+
+    .underImg {
+        margin: 7rem 0;
+        width: 80%;
+    }
+    
+    .loginFormSide{
+        padding: 0 20px;
+    }
+
+    .donotHaveAcc,
+    .Signin,
+    .pLogin {
+        font-size: 15px;
+    }
+}
+
+
+
+
+@media screen and (min-width: 1201px) and (max-width: 1600px) {
+    .womanImg {
+        width: 440px;
+        left: -70px;
+    }
+
+    .pWoman {
+        right: -50px;
+        top: 10px;
+        font-size: 50px;
+        font-weight: 700;
+        line-height: 47px;
+    }
+
+    .underImg {
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 1601px) {
+    .womanImg {
+        width: 450px;
+        left: -70px;
+    }
+
+    .pWoman {
+        right: -50px;
+        top: 10px;
+        font-size: 50px;
+        font-weight: 700;
+        line-height: 47px;
+    }
+
+    .underImg {
+        width: 75% !important;
     }
 }

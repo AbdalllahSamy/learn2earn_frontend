@@ -12,30 +12,33 @@ export default function Login() {
         rel="stylesheet"></link>
       <div className={`${Style['main-div']}`}>
         <div className={`col-md-6 ${Style.backG}`}>
-          <div className={`${Style.underImg} position-relative col-md-7`}>
-            <img src={img1} alt="woman" className={`${Style.womanImg} d-block w-100 col-md-6`} />
+          <div className={`${Style.underImg} position-relative col-md-9`}>
+            <img src={img1} alt="woman" className={`${Style.womanImg} position-absolute d-block`} />
             <p className={`position-absolute col-md-6 ${Style.pWoman}`}>Learn <br />TO <br />Earn</p>
           </div>
         </div>
-        <div className={`col-md-6 ${Style.loginFormSide}`}>
+        <div className={`${Style.loginFormSide}`}>
           <div className={`${Style.smallCard} w-100`}>
             <div className='text-center'>
               <h3 className={`${Style.h3Login} `}>login</h3>
+              <span className={`${Style.line} `}></span>
               <p className={`${Style.pLogin}`}>Welcome back to Learn2Earn education platform</p>
             </div>
             <div >
               <form className=''>
                 {/* <i className={`fa-regular fa-user ${Style.frameUsername} position-absolute` }></i> */}
-                <input type="text" placeholder='Username' className={`form-control w-75 m-auto ${Style.loginForm}`} />
-                <input type="password" placeholder='Password' className={`form-control w-75 m-auto ${Style.loginForm} my-4`} />
-                <button type='submit' className={`${Style.submitForm} w-75 form-control`}>Login Now</button>
+                <input type="text" placeholder='Username' className={`form-control ${Style.loginForm}`} />
+                <input type="password" placeholder='Password' className={`form-control ${Style.loginForm} my-4`} />
+                <button type='submit' className={`${Style.submitForm}`}>Login Now</button>
               </form>
               <Link className={`navbar-brand`} to="#">
-                <p className={`${Style.forgetPassword} mt-4 mb-4`}>Forget My Password!</p>
+                <p className={`${Style.forgetPassword}`}>Forget My Password!</p>
               </Link>
-              <Link type="button" className={`${Style.loginWithGoogle} d-flex w-75 nav-link form-control m-auto`} to='#'>
-                <div className={`text-center mt-1 `}>
+              <Link type="button" className={`${Style.loginWithGoogle} d-flex`} to='#'>
+                <div className={`text-center d-flex align-items-center`}>
+                  <div className='googleDiv'>
                   <img src={google} className={`${Style.googleImg}`} alt="google" />
+                  </div>
                   <span className={`${Style.regularSpan}`}> Login with <span className={`${Style.googleSpan}`}>google</span></span>
                 </div>
               </Link>
