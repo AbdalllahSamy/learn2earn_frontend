@@ -1,12 +1,35 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Style from './Login.module.css'
 import img1 from '../../imgs/women with tab 1.png'
 import google from '../../imgs/google 1.jpg'
 import { Link } from 'react-router-dom'
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Login() {
+  useEffect(() => {
+    let message = localStorage.getItem('account');
+    if (message) {
+      toast.success(message, {
+        position: 'top-right',
+        duration: 6000,
+        style: {
+          backgroundColor: '#00FF0A',
+          color: 'white',
+        },
+        iconTheme: {
+          primary: 'white',
+          secondary: '#00FF0A',
+        },
+      });
+      localStorage.removeItem('account');
+    }
+  }, []);
   return (
     <>
+    <div>
+        {/* Other components... */}
+        <Toaster position="top-right" />
+      </div>
       <link
         href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet"></link>

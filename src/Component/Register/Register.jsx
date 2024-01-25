@@ -4,6 +4,7 @@ import { Formik, useFormik } from "formik";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ThreeCircles } from "react-loader-spinner";
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Register() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -38,14 +39,59 @@ export default function Register() {
             "https://api-test.llearn2earn.com/api/auth/semi-register",
             semiUser
           );
+
           if (response.status === 200) {
             setIsTopActive(true);
             setCurrentStep(2);
             setErrorMsg(null);
           }
         } catch (error) {
-          setErrorMsg(error.response.data.message);
-          
+          if (error.response.data.data && error.response.data.data.name && error.response.data.data.name[0]) {
+            toast.error(error.response.data.data.name[0], {
+              position: 'top-right',
+              duration: 7000,
+              style: {
+                backgroundColor: 'red',
+                color: 'white',
+              },
+              iconTheme: {
+                primary: 'white',
+                secondary: 'red',
+              },
+              ariaProps: {
+                role: 'status',
+                'aria-live': 'polite',
+              },
+            });
+          }
+          if (error.response.data.data && error.response.data.data.email && error.response.data.data.email[0]) {
+            toast.error(error.response.data.data.email[0], {
+              position: 'top-right',
+              duration: 6000,
+              style: {
+                backgroundColor: 'red',
+                color: 'white',
+              },
+              iconTheme: {
+                primary: 'white',
+                secondary: 'red',
+              },
+            });
+          }
+          if (error.response.data.data && error.response.data.data.phone && error.response.data.data.phone[0]) {
+            toast.error(error.response.data.data.phone[0], {
+              position: 'top-right',
+              duration: 5000,
+              style: {
+                backgroundColor: 'red',
+                color: 'white',
+              },
+              iconTheme: {
+                primary: 'white',
+                secondary: 'red',
+              },
+            });
+          }
         }
         setIsLoad(false);
       }
@@ -72,6 +118,7 @@ export default function Register() {
         values
       );
       if (response.status === 200) {
+        localStorage.setItem('account', `Email created successfully wait for activate your account`);
         navigateFunction("/login");
         setErrorMsg(null);
       }
@@ -129,6 +176,10 @@ export default function Register() {
 
   return (
     <>
+      <div>
+        {/* Other components... */}
+        <Toaster position="top-right" />
+      </div>
       <form onSubmit={formikObject.handleSubmit}>
         <div className={`${style.registerBody}`}>
           <div className={`${style.parentForm} `}>
