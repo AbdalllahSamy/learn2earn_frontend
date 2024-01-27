@@ -1,11 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState, useContext } from 'react'
+import AuthContext from '../../context/AuthProvider'
 import Style from './Login.module.css'
+import { useNavigate } from "react-router-dom"
 import img1 from '../../imgs/women with tab 1.png'
 import google from '../../imgs/google 1.jpg'
 import { Link } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast';
 
+import axios from '../../api/axios';
+const LOGIN_URL = '/auth/login';
+
 export default function Login() {
+  const { setAuth } = useContext(AuthContext);
+  const userRef = useRef();
+
+  const [user, setUser] = useState('');
+  const [pwd, setPwd] = useState('');
+  const [success, setSuccess] = useState('false');
+  const [type, setType] = useState('');
+  const navigateFunction = useNavigate();
+
   useEffect(() => {
     let message = localStorage.getItem('account');
     if (message) {
@@ -24,10 +38,71 @@ export default function Login() {
       localStorage.removeItem('account');
     }
   }, []);
+
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        LOGIN_URL,
+        JSON.stringify({ username: user, password: pwd, type: type }),
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true
+        }
+      );
+      const accessToken = response.data.data.token;
+      setAuth({ user, pwd, accessToken });
+      setUser('');
+      setPwd('');
+      setSuccess(true);
+      const $userType = response.data.data.user.type_user;
+      if($userType === 'admin' || $userType === 'superadmin'){
+        console.log('admin');
+      }else if($userType === 'teacher'){
+        navigateFunction("/teacher/dashboard");
+      }else if($userType === 'parent'){
+        console.log('parent');
+      }else{
+        console.log('student');
+      }
+      if (success) {
+        setSuccess(false);
+        toast.success("Welcome " + response.data.data.user.name, {
+          position: 'top-right',
+          duration: 6000,
+          style: {
+            backgroundColor: '#00FF0A',
+            color: 'white',
+          },
+          iconTheme: {
+            primary: 'white',
+            secondary: '#00FF0A',
+          },
+        });
+      }
+    } catch (error) {
+      toast.error(error.response.data.message, {
+        position: 'top-right',
+        duration: 5000,
+        style: {
+          backgroundColor: 'red',
+          color: 'white',
+        },
+        iconTheme: {
+          primary: 'white',
+          secondary: 'red',
+        },
+      });
+    }
+  }
+
+
+
   return (
     <>
-    <div>
-        {/* Other components... */}
+      <div>
         <Toaster position="top-right" />
       </div>
       <link
@@ -52,10 +127,27 @@ export default function Login() {
               <p className={`${Style.pLogin}`}>Welcome back to Learn2Earn education platform</p>
             </div>
             <div >
-              <form className=''>
+              <form onSubmit={handleSubmit}>
                 {/* <i className={`fa-regular fa-user ${Style.frameUsername} position-absolute` }></i> */}
-                <input type="text" placeholder='Username' className={`form-control ${Style.loginForm}`} />
-                <input type="password" placeholder='Password' className={`form-control ${Style.loginForm} my-4`} />
+                <input type="text" placeholder='Username' className={`form-control ${Style.loginForm}`}
+                  ref={userRef}
+                  autoComplete='off'
+                  onChange={(e) => {
+                    setUser(e.target.value);
+                    if (user.includes('@')) {
+                      setType('email');
+                    } else {
+                      setType('phone');
+                    }
+                  }}
+                  value={user}
+                  required
+                />
+                <input type="password" placeholder='Password' className={`form-control ${Style.loginForm} my-4`}
+                  onChange={(e) => setPwd(e.target.value)}
+                  value={pwd}
+                  required
+                />
                 <button type='submit' className={`${Style.submitForm}`}>Login Now</button>
               </form>
               <Link className={`navbar-brand`} to="#">
@@ -69,7 +161,7 @@ export default function Login() {
                   <span className={`${Style.regularSpan}`}> Login with <span className={`${Style.googleSpan}`}>google</span></span>
                 </div>
               </Link>
-              <p className={`text-center mt-3 ${Style.donotHaveAcc}`}> Don’t have an account? <span className={`${Style.Signin}`}>
+              <p className={`text-center mt-3 ${Style.donotHaveAcc}`}> Don't have an account? <span className={`${Style.Signin}`}>
                 <Link className='text-decoration-none'>
                   Sign In
                 </Link>
