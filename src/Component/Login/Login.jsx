@@ -1,24 +1,25 @@
-import React, { useEffect, useRef, useState, useContext } from 'react'
-import AuthContext from '../../context/AuthProvider'
+import React, { useEffect, useRef, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import toast, { Toaster } from 'react-hot-toast';
+import useAuth from '../../hooks/useAuth'
 import Style from './Login.module.css'
-import { useNavigate } from "react-router-dom"
 import img1 from '../../imgs/women with tab 1.png'
 import google from '../../imgs/google 1.jpg'
-import { Link } from 'react-router-dom'
-import toast, { Toaster } from 'react-hot-toast';
 
 import axios from '../../api/axios';
 const LOGIN_URL = '/auth/login';
 
 export default function Login() {
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth } = useAuth();
+  const navigateFunction = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   const userRef = useRef();
 
   const [user, setUser] = useState('');
   const [pwd, setPwd] = useState('');
-  const [success, setSuccess] = useState('false');
   const [type, setType] = useState('');
-  const navigateFunction = useNavigate();
 
   useEffect(() => {
     let message = localStorage.getItem('account');
@@ -53,10 +54,10 @@ export default function Login() {
         }
       );
       const accessToken = response.data.data.token;
-      setAuth({ user, pwd, accessToken });
+      const type = response.data.data.user.user_type;
+      setAuth({ user, pwd, accessToken, type });
       setUser('');
       setPwd('');
-      setSuccess(true);
       const $userType = response.data.data.user.type_user;
       if($userType === 'admin' || $userType === 'superadmin'){
         console.log('admin');
@@ -67,34 +68,34 @@ export default function Login() {
       }else{
         console.log('student');
       }
-      if (success) {
-        setSuccess(false);
-        toast.success("Welcome " + response.data.data.user.name, {
+    } catch (error) {
+      if(error.response){
+        toast.error(error.response.data.message, {
           position: 'top-right',
-          duration: 6000,
+          duration: 5000,
           style: {
-            backgroundColor: '#00FF0A',
+            backgroundColor: 'red',
             color: 'white',
           },
           iconTheme: {
             primary: 'white',
-            secondary: '#00FF0A',
+            secondary: 'red',
+          },
+        });
+      }else{
+        toast.error("Check your internet", {
+          position: 'top-right',
+          duration: 5000,
+          style: {
+            backgroundColor: 'red',
+            color: 'white',
+          },
+          iconTheme: {
+            primary: 'white',
+            secondary: 'red',
           },
         });
       }
-    } catch (error) {
-      toast.error(error.response.data.message, {
-        position: 'top-right',
-        duration: 5000,
-        style: {
-          backgroundColor: 'red',
-          color: 'white',
-        },
-        iconTheme: {
-          primary: 'white',
-          secondary: 'red',
-        },
-      });
     }
   }
 
