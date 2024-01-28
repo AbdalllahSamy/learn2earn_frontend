@@ -1,333 +1,325 @@
 .main-div {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    align-content: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  align-content: center;
 }
 
 .backG {
-    background-image: url(../../imgs/Rectangle\ 4.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 100vh;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-image: url(../../imgs/Rectangle\ 4.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loginFormSide {
-    width: 50%;
-    height: 100%;
-    min-height: 100vh;
-    padding: 0 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  width: 50%;
+  height: 100%;
+  min-height: 100vh;
+  padding: 0 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .underImg {
-    border-radius: 46px;
-    border: 1px solid rgba(255, 255, 255, 0.52);
-    background: rgba(255, 255, 255, 0.21);
-    max-height: 70vh;
+  border-radius: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  background: rgba(255, 255, 255, 0.21);
+  max-height: 70vh;
 }
 
-
 .womanDiv {
-    width: 100%;
-    position: relative;
-    margin: 0 -50px 0 0;
-    z-index: 1;
-    overflow-y: hidden;
+  width: 100%;
+  position: relative;
+  margin: 0 -50px 0 0;
+  z-index: 1;
+  overflow-y: hidden;
 }
 
 .womanImg {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .textDiv {
-    width: 30%;
-    padding: 30px 30px 0 0;
-    margin: 0 -10px 0 -50px;
-    z-index: 2;
+  width: 30%;
+  padding: 30px 30px 0 0;
+  margin: 0 -10px 0 -50px;
+  z-index: 2;
 }
 
 .pWoman {
-    color: #FFF;
-    right: -45px;
-    top: 10px;
-    font-family: Poppins;
-    font-size: 4.0625em; /* 65px */
-    font-style: normal;
-    font-weight: 700;
+  color: #fff;
+  right: -45px;
+  top: 10px;
+  font-family: Poppins;
+  font-size: 4.0625em; /* 65px */
+  font-style: normal;
+  font-weight: 700;
 
-    /* 116.667% */
+  /* 116.667% */
 }
 
 .h3Login {
-    color: #000;
-    font-family: Poppins;
-    font-size: 3.0625em; /* 65px */
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    text-transform: uppercase;
-    margin: 0;
+  color: #000;
+  font-family: Poppins;
+  font-size: 3.0625em; /* 65px */
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 .line {
-    display: block;
-    background-color: #024FA9;
-    height: 3px;
-    width: 20%;
-    margin: 0 auto 4px;
+  display: block;
+  background-color: #024fa9;
+  height: 3px;
+  width: 20%;
+  margin: 0 auto 4px;
 }
 
 .pLogin {
-    color: #525252;
-    font-family: Poppins;
-    font-size: 1.125em; /* 18px */
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #525252;
+  font-family: Poppins;
+  font-size: 1.125em; /* 18px */
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .loginForm {
-    border-radius: 10px;
-    height: 55px;
-    border-radius: 20px;
-    background: rgba(220, 232, 255, 0.80) !important;
+  border-radius: 10px;
+  height: 55px;
+  border-radius: 20px;
+  background: rgba(220, 232, 255, 0.8) !important;
 }
 
 .submitForm {
-    color: #FFF;
-    width: 100%;
-    font-family: Poppins;
-    font-size: 1em; /* 18px */
-    font-weight: 700;
-    border-radius: 30px;
-    background: linear-gradient(100deg, #0258A9 24.68%, #199BEE 109.55%);
-    box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
-    height: 60px;
-    border: 0px;
+  color: #fff;
+  width: 100%;
+  font-family: Poppins;
+  font-size: 1em; /* 18px */
+  font-weight: 700;
+  border-radius: 30px;
+  background: linear-gradient(100deg, #0258a9 24.68%, #199bee 109.55%);
+  box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
+  height: 60px;
+  border: 0px;
 }
 
 .forgetPassword {
-    text-align: left;
-    color: #0000009a;
-    font-family: Poppins;
-    font-size: 0.85em; /* 20px */
-    font-style: normal;
-    margin: 10px 0 15px;
-    font-weight: 700;
-    line-height: normal;
+  text-align: left;
+  color: #0000009a;
+  font-family: Poppins;
+  font-size: 0.85em; /* 20px */
+  font-style: normal;
+  margin: 10px 0 15px;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .loginWithGoogle {
-    width: fit-content;
-    padding: 0.5em 1.5em;
-    background: #FFF;
-    border-radius: 1000px;
-    border: 1px solid rgba(132, 132, 132, 0.60);
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    margin-bottom: 2em;
+  width: fit-content;
+  padding: 0.5em 1.5em;
+  background: #fff;
+  border-radius: 1000px;
+  border: 1px solid rgba(132, 132, 132, 0.6);
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 2em;
 }
 
 .googleImg {
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
 }
 
 .regularSpan {
-    color: #1C1C1C;
-    font-family: Poppins;
-    font-size: 0.8em; /* 23px */
-    font-style: normal;
-    font-weight: 400;
-    display: block;
-    margin-left: 10px;
-    line-height: normal;
+  color: #1c1c1c;
+  font-family: Poppins;
+  font-size: 0.8em; /* 23px */
+  font-style: normal;
+  font-weight: 400;
+  display: block;
+  margin-left: 10px;
+  line-height: normal;
 }
 
 .googleSpan {
-    color: #1c1c1cb7;
-    font-family: Poppins;
-    text-transform: capitalize;
-    font-size: 1.275em; /* 23px */
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  color: #1c1c1cb7;
+  font-family: Poppins;
+  text-transform: capitalize;
+  font-size: 1.275em; /* 23px */
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .donotHaveAcc {
-    border-top: 1px solid rgba(0, 0, 0, 0.173);
-    padding-top: 1.5em;
-    color: #525252;
-    font-family: Poppins;
-    font-size: 1em; /* 24px */
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  border-top: 1px solid rgba(0, 0, 0, 0.173);
+  padding-top: 1.5em;
+  color: #525252;
+  font-family: Poppins;
+  font-size: 1em; /* 24px */
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .Signin {
-    color: #024FA9;
-    font-family: Poppins;
-    font-size: 1em; /* 24px */
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  color: #024fa9;
+  font-family: Poppins;
+  font-size: 1em; /* 24px */
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
-
 @media screen and (max-width: 816px) {
-    .backG {
-        display: none;
-    }
+  .backG {
+    display: none;
+  }
 
-    .loginFormSide {
-        background-image: url(../../imgs/Rectangle\ 4.jpg);
-        width: 100%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        padding: 0;
-    }
+  .loginFormSide {
+    background-image: url(../../imgs/Rectangle\ 4.jpg);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 1em;
+  }
 
-    .line {
-        width: 30%;
-    }
+  .line {
+    width: 30%;
+  }
 
-    .h3Login {
-        font-size: 3.125em; /* 50px */
-        font-weight: 700;
-    }
+  .h3Login {
+    font-size: 3.125em; /* 50px */
+    font-weight: 700;
+  }
 
-    .smallCard {
-        padding: 15px 20px;
-        background-color: #fff;
-        flex-grow: 1;
-        border-radius: 0px;
-        box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
-    }
+  .smallCard {
+    padding: 15px 20px;
+    background-color: #fff;
+    /* flex-grow: 1; */
+    border-radius: 20px;
+    box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
+  }
 
-    .submitForm {
-        font-size: 0.9375em; /* 15px */
-        font-weight: 700;
-        height: 40px;
-    }
+  .submitForm {
+    font-size: 0.9375em; /* 15px */
+    font-weight: 700;
+    height: 40px;
+  }
 
-    .loginForm {
-        border-radius: 10px;
-        height: 40px;
-        background: rgba(220, 232, 255, 0.80);
-    }
+  .loginForm {
+    border-radius: 10px;
+    height: 40px;
+    background: rgba(220, 232, 255, 0.8);
+  }
 
-    .donotHaveAcc,
-    .Signin,
-    .pLogin {
-        font-size: 0.9375em; /* 15px */
-    }
-    .loginWithGoogle {
-       padding: 0.2em 0.5em;
-    }
-    .googleImg { 
-        width: 20px;
-        height: 20px;
-    }
-    .regularSpan {
-        font-size: 0.7em; /* 23px */
-    }
+  .donotHaveAcc,
+  .Signin,
+  .pLogin {
+    font-size: 0.9375em; /* 15px */
+  }
+  .loginWithGoogle {
+    padding: 0.2em 0.5em;
+  }
+  .googleImg {
+    width: 20px;
+    height: 20px;
+  }
+  .regularSpan {
+    font-size: 0.7em; /* 23px */
+  }
 }
 
 @media screen and (min-width: 816px) and (max-width: 1200px) {
-    .womanImg {
-        width: 80%;
-        left: -10px;
-    }
+  .womanImg {
+    width: 80%;
+    left: -10px;
+  }
 
-    .womanDiv {
-        width: 100%;
-        position: relative;
-        margin: 0 -65px 0 0;
-    }
+  .womanDiv {
+    width: 100%;
+    position: relative;
+    margin: 0 -65px 0 0;
+  }
 
-    .pWoman {
-        font-size: 2.1875em; /* 35px */
-        line-height: 35px;
-        margin-top: -5px;
-    }
+  .pWoman {
+    font-size: 2.1875em; /* 35px */
+    line-height: 35px;
+    margin-top: -5px;
+  }
 
-    .loginFormSide {
-        padding: 0 20px;
-    }
+  .loginFormSide {
+    padding: 0 20px;
+  }
 
-    .donotHaveAcc,
-    .Signin,
-    .pLogin {
-        font-size: 0.9375em; /* 15px */
-    }
+  .donotHaveAcc,
+  .Signin,
+  .pLogin {
+    font-size: 0.9375em; /* 15px */
+  }
 }
 
-
-
-
 @media screen and (min-width: 1201px) and (max-width: 1601px) {
-    .womanImg {
-        width: 70%;
-        position: relative;
-        left: -10px;
-        bottom: -6px;
-        
-    }
+  .womanImg {
+    width: 70%;
+    position: relative;
+    left: -10px;
+    bottom: -6px;
+  }
 
-    .womanDiv {
-        width: 100%;
-        position: relative;
-        margin: 0 -120px 0 0;
-    }
+  .womanDiv {
+    width: 100%;
+    position: relative;
+    margin: 0 -120px 0 0;
+  }
 
-    .pWoman {
-        font-size: 3.125em; /* 50px */
-        font-weight: 700;
-        line-height: 47px;
-        margin-top: -10px;
-    }
+  .pWoman {
+    font-size: 3.125em; /* 50px */
+    font-weight: 700;
+    line-height: 47px;
+    margin-top: -10px;
+  }
 
-    .underImg {
-        min-height: 60vh;
-    }
-
+  .underImg {
+    min-height: 60vh;
+  }
 }
 
 @media screen and (min-width: 1601px) {
-    .womanImg {
-        width: 80%;
-        left: -20px;
+  .womanImg {
+    width: 80%;
+    left: -20px;
+  }
 
-    }
+  .womanDiv {
+    width: 90%;
+    position: relative;
+    margin: 0 -100px 0 0;
+  }
 
-    .womanDiv {
-        width: 90%;
-        position: relative;
-        margin: 0 -100px 0 0;
-    }
+  .pWoman {
+    font-size: 4.375em; /* 70px */
+    font-weight: 700;
+    line-height: 70px;
+    margin: 0 -10px 0 -60px;
+  }
 
-    .pWoman {
-        font-size: 4.375em; /* 70px */
-        font-weight: 700;
-        line-height: 70px;
-        margin: 0 -10px 0 -60px;
-    }
-
-    .underImg {
-        min-height: 70vh;
-    }
+  .underImg {
+    min-height: 70vh;
+  }
 }

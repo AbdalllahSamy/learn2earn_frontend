@@ -6,13 +6,11 @@ export default function Layout() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log(location.pathname);
-
   const auth = JSON.parse(localStorage.getItem("auth"));
 
   useEffect(() => {
     if (auth) {
-      if (location.pathname === "/") navigate(`/${auth.type}/dashboard`);
+      if (location.pathname === "/") navigate(`/${auth.type}`);
     } else navigate(`${location.pathname}`);
   }, []);
 

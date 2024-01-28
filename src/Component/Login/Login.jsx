@@ -18,6 +18,13 @@ export default function Login() {
   const [login_type, setLoginType] = useState("");
 
   useEffect(() => {
+    const auth = JSON.parse(localStorage.getItem("auth"));
+    if (auth) {
+      navigateFunction(`/${auth.type}/dashboard`);
+    }
+  }, []);
+
+  useEffect(() => {
     let message = localStorage.getItem("account");
     if (message) {
       toast.success(message, {
