@@ -23,6 +23,7 @@
     min-height: 100vh;
     padding: 0 100px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -60,17 +61,17 @@
     right: -45px;
     top: 10px;
     font-family: Poppins;
-    font-size: 65px;
+    font-size: 4.0625em; /* 65px */
     font-style: normal;
     font-weight: 700;
-    line-height: 60px;
+
     /* 116.667% */
 }
 
 .h3Login {
     color: #000;
     font-family: Poppins;
-    font-size: 65px;
+    font-size: 3.0625em; /* 65px */
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -89,7 +90,7 @@
 .pLogin {
     color: #525252;
     font-family: Poppins;
-    font-size: 18px;
+    font-size: 1.125em; /* 18px */
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -106,7 +107,7 @@
     color: #FFF;
     width: 100%;
     font-family: Poppins;
-    font-size: 18px;
+    font-size: 1em; /* 18px */
     font-weight: 700;
     border-radius: 30px;
     background: linear-gradient(100deg, #0258A9 24.68%, #199BEE 109.55%);
@@ -117,9 +118,9 @@
 
 .forgetPassword {
     text-align: left;
-    color: #024FA9;
+    color: #0000009a;
     font-family: Poppins;
-    font-size: 20px;
+    font-size: 0.85em; /* 20px */
     font-style: normal;
     margin: 10px 0 15px;
     font-weight: 700;
@@ -127,24 +128,27 @@
 }
 
 .loginWithGoogle {
-    height: 63px;
-    width: 100%;
+    width: fit-content;
+    padding: 0.5em 1.5em;
     background: #FFF;
-    border-radius: 30px;
+    border-radius: 1000px;
     border: 1px solid rgba(132, 132, 132, 0.60);
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    margin-bottom: 2em;
 }
 
 .googleImg {
-    width: 40px;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
 }
 
 .regularSpan {
     color: #1C1C1C;
     font-family: Poppins;
-    font-size: 23px;
+    font-size: 0.8em; /* 23px */
     font-style: normal;
     font-weight: 400;
     display: block;
@@ -153,18 +157,21 @@
 }
 
 .googleSpan {
-    color: #1C1C1C;
+    color: #1c1c1cb7;
     font-family: Poppins;
-    font-size: 23px;
+    text-transform: capitalize;
+    font-size: 1.275em; /* 23px */
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 }
 
 .donotHaveAcc {
+    border-top: 1px solid rgba(0, 0, 0, 0.173);
+    padding-top: 1.5em;
     color: #525252;
     font-family: Poppins;
-    font-size: 24px;
+    font-size: 1em; /* 24px */
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -173,7 +180,7 @@
 .Signin {
     color: #024FA9;
     font-family: Poppins;
-    font-size: 24px;
+    font-size: 1em; /* 24px */
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -199,20 +206,20 @@
     }
 
     .h3Login {
-        font-size: 50px;
+        font-size: 3.125em; /* 50px */
         font-weight: 700;
     }
 
     .smallCard {
         padding: 15px 20px;
         background-color: #fff;
-        margin: 30px;
-        border-radius: 35px;
+        flex-grow: 1;
+        border-radius: 0px;
         box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
     }
 
     .submitForm {
-        font-size: 15px;
+        font-size: 0.9375em; /* 15px */
         font-weight: 700;
         height: 40px;
     }
@@ -226,38 +233,17 @@
     .donotHaveAcc,
     .Signin,
     .pLogin {
-        font-size: 15px;
+        font-size: 0.9375em; /* 15px */
     }
-
     .loginWithGoogle {
-        height: 50px;
-        padding: 2px;
-        font-size: 20px;
+       padding: 0.2em 0.5em;
     }
-
+    .googleImg { 
+        width: 20px;
+        height: 20px;
+    }
     .regularSpan {
-        font-size: 15px;
-        display: block;
-        margin-left: 10px;
-        margin-left: 0;
-    }
-
-    .googleDiv {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .googleImg {
-        display: block;
-        width: 70%;
-    }
-
-    .forgetPassword {
-        font-size: 15px;
-        font-weight: 700;
-        margin: 7px 0 15px;
-        text-align: left;
+        font-size: 0.7em; /* 23px */
     }
 }
 
@@ -274,7 +260,7 @@
     }
 
     .pWoman {
-        font-size: 35px;
+        font-size: 2.1875em; /* 35px */
         line-height: 35px;
         margin-top: -5px;
     }
@@ -286,7 +272,7 @@
     .donotHaveAcc,
     .Signin,
     .pLogin {
-        font-size: 15px;
+        font-size: 0.9375em; /* 15px */
     }
 }
 
@@ -309,7 +295,7 @@
     }
 
     .pWoman {
-        font-size: 50px;
+        font-size: 3.125em; /* 50px */
         font-weight: 700;
         line-height: 47px;
         margin-top: -10px;
@@ -335,7 +321,7 @@
     }
 
     .pWoman {
-        font-size: 70px;
+        font-size: 4.375em; /* 70px */
         font-weight: 700;
         line-height: 70px;
         margin: 0 -10px 0 -60px;
