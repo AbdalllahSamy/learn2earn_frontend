@@ -172,7 +172,6 @@ export default function Register() {
       if (values.password !== values.password_confirmation) {
         errors.password_confirmation = "Not matched with password";
       }
-      console.log(formikObject.touched.age);
 
       if (formikObject.touched.age && typeof values.age === "string" &&  !values.age.match(/^[1-9]\d*$/) ) {
         errors.age = "Invalid Age";
@@ -181,7 +180,6 @@ export default function Register() {
       return errors;
     },
   });
-console.log(formikObject);
   return (
     <>
       <div>
@@ -328,7 +326,7 @@ console.log(formikObject);
                     </div>
 
                     <div className={`${style.nextButton} mt-4`}>
-                      <button  onClick={handleNextButton} >
+                      <button  onClick={handleNextButton}  disabled={formikObject.values.name.length < 3}>
                         Next <i className="fa-solid fa-angle-right"></i>
                       </button>
                     </div>
