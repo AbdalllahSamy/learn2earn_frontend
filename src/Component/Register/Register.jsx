@@ -11,6 +11,8 @@ export default function Register() {
   const [errorMsg, setErrorMsg] = useState(null);
   const [isTopActive, setIsTopActive] = useState(false);
   const navigateFunction = useNavigate();
+  const [emailError, setEmailError] = useState(null);
+  const [phoneError, setPhoneError] = useState(null);
 
   const [isLoad, setIsLoad] = useState(false);
 
@@ -44,8 +46,12 @@ export default function Register() {
             setIsTopActive(true);
             setCurrentStep(2);
             setErrorMsg(null);
+            formikObject.setFieldValue('age', 1);
           }
         } catch (error) {
+          if (error.response.data.data && error.response.data.data.email) {
+            setEmailError(error.response.data.data.email[0]);
+          }
           if (error.response.data.data && error.response.data.data.name && error.response.data.data.name[0]) {
             toast.error(error.response.data.data.name[0], {
               position: 'top-right',
@@ -79,6 +85,7 @@ export default function Register() {
             });
           }
           if (error.response.data.data && error.response.data.data.phone && error.response.data.data.phone[0]) {
+            setPhoneError(error.response.data.data.phone[0]);
             toast.error(error.response.data.data.phone[0], {
               position: 'top-right',
               duration: 5000,
@@ -165,19 +172,19 @@ export default function Register() {
       if (values.password !== values.password_confirmation) {
         errors.password_confirmation = "Not matched with password";
       }
+      console.log(formikObject.touched.age);
 
-      if (typeof values.age === "string" && !values.age.match(/^[1-9]\d*$/)) {
+      if (formikObject.touched.age && typeof values.age === "string" &&  !values.age.match(/^[1-9]\d*$/) ) {
         errors.age = "Invalid Age";
       }
 
       return errors;
     },
   });
-
+console.log(formikObject);
   return (
     <>
       <div>
-        {/* Other components... */}
         <Toaster position="top-right" />
       </div>
       <form onSubmit={formikObject.handleSubmit}>
@@ -225,11 +232,16 @@ export default function Register() {
                       type="email"
                       id="email"
                       placeholder="Email"
-                      className={`w-100 ${style['default-button']} ${(formikObject.errors.email && formikObject.touched.email) ? style['error-input'] : ''} ${(!formikObject.errors.email && formikObject.touched.email) ? style['success-input'] : ''}`}
+                      className={`w-100 ${style['default-button']} ${(formikObject.errors.email && formikObject.touched.email || emailError) ? style['error-input'] : ''} ${(!formikObject.errors.email && formikObject.touched.email && !emailError) ? style['success-input'] : ''}`}
                       value={formikObject.values.email}
                       onChange={formikObject.handleChange}
                       onBlur={formikObject.handleBlur}
                     />
+                          {emailError && (
+                            <div className={`text-danger ${style['error-text']}`}>
+                              {emailError}
+                            </div>
+                          )}
                     {formikObject.errors.email && formikObject.touched.email ? (
                       <div className={`text-danger ${style['error-text']}`}>
                         {" "}
@@ -246,11 +258,16 @@ export default function Register() {
                       type="tel"
                       id="phone"
                       placeholder="Phone"
-                      className={`w-100 ${style['default-button']} ${(formikObject.errors.phone && formikObject.touched.phone) ? style['error-input'] : ''} ${(!formikObject.errors.phone && formikObject.touched.phone) ? style['success-input'] : ''}`}
+                      className={`w-100 ${style['default-button']} ${(formikObject.errors.phone && formikObject.touched.phone || phoneError) ? style['error-input'] : ''} ${(!formikObject.errors.phone && formikObject.touched.phone&& !phoneError) ? style['success-input'] : ''}`}
                       value={formikObject.values.phone}
                       onChange={formikObject.handleChange}
                       onBlur={formikObject.handleBlur}
                     />
+                             {phoneError && (
+                            <div className={`text-danger ${style['error-text']}`}>
+                              {phoneError}
+                            </div>
+                          )}
                     {formikObject.errors.phone && formikObject.touched.phone ? (
                       <div className={`text-danger ${style['error-text']}`}>
                         {formikObject.errors.phone}
@@ -311,7 +328,7 @@ export default function Register() {
                     </div>
 
                     <div className={`${style.nextButton} mt-4`}>
-                      <button type="submit" onClick={handleNextButton}>
+                      <button  onClick={handleNextButton} >
                         Next <i className="fa-solid fa-angle-right"></i>
                       </button>
                     </div>
@@ -321,21 +338,30 @@ export default function Register() {
 
               {currentStep === 2 && (
                 <div className="secondRegister mt-3">
-                  {errorMsg ? <h5 className="text-danger error-text">{errorMsg}</h5> : ""}
-
                   <div className={`${style.firstRegisterBody}`}>
                     <label htmlFor="age" className="mt-4 ">
                       Age*
                     </label>
                     <input
-                      type="number"
-                      id="age"
-                      placeholder="Age"
-                      className={`w-100 ${style['default-button']} ${(formikObject.errors.age && formikObject.touched.age) ? style['error-input'] : ''} ${(!formikObject.errors.age && formikObject.touched.age) ? style['success-input'] : ''}`}
-                      value={formikObject.values.age.toString()}
-                      onChange={formikObject.handleChange}
-                      onBlur={formikObject.handleBlur}
-                    />
+                    type="number"
+                    id="age"
+                    min="1"
+                    placeholder="Age"
+                    className={`w-100 ${style['default-button']} ${(formikObject.errors.age && formikObject.touched.age) ? style['error-input'] : ''} ${(!formikObject.errors.age && formikObject.touched.age && formikObject.values.age !== "") ? style['success-input'] : ''}`}
+                    value={formikObject.values.age.toString()}
+                    onChange={formikObject.handleChange}
+                    
+                    onBlur={(e) => {
+                      const ageValue = e.target.value;
+                      if (ageValue === "0" || ageValue === 0) {
+                        formikObject.setFieldValue('age', '1');
+                      }
+                      formikObject.handleBlur(e);
+                    }}
+                  />
+
+
+
                     {formikObject.errors.age && formikObject.touched.age ? (
                       <div className={`text-danger ${style['error-text']}`}>
                         {" "}
