@@ -6,7 +6,6 @@ const RequireAuth = ({ allowedType }) => {
   const navigate = useNavigate();
   const auth = JSON.parse(localStorage.getItem("auth"));
   const [isMounted, setIsMounted] = useState(false);
-  const [urlstate, setUrl] = useState("");
   const location = useLocation();
 
   // useEffect(() => {
@@ -20,7 +19,6 @@ const RequireAuth = ({ allowedType }) => {
     setIsMounted(true);
   }, []);
 
-  console.log(location);
   useEffect(() => {
     if (!auth && isMounted) {
       navigate("/login");

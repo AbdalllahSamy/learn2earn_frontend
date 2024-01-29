@@ -1,0 +1,1 @@
+export const googleClient = "593326081849-8bqqv507csn7icnhj3c5riggmla4se4n.apps.googleusercontent.com"

@@ -6,6 +6,11 @@ import Style from "./Login.module.css";
 import img1 from "../../imgs/women with tab 1.png";
 import google from "../../imgs/google 1.jpg";
 import axios from "../../api/axios";
+import { IoEye as ShowPasswordIcon } from "react-icons/io5";
+import { IoEyeOff as HidePasswordIcon } from "react-icons/io5";
+import { FcGoogle as GoogleIcon } from "react-icons/fc";
+import GoogleLoginHandler from "../../Custom Component/GoogleLoginHandler";
+
 const LOGIN_URL = "/auth/login";
 
 export default function Login() {
@@ -16,6 +21,7 @@ export default function Login() {
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
   const [login_type, setLoginType] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     const auth = JSON.parse(localStorage.getItem("auth"));
@@ -79,11 +85,8 @@ export default function Login() {
 
       const accessToken = response.data.data.token;
       const type = response.data.data.user.type_user;
-      localStorage.setItem(
-        "auth",
-        JSON.stringify({ user, pwd, accessToken, type })
-      );
-      setAuth({ user, pwd, accessToken, type }); // should we remove pwd from here?
+      localStorage.setItem("auth", JSON.stringify({ user, accessToken, type }));
+      setAuth({ user, accessToken, type });
 
       // reset the form
       setUser("");
@@ -187,14 +190,34 @@ export default function Login() {
                   value={user}
                   required
                 />
-                <input
-                  type="password"
-                  placeholder="Password"
-                  className={`form-control ${Style.loginForm} my-4`}
-                  onChange={(e) => setPwd(e.target.value)}
-                  value={pwd}
-                  required
-                />
+                <div className="position-relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Password"
+                    className={`form-control ${Style.loginForm} my-4`}
+                    onChange={(e) => setPwd(e.target.value)}
+                    value={pwd}
+                    required
+                  />
+                  {!showPassword ? (
+                    <ShowPasswordIcon
+                      onClick={() => setShowPassword(!showPassword)}
+                      size={20}
+                      color="gray"
+                      className="position-absolute vertical-center"
+                      style={{ right: "20px", cursor: "pointer" }}
+                    />
+                  ) : (
+                    <HidePasswordIcon
+                      onClick={() => setShowPassword(!showPassword)}
+                      size={20}
+                      color="gray"
+                      className="position-absolute vertical-center"
+                      style={{ right: "20px", cursor: "pointer" }}
+                    />
+                  )}
+                </div>
+
                 <button type="submit" className={`${Style.submitForm}`}>
                   Login Now
                 </button>
@@ -202,18 +225,15 @@ export default function Login() {
               <Link className={`navbar-brand`} to="#">
                 <p className={`${Style.forgetPassword}`}>Forget My Password!</p>
               </Link>
-              <Link
+              <GoogleLoginHandler />
+              {/* <Link
                 type="button"
                 className={`${Style.loginWithGoogle} d-flex`}
                 to="#"
               >
                 <div className={`text-center d-flex align-items-center`}>
                   <div className="googleDiv">
-                    <img
-                      src={google}
-                      className={`${Style.googleImg}`}
-                      alt="google"
-                    />
+                    <GoogleIcon className={`${Style.googleImg}`} />
                   </div>
                   <span className={`${Style.regularSpan}`}>
                     {" "}
@@ -221,12 +241,12 @@ export default function Login() {
                     <span className={`${Style.googleSpan}`}>google</span>
                   </span>
                 </div>
-              </Link>
+              </Link> */}
               <p className={`text-center mt-3 ${Style.donotHaveAcc}`}>
                 {" "}
                 Don't have an account?{" "}
                 <span className={`${Style.Signin}`}>
-                  <Link className="text-decoration-none">Sign In</Link>
+                  <Link to="/register" className="text-decoration-none">Sign Up</Link>
                 </span>
               </p>
             </div>
