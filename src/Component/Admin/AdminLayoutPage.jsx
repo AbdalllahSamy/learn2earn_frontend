@@ -1,7 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { useCheckValidation } from "../../hooks/useCheckValidation";
-
 export default function AdminLayoutPage() {
   useCheckValidation("admin");
   return (

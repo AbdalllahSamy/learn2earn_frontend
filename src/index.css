@@ -14,10 +14,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
+#g_a11y_announcement  {
+  right: 0 !important;
+  top: 0 !important;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

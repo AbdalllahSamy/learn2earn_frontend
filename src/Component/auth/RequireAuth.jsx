@@ -1,4 +1,4 @@
-import { useLocation, Navigate, Outlet } from "react-router-dom";
+import { useLocation, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -6,8 +6,6 @@ const RequireAuth = ({ allowedType }) => {
   const navigate = useNavigate();
   const auth = JSON.parse(localStorage.getItem("auth"));
   const [isMounted, setIsMounted] = useState(false);
-  const location = useLocation();
-
   // useEffect(() => {
   //   const parts = location.pathname.split("/");
   //   const teacherValue = parts[1];

@@ -4,12 +4,11 @@ import toast, { Toaster } from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 import Style from "./Login.module.css";
 import img1 from "../../imgs/women with tab 1.png";
-import google from "../../imgs/google 1.jpg";
 import axios from "../../api/axios";
 import { IoEye as ShowPasswordIcon } from "react-icons/io5";
 import { IoEyeOff as HidePasswordIcon } from "react-icons/io5";
-import { FcGoogle as GoogleIcon } from "react-icons/fc";
 import GoogleLoginHandler from "../../Custom Component/GoogleLoginHandler";
+import useChangeTitle from "../../hooks/useChangeTitle";
 
 const LOGIN_URL = "/auth/login";
 
@@ -17,6 +16,8 @@ export default function Login() {
   const { setAuth } = useAuth();
   const navigateFunction = useNavigate();
   const userRef = useRef();
+
+  useChangeTitle("L2E | Login")
 
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");

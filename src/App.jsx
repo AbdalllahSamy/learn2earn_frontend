@@ -1,6 +1,5 @@
 import "./App.css";
-import RoutingHandler from "./Routing/RoutingHandler.jsx";
-
+import RoutingHandler from "./Routing/RoutingHandler"
 function App() {
   return <RoutingHandler />;
 }

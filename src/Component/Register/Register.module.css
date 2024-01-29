@@ -6,7 +6,7 @@
 }
 
 .registerBody {
-    background: url(../../images/register-background.jpg);
+    background-image: url(/src/imgs/Rectangle.jpg);
     width: 100%;
     min-height: 100vh;
     padding: 50px 0;

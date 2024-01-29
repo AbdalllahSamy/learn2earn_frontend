@@ -6,7 +6,7 @@
 }
 
 .backG {
-  background-image: url(../../imgs/Rectangle\ 4.jpg);
+  background-image: url(/src/imgs/Rectangle.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -191,7 +191,7 @@
   }
 
   .loginFormSide {
-    background-image: url(../../imgs/Rectangle\ 4.jpg);
+    background-image: url(/src/imgs/Rectangle.jpg);
     width: 100%;
     background-repeat: no-repeat;
     background-position: center;

@@ -1,5 +1,5 @@
 import { GoogleLogin } from "@react-oauth/google";
-import axios from "axios";
+import axios from "../api/axios";
 export default function GoogleLoginHandler({ style }) {
   const decodeJwt = (token) => {
     try {
@@ -18,7 +18,7 @@ export default function GoogleLoginHandler({ style }) {
       gauth_id: sub,
     };
 
-    const api = "https://api-test.llearn2earn.com/api/auth/login-with-google";
+    const api = "/auth/login-with-google";
     axios
       .post(api, data)
       .then((res) => {
