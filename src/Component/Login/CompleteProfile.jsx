@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import Style from "./Login.module.css";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+
 import axios from "../../api/axios";
 export default function CompleteProfile() {
   const [isMounted, setIsMounted] = useState(false);
@@ -49,7 +51,6 @@ export default function CompleteProfile() {
       password_confirmation: randomNumber,
     };
 
-    console.log(profile_data);
 
     axios
       .post("/auth/complete-form", profile_data)
@@ -62,7 +63,7 @@ export default function CompleteProfile() {
         navigateFunction(`/login`);
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.data.errors.phone[0]);
       });
   }
 

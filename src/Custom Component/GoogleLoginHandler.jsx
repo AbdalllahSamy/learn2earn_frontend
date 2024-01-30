@@ -15,7 +15,6 @@ export default function GoogleLoginHandler({ style }) {
   };
 
   function onSuccessGoogle({ credential }) {
-    console.log(decodeJwt(credential));
     const { email, name, sub } = decodeJwt(credential);
 
     const data = {
@@ -28,9 +27,7 @@ export default function GoogleLoginHandler({ style }) {
     axios
       .post(api, data)
       .then((res) => {
-        console.log(res);
         if (!res.data.data.in_system) {
-          console.log(res);
           data.temp_token = res.data.data.token;
           localStorage.setItem("temp_auth", JSON.stringify(data));
           navigateFunction("/login/complete-profile");
