@@ -28,6 +28,20 @@
   justify-content: center;
 }
 
+.complete-profile-page {
+  width: 50%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  background-color: white !important;
+  align-items: center;
+  justify-content: center;
+  max-width: 700px;
+  margin: auto;
+}
+
 .underImg {
   border-radius: 46px;
   border: 1px solid rgba(255, 255, 255, 0.52);
@@ -59,7 +73,6 @@
   color: #fff;
   right: -45px;
   top: 10px;
-  font-family: Poppins;
   font-size: 4.0625em; /* 65px */
   font-style: normal;
   font-weight: 700;
@@ -69,7 +82,6 @@
 
 .h3Login {
   color: #000;
-  font-family: Poppins;
   font-size: 3.0625em; /* 65px */
   font-style: normal;
   font-weight: 700;
@@ -88,7 +100,6 @@
 
 .pLogin {
   color: #525252;
-  font-family: Poppins;
   font-size: 1.125em; /* 18px */
   font-style: normal;
   font-weight: 400;
@@ -105,7 +116,6 @@
 .submitForm {
   color: #fff;
   width: 100%;
-  font-family: Poppins;
   font-size: 1em; /* 18px */
   font-weight: 700;
   border-radius: 30px;
@@ -115,16 +125,7 @@
   border: 0px;
 }
 
-.forgetPassword {
-  text-align: left;
-  color: #0000009a;
-  font-family: Poppins;
-  font-size: 0.85em; /* 20px */
-  font-style: normal;
-  margin: 10px 0 15px;
-  font-weight: 700;
-  line-height: normal;
-}
+
 
 .loginWithGoogle {
   width: fit-content;
@@ -146,7 +147,6 @@
 
 .regularSpan {
   color: #1c1c1c;
-  font-family: Poppins;
   font-size: 0.8em; /* 23px */
   font-style: normal;
   font-weight: 400;
@@ -157,7 +157,6 @@
 
 .googleSpan {
   color: #1c1c1cb7;
-  font-family: Poppins;
   text-transform: capitalize;
   font-size: 1.275em; /* 23px */
   font-style: normal;
@@ -169,7 +168,6 @@
   border-top: 1px solid rgba(0, 0, 0, 0.173);
   padding-top: 1.5em;
   color: #525252;
-  font-family: Poppins;
   font-size: 1em; /* 24px */
   font-style: normal;
   font-weight: 400;
@@ -178,7 +176,6 @@
 
 .Signin {
   color: #024fa9;
-  font-family: Poppins;
   font-size: 1em; /* 24px */
   font-style: normal;
   font-weight: 700;
@@ -190,7 +187,8 @@
     display: none;
   }
 
-  .loginFormSide {
+  .loginFormSide,
+  .complete-profile-page {
     background-image: url(/src/imgs/Rectangle.jpg);
     width: 100%;
     background-repeat: no-repeat;

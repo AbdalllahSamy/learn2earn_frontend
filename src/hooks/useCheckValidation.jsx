@@ -6,9 +6,9 @@ export const useCheckValidation = (requiredType) => {
   const navigateFunction = useNavigate();
   const auth = JSON.parse(localStorage.getItem("auth"));
   useEffect(() => {
-    if (auth.type !== requiredType) {
-      navigateFunction(`/${auth.type}`);
+    if (auth.type_user !== requiredType) {
+      navigateFunction(`/${auth.type_user}`);
     }
   }, []);
-  useChangeTitle(`L2E | ${auth.type}`);
+  useChangeTitle(`L2E | ${auth.type_user}`);
 };

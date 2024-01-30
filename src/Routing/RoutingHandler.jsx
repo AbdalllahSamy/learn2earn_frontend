@@ -15,18 +15,20 @@ import ParentLayoutPage from "../Component/Parent/ParentLayoutPage";
 import ParentDashboard from "../Component/Parent/ParentDashboard";
 import AdminLayoutPage from "../Component/Admin/AdminLayoutPage";
 import AdminDashboard from "../Component/Admin/AdminDashboard";
+import LoginPage from "../Component/Login/LoginPage";
+import CompleteProfile from "../Component/Login/CompleteProfile";
 
 const RoutingHandler = () => {
   const location = useLocation();
 
   return (
     // Render the routes based on the current location
-    <Routes>
+    <Routes location={location} key={location.pathname}>
       <Route path="/" element={<Layout />}>
-        <Route
-          path="login"
-          element={<Login />}
-        />
+        <Route path="login" element={<LoginPage />}>
+          <Route index element={<Login />} />
+          <Route path="complete-profile" element={<CompleteProfile />} />
+        </Route>
         <Route path="register" element={<Register />} />
         <Route element={<RequireAuth />}>
           <Route path="teacher" element={<TeacherLayoutPage />}>
@@ -42,6 +44,8 @@ const RoutingHandler = () => {
             <Route path="dashboard" element={<AdminDashboard />} />
           </Route>
         </Route>
+
+        <Route path="*" element={<h1>Not found</h1>} />
       </Route>
     </Routes>
   );

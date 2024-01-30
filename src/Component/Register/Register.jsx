@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { ThreeCircles } from "react-loader-spinner";
 import toast, { Toaster } from "react-hot-toast";
 import useChangeTitle from "../../hooks/useChangeTitle";
-
+import { IoEye as ShowPasswordIcon } from "react-icons/io5";
+import { IoEyeOff as HidePasswordIcon } from "react-icons/io5";
 export default function Register() {
   const [currentStep, setCurrentStep] = useState(1);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -18,12 +19,13 @@ export default function Register() {
   useEffect(() => {
     const auth = JSON.parse(localStorage.getItem("auth"));
     if (auth) {
-      navigateFunction(`/${auth.type}/dashboard`);
+      navigateFunction(`/${auth.type_user}/dashboard`);
     }
   }, []);
 
   useChangeTitle("L2E | Register");
   const [isLoad, setIsLoad] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleNextButton = () => {
     if (currentStep === 1) {
@@ -339,25 +341,45 @@ export default function Register() {
                         <label htmlFor="password" className="mt-4">
                           Password*
                         </label>
-                        <input
-                          type="password"
-                          id="password"
-                          placeholder="Password"
-                          className={`w-100 ${style["default-button"]} ${
-                            formikObject.errors.password &&
-                            formikObject.touched.password
-                              ? style["error-input"]
-                              : ""
-                          } ${
-                            !formikObject.errors.password &&
-                            formikObject.touched.password
-                              ? style["success-input"]
-                              : ""
-                          }`}
-                          value={formikObject.values.password}
-                          onChange={formikObject.handleChange}
-                          onBlur={formikObject.handleBlur}
-                        />
+                        <div className="relative">
+                          <input
+                            type={showPassword ? "text" : "password"}
+                            id="password"
+                            placeholder="Password"
+                            className={`w-100 ${style["default-button"]} ${
+                              formikObject.errors.password &&
+                              formikObject.touched.password
+                                ? style["error-input"]
+                                : ""
+                            } ${
+                              !formikObject.errors.password &&
+                              formikObject.touched.password
+                                ? style["success-input"]
+                                : ""
+                            }`}
+                            value={formikObject.values.password}
+                            onChange={formikObject.handleChange}
+                            onBlur={formikObject.handleBlur}
+                          />
+                          {!showPassword ? (
+                            <ShowPasswordIcon
+                              onClick={() => setShowPassword(!showPassword)}
+                              size={20}
+                              color="gray"
+                              className="position-absolute r-[50px] vertical-center"
+                              style={{ right: "20px", cursor: "pointer" }}
+                            />
+                          ) : (
+                            <HidePasswordIcon
+                              onClick={() => setShowPassword(!showPassword)}
+                              size={20}
+                              color="gray"
+                              className="position-absolute vertical-center"
+                              style={{ right: "20px", cursor: "pointer" }}
+                            />
+                          )}
+                        </div>
+
                         {formikObject.errors.password &&
                         formikObject.touched.password ? (
                           <div className={`text-danger ${style["error-text"]}`}>

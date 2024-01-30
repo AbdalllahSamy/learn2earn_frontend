@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 import Style from "./Login.module.css";
-import img1 from "../../imgs/women with tab 1.png";
 import axios from "../../api/axios";
 import { IoEye as ShowPasswordIcon } from "react-icons/io5";
 import { IoEyeOff as HidePasswordIcon } from "react-icons/io5";
 import GoogleLoginHandler from "../../Custom Component/GoogleLoginHandler";
 import useChangeTitle from "../../hooks/useChangeTitle";
+import { motion } from "framer-motion";
 
 const LOGIN_URL = "/auth/login";
 
@@ -17,7 +17,7 @@ export default function Login() {
   const navigateFunction = useNavigate();
   const userRef = useRef();
 
-  useChangeTitle("L2E | Login")
+  useChangeTitle("L2E | Login");
 
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
@@ -27,7 +27,7 @@ export default function Login() {
   useEffect(() => {
     const auth = JSON.parse(localStorage.getItem("auth"));
     if (auth) {
-      navigateFunction(`/${auth.type}/dashboard`);
+      navigateFunction(`/${auth.type_user}/dashboard`);
     }
   }, []);
 
@@ -86,8 +86,8 @@ export default function Login() {
 
       const accessToken = response.data.data.token;
       const type = response.data.data.user.type_user;
-      localStorage.setItem("auth", JSON.stringify({ user, accessToken, type }));
-      setAuth({ user, accessToken, type });
+      localStorage.setItem("auth", JSON.stringify({ user, accessToken, type_user : type }));
+      // setAuth({ user, accessToken, type });
 
       // reset the form
       setUser("");
@@ -143,91 +143,80 @@ export default function Login() {
         href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet"
       ></link>
-      <div className={`${Style["main-div"]}`}>
-        <div className={`col-md-6 ${Style.backG}`}>
-          <div className={`${Style.underImg} col-8 d-flex`}>
-            <div className={`${Style.womanDiv}`}>
-              <img
-                src={img1}
-                alt="woman"
-                className={`${Style.womanImg} d-block`}
-              />
-            </div>
-            <div className={`${Style.textDiv}`}>
-              <p className={`${Style.pWoman}`}>
-                Learn <br />
-                TO <br />
-                Earn
-              </p>
-            </div>
+
+      <motion.div
+        initial={{ x: 100, opacity: 0 }}
+        key="login-form"
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: 100, opacity: 0 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className={`${Style.loginFormSide}`}
+      >
+        <div className={`${Style.smallCard} w-100`}>
+          <div className="text-center">
+            <h3 className={`${Style.h3Login} `}>login</h3>
+            <span className={`${Style.line} `}></span>
+            <p className={`${Style.pLogin}`}>
+              Welcome back to Learn2Earn education platform
+            </p>
           </div>
-        </div>
-        <div className={`${Style.loginFormSide}`}>
-          <div className={`${Style.smallCard} w-100`}>
-            <div className="text-center">
-              <h3 className={`${Style.h3Login} `}>login</h3>
-              <span className={`${Style.line} `}></span>
-              <p className={`${Style.pLogin}`}>
-                Welcome back to Learn2Earn education platform
-              </p>
-            </div>
-            <div>
-              <form onSubmit={handleSubmit}>
-                {/* <i className={`fa-regular fa-user ${Style.frameUsername} position-absolute` }></i> */}
+          <div>
+            <form onSubmit={handleSubmit}>
+              {/* <i className={`fa-regular fa-user ${Style.frameUsername} position-absolute` }></i> */}
+              <input
+                type="text"
+                placeholder="Username"
+                className={`form-control ${Style.loginForm}`}
+                ref={userRef}
+                autoComplete="off"
+                onChange={(e) => {
+                  setUser(e.target.value);
+                  if (user.includes("@")) {
+                    setLoginType("email");
+                  } else {
+                    setLoginType("phone");
+                  }
+                }}
+                value={user}
+                required
+              />
+              <div className="position-relative">
                 <input
-                  type="text"
-                  placeholder="Username"
-                  className={`form-control ${Style.loginForm}`}
-                  ref={userRef}
-                  autoComplete="off"
-                  onChange={(e) => {
-                    setUser(e.target.value);
-                    if (user.includes("@")) {
-                      setLoginType("email");
-                    } else {
-                      setLoginType("phone");
-                    }
-                  }}
-                  value={user}
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  className={`form-control ${Style.loginForm} my-4`}
+                  onChange={(e) => setPwd(e.target.value)}
+                  value={pwd}
                   required
                 />
-                <div className="position-relative">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Password"
-                    className={`form-control ${Style.loginForm} my-4`}
-                    onChange={(e) => setPwd(e.target.value)}
-                    value={pwd}
-                    required
+                {!showPassword ? (
+                  <ShowPasswordIcon
+                    onClick={() => setShowPassword(!showPassword)}
+                    size={20}
+                    color="gray"
+                    className="position-absolute r-[50px] vertical-center"
+                    style={{ right: "20px", cursor: "pointer" }}
                   />
-                  {!showPassword ? (
-                    <ShowPasswordIcon
-                      onClick={() => setShowPassword(!showPassword)}
-                      size={20}
-                      color="gray"
-                      className="position-absolute vertical-center"
-                      style={{ right: "20px", cursor: "pointer" }}
-                    />
-                  ) : (
-                    <HidePasswordIcon
-                      onClick={() => setShowPassword(!showPassword)}
-                      size={20}
-                      color="gray"
-                      className="position-absolute vertical-center"
-                      style={{ right: "20px", cursor: "pointer" }}
-                    />
-                  )}
-                </div>
+                ) : (
+                  <HidePasswordIcon
+                    onClick={() => setShowPassword(!showPassword)}
+                    size={20}
+                    color="gray"
+                    className="position-absolute vertical-center"
+                    style={{ right: "20px", cursor: "pointer" }}
+                  />
+                )}
+              </div>
 
-                <button type="submit" className={`${Style.submitForm}`}>
-                  Login Now
-                </button>
-              </form>
-              <Link className={`navbar-brand`} to="#">
-                <p className={`${Style.forgetPassword}`}>Forget My Password!</p>
-              </Link>
-              <GoogleLoginHandler />
-              {/* <Link
+              <button type="submit" className={`${Style.submitForm}`}>
+                Login Now
+              </button>
+            </form>
+            <Link className={`navbar-brand w-fit block`} to="#">
+              <p className={`text-sm my-[1em] font-bold`}>Forget My Password</p>
+            </Link>
+            <GoogleLoginHandler />
+            {/* <Link
                 type="button"
                 className={`${Style.loginWithGoogle} d-flex`}
                 to="#"
@@ -243,17 +232,18 @@ export default function Login() {
                   </span>
                 </div>
               </Link> */}
-              <p className={`text-center mt-3 ${Style.donotHaveAcc}`}>
-                {" "}
-                Don't have an account?{" "}
-                <span className={`${Style.Signin}`}>
-                  <Link to="/register" className="text-decoration-none">Sign Up</Link>
-                </span>
-              </p>
-            </div>
+            <p className={`text-center mt-3 ${Style.donotHaveAcc}`}>
+              {" "}
+              Don't have an account?{" "}
+              <span className={`${Style.Signin}`}>
+                <Link to="/register" className="text-decoration-none">
+                  Sign Up
+                </Link>
+              </span>
+            </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }

@@ -10,8 +10,14 @@ export default function Layout() {
 
   useEffect(() => {
     if (auth) {
-      if (location.pathname === "/") navigate(`/${auth.type}`);
+      if (location.pathname === "/") {
+        navigate(`/${auth.type_user}`);
+      }
     } else navigate(`${location.pathname}`);
+
+    if (!(location.pathname === "/login/complete-profile")) {
+      localStorage.removeItem("temp_auth");
+    }
   }, []);
 
   return (
