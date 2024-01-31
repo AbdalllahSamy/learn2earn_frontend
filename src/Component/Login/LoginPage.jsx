@@ -5,8 +5,10 @@ import { Outlet } from "react-router-dom";
 
 export default function LoginPage() {
   return (
-    <div className={`${Style["main-div"]} overflow-x-hidden`}>
-      <div className={`col-md-6 ${Style.backG}`}>
+    <div className={`${Style["main-div"]}`}>
+      <div
+        className={` col-md-6 ${Style.backG} baseline fixed`}
+      >
         <div className={`${Style.underImg} col-8 d-flex`}>
           <div className={`${Style.womanDiv}`}>
             <img

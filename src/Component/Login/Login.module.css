@@ -38,8 +38,6 @@
   background-color: white !important;
   align-items: center;
   justify-content: center;
-  max-width: 700px;
-  margin: auto;
 }
 
 .underImg {
@@ -125,8 +123,6 @@
   border: 0px;
 }
 
-
-
 .loginWithGoogle {
   width: fit-content;
   padding: 0.5em 1.5em;
@@ -195,6 +191,9 @@
     background-position: center;
     background-size: cover;
     padding: 1em;
+  }
+  .complete-profile-page {
+    margin: auto;
   }
 
   .line {

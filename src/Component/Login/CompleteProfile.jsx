@@ -13,6 +13,11 @@ export default function CompleteProfile() {
   const [phone, setPhone] = useState("");
   const [type_user, setTypeUser] = useState("student");
 
+  const [errorState, setErrorState] = useState({
+    status: false,
+    errors: {},
+  });
+
   const navigateFunction = useNavigate();
 
   useEffect(() => {
@@ -29,6 +34,10 @@ export default function CompleteProfile() {
   const userRef = useRef();
 
   function handleSubmit(e) {
+    setErrorState({
+      status: false,
+      errors: {},
+    });
     e.preventDefault();
 
     const min = 11111111;
@@ -51,7 +60,6 @@ export default function CompleteProfile() {
       password_confirmation: randomNumber,
     };
 
-
     axios
       .post("/auth/complete-form", profile_data)
       .then((res) => {
@@ -62,11 +70,23 @@ export default function CompleteProfile() {
         );
         navigateFunction(`/login`);
       })
-      .catch((err) => {
-        console.log(err.response.data.errors.phone[0]);
+      .catch((error) => {
+        const errorData = error.response.data.errors;
+        const errorFields = Object.keys(errorData);
+        const errorStateData = {};
+
+        errorFields.forEach((field) => {
+          errorStateData[field] = errorData[field][0];
+        });
+
+        setErrorState({
+          status: true,
+          errors: errorStateData,
+        });
       });
   }
 
+  console.log(errorState);
   return (
     <motion.div
       key="complete-profile"
@@ -74,7 +94,7 @@ export default function CompleteProfile() {
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: 100, opacity: 0 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className={`${Style["complete-profile-page"]}`}
+      className={`${Style["complete-profile-page"]} ml-[50%]`}
     >
       <div className={`${Style.smallCard} w-100`}>
         <h3 className="font-bold">Complete Profile</h3>
@@ -82,34 +102,59 @@ export default function CompleteProfile() {
           Please fill out the form below to complete registration
         </p>
         <form
-          className="flex flex-col justify-between gap-[30px] pt-[2em]"
+          className="flex flex-col justify-between gap-[20px]"
           onSubmit={handleSubmit}
         >
-          <div className="inputs flex flex-col items-center gap-[20px]">
+          <div className="inputs flex flex-col gap-[10px]">
+            <label htmlFor="nickname">Nickname</label>
             <input
               type="text"
+              id="nickname"
               placeholder="Nickname"
+              name="name"
               className={`form-control ${Style.loginForm}`}
               value={nickname}
               onChange={(e) => setNickname(e.target.value)}
               required
             />
+            {errorState.status && errorState.errors.name && (
+              <span className="text-red-500 text-sm">
+                {errorState.errors.name}
+              </span>
+            )}
+            <label htmlFor="age">Age</label>
             <input
-              type="text"
+              type="number"
+              id="age"
               placeholder="Age"
               className={`form-control ${Style.loginForm}`}
               value={age}
+              name="age"
               onChange={(e) => setAge(e.target.value)}
               required
             />
+            {errorState.status && errorState.errors.age && (
+              <span className="text-red-500 text-sm">
+                {errorState.errors.age}
+              </span>
+            )}
+            <label htmlFor="phone">Phone Number</label>
             <input
               type="text"
+              id="phone"
               placeholder="Phone Number"
               className={`form-control ${Style.loginForm}`}
               value={phone}
+              name="phone"
               onChange={(e) => setPhone(e.target.value)}
               required
             />
+            {errorState.status && errorState.errors.phone && (
+              <span className="text-red-500 text-sm">
+                {errorState.errors.phone}
+              </span>
+            )}
+            <label htmlFor="gender">Gender</label>
             <select
               id="gender"
               name="gender"
@@ -124,10 +169,11 @@ export default function CompleteProfile() {
               <option value="female">Female</option>
             </select>
 
+            <label htmlFor="type_user">Job Title</label>
             <select
               id="type_user"
               name="type_user"
-              placeholder="Jop Title"
+              placeholder="Job Title"
               className="form-select select-bg-color"
               aria-label="Default select example"
               value={type_user}

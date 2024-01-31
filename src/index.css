@@ -54,3 +54,7 @@ code {
 .select-bg-color {
   background-color: #e3edff !important;
 }
+.baseline {
+  align-self: baseline;
+}
+
