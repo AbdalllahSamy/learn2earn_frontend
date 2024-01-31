@@ -2,7 +2,6 @@ import { GoogleLogin } from "@react-oauth/google";
 import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-
 export default function GoogleLoginHandler({ style }) {
   const navigateFunction = useNavigate();
 
@@ -36,7 +35,7 @@ export default function GoogleLoginHandler({ style }) {
         if (res.data.data.in_system) {
           if (res.data.data.user.is_active) {
             localStorage.setItem("auth", JSON.stringify(res.data.data.user));
-            navigateFunction(`/${res.data.data.user.type_user}/dashboard`);
+            navigateFunction(`/${res.data.data.user.type_user}/dashboard` , { replace: true });
           } else {
             toast.error("Your account is not activated yet", {
               position: "top-right",

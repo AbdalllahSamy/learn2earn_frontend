@@ -58,3 +58,14 @@ code {
   align-self: baseline;
 }
 
+.login-margin { 
+  margin-left: 50%;
+  width: 100%;
+}
+
+@media screen and (max-width: 816px) {
+  .login-margin {
+    margin-left: 0;
+  }
+  
+}

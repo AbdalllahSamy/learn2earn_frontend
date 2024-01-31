@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Link, Navigate, Route, Routes } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 // Import the components that will be rendered based on the current location
@@ -25,6 +25,7 @@ const RoutingHandler = () => {
     // Render the routes based on the current location
     <Routes location={location} key={location.pathname}>
       <Route path="/" element={<Layout />}>
+        <Route index element={<Link to="/login">Login</Link>} />
         <Route path="login" element={<LoginPage />}>
           <Route index element={<Login />} />
           <Route path="complete-profile" element={<CompleteProfile />} />

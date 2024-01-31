@@ -94,7 +94,7 @@ export default function CompleteProfile() {
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: 100, opacity: 0 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className={`${Style["complete-profile-page"]} ml-[50%]`}
+      className={`${Style["complete-profile-page"]}`}
     >
       <div className={`${Style.smallCard} w-100`}>
         <h3 className="font-bold">Complete Profile</h3>
