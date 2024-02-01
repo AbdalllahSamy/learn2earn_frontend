@@ -10,7 +10,6 @@ export default function Layout() {
   const auth = JSON.parse(localStorage.getItem("auth"));
   useEffect(() => {
     const prevPath = prevPathRef.current;
-    console.log("1 ", prevPathRef.current);
     if (auth) {
       if (location.pathname === "/") {
         navigate(`/${auth.type_user}`);
@@ -20,8 +19,6 @@ export default function Layout() {
     }
 
     prevPathRef.current = location.pathname;
-
-    console.log("2 ", prevPathRef.current);
 
     if (!(location.pathname === "/login/complete-profile")) {
       localStorage.removeItem("temp_auth");
