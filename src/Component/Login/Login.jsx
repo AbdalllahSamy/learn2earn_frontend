@@ -9,6 +9,7 @@ import { IoEyeOff as HidePasswordIcon } from "react-icons/io5";
 import GoogleLoginHandler from "../../Custom Component/GoogleLoginHandler";
 import useChangeTitle from "../../hooks/useChangeTitle";
 import { motion } from "framer-motion";
+import Loading from "../Custom Components/Loading";
 
 const LOGIN_URL = "/auth/login";
 
@@ -23,6 +24,7 @@ export default function Login() {
   const [pwd, setPwd] = useState("");
   const [login_type, setLoginType] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     const auth = JSON.parse(localStorage.getItem("auth"));
@@ -63,6 +65,7 @@ export default function Login() {
   }
 
   const handleSubmit = async (e) => {
+    setSubmitting(true);
     e.preventDefault();
     let login_type_handle = login_type;
     let username = user;
@@ -86,7 +89,10 @@ export default function Login() {
 
       const accessToken = response.data.data.token;
       const type = response.data.data.user.type_user;
-      localStorage.setItem("auth", JSON.stringify({ user, accessToken, type_user : type }));
+      localStorage.setItem(
+        "auth",
+        JSON.stringify({ user, accessToken, type_user: type })
+      );
       // setAuth({ user, accessToken, type });
 
       // reset the form
@@ -131,6 +137,8 @@ export default function Login() {
           },
         });
       }
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -208,9 +216,13 @@ export default function Login() {
                 )}
               </div>
 
-              <button type="submit" className={`${Style.submitForm}`}>
-                Login Now
-              </button>
+              <div className={`${Style.submitForm} flex items-center justify-center`}>
+                {!submitting ? (
+                  <button className="w-full h-full" type="submit">Login Now</button>
+                ) : (
+                  <Loading />
+                )}
+              </div>
             </form>
             <Link className={`navbar-brand w-fit block`} to="#">
               <p className={`text-sm my-[1em] font-bold`}>Forget My Password</p>
