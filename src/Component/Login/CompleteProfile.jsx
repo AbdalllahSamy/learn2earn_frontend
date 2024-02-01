@@ -63,7 +63,6 @@ export default function CompleteProfile() {
     axios
       .post("/auth/complete-form", profile_data)
       .then((res) => {
-        console.log(res);
         localStorage.setItem(
           "account",
           `Email created successfully wait for activate your account`
@@ -86,7 +85,6 @@ export default function CompleteProfile() {
       });
   }
 
-  console.log(errorState);
   return (
     <motion.div
       key="complete-profile"
@@ -111,15 +109,15 @@ export default function CompleteProfile() {
               type="text"
               id="nickname"
               placeholder="Nickname"
-              name="name"
+              name="Nickname"
               className={`form-control ${Style.loginForm}`}
               value={nickname}
               onChange={(e) => setNickname(e.target.value)}
               required
             />
-            {errorState.status && errorState.errors.name && (
+            {errorState.status && errorState.errors.Nickname && (
               <span className="text-red-500 text-sm">
-                {errorState.errors.name}
+                {errorState.errors.Nickname}
               </span>
             )}
             <label htmlFor="age">Age</label>
