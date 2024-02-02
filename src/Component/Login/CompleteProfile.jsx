@@ -70,7 +70,7 @@ export default function CompleteProfile() {
         navigateFunction(`/login`);
       })
       .catch((error) => {
-        const errorData = error.response.data.errors;
+        const errorData = error.response.data.data;
         const errorFields = Object.keys(errorData);
         const errorStateData = {};
 

@@ -216,9 +216,13 @@ export default function Login() {
                 )}
               </div>
 
-              <div className={`${Style.submitForm} flex items-center justify-center`}>
+              <div
+                className={`${Style.submitForm} flex items-center justify-center`}
+              >
                 {!submitting ? (
-                  <button className="w-full h-full" type="submit">Login Now</button>
+                  <button className="w-full h-full" type="submit">
+                    Login Now
+                  </button>
                 ) : (
                   <Loading />
                 )}
