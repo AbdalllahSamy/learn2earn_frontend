@@ -24,18 +24,21 @@ export default function Layout() {
       localStorage.removeItem("temp_auth");
     }
   }, []);
+  const shouldRenderLogoutButton = !["/register", "/login"].includes(location.pathname);
   return (
     <>
       {/* <Navbar /> */}
       <Outlet></Outlet>
-      <button
-        onClick={() => {
-          localStorage.clear();
-          navigate("login");
-        }}
-      >
-        Logout
-      </button>
+      {shouldRenderLogoutButton && (
+        <button
+          onClick={() => {
+            localStorage.clear();
+            navigate("login");
+          }}
+        >
+          Logout
+        </button>
+      )}
       {/* <Footer /> */}
     </>
   );
