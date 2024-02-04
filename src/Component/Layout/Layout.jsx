@@ -14,7 +14,9 @@ export default function Layout() {
       if (location.pathname === "/") {
         navigate(`/${auth.type_user}`);
       } else if (location.pathname !== prevPath) {
-        navigate(location.pathname);
+        if (location.pathname === "/login") {
+          navigate(`/${auth.type_user}`);
+        } else navigate(location.pathname);
       }
     }
 
@@ -24,7 +26,9 @@ export default function Layout() {
       localStorage.removeItem("temp_auth");
     }
   }, []);
-  const shouldRenderLogoutButton = !["/register", "/login"].includes(location.pathname);
+  const shouldRenderLogoutButton = !["/register", "/login"].includes(
+    location.pathname
+  );
   return (
     <>
       {/* <Navbar /> */}

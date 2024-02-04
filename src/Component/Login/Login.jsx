@@ -28,6 +28,7 @@ export default function Login() {
 
   useEffect(() => {
     const auth = JSON.parse(localStorage.getItem("auth"));
+    console.log(auth);
     if (auth) {
       navigateFunction(`/${auth.type_user}/dashboard`);
     }
