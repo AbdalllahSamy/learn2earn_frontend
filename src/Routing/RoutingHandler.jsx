@@ -42,7 +42,7 @@ const RoutingHandler = () => {
             <Route path="dashboard" element={<ParentDashboard />} />
           </Route>
           <Route path="admin" element={<AdminLayoutPage />}>
-            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route index element={<AdminDashboard />} />
           </Route>
         </Route>
 

@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import NavBar from "./NavBar";
 export default function Layout() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -30,10 +31,9 @@ export default function Layout() {
     location.pathname
   );
   return (
-    <>
-      {/* <Navbar /> */}
+    <div className="relative">
       <Outlet></Outlet>
-      {shouldRenderLogoutButton && (
+      {/* {shouldRenderLogoutButton && (
         <button
           onClick={() => {
             localStorage.clear();
@@ -42,8 +42,8 @@ export default function Layout() {
         >
           Logout
         </button>
-      )}
+      )} */}
       {/* <Footer /> */}
-    </>
+    </div>
   );
 }

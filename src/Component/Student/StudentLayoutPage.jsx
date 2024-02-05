@@ -4,7 +4,7 @@ import { useCheckValidation } from "../../hooks/useCheckValidation";
 export default function StudentLayoutPage() {
   useCheckValidation("student");
   return (
-    <div>
+    <div className="mt-[5em]">
       <h1>Student Layout here</h1>
       <Outlet />
     </div>

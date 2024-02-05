@@ -4,7 +4,7 @@ import { useCheckValidation } from "../../hooks/useCheckValidation";
 export default function ParentLayoutPage() {
   useCheckValidation("parent");
   return (
-    <div>
+    <div className="mt-[5em]">
       <h1>Parent Layout here</h1>
       <Outlet />
     </div>

@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.cdnfonts.com/css/pp-neue-montreal");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,11 +9,29 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  font-family: "PP Neue Montreal", sans-serif;
 }
 
+:root {
+  --dashboard-color: #344050;
+  --input-border-color: #d8e2ef;
+}
+input {
+  outline: none;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 body {
   margin: 0;
   padding: 0;
+  background-color: #edf2f9f5 !important;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -58,7 +79,7 @@ code {
   align-self: baseline;
 }
 
-.login-margin { 
+.login-margin {
   margin-left: 50%;
   width: 100%;
 }
@@ -67,5 +88,32 @@ code {
   .login-margin {
     margin-left: 0;
   }
-  
+}
+
+.navbar-color,
+.dashboard-color {
+  color: var(--dashboard-color);
+}
+
+.input-border {
+  border: 1px solid var(--input-border-color) !important;
+}
+.siderbar {
+  color: #5d6e82;
+  background-color: #edf2f9f5;
+  font-weight: 500;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+img {
+  user-select: none;
+}
+.content-transition {
+  transition: all 0.5s ease-in-out;
+}
+.close-transition {
+  transition: all 0.5s ease-in-out;
 }

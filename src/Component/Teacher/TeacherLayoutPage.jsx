@@ -6,7 +6,7 @@ export default function TeacherLayoutPage() {
   useCheckValidation("teacher");
 
   return (
-    <div>
+    <div className="mt-[5em]">
       <h1>Teacher layout here</h1>
       <Outlet />
     </div>
