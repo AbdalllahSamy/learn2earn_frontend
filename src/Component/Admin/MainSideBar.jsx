@@ -10,59 +10,49 @@ import { IoCall } from "react-icons/io5";
 import { MdManageHistory } from "react-icons/md";
 import { IoIosRocket } from "react-icons/io";
 import { RiUserStarFill } from "react-icons/ri";
-
-import { useLocation } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 import DropDown from "../../Common/DropDown";
-import { ShowIcons } from "../../context/ShowIconsOnly";
+import { navBarContext } from "../../context/openNavBar";
 
 export default function MainSideBar() {
-  const showIconState = useContext(ShowIcons).showIconsOnly;
-  const toggleShowState = useContext(ShowIcons).toggleHover;
-  const onHover = useContext(ShowIcons).hovered;
-  const location = useLocation();
-  const [currentPath, setCurrentPath] = React.useState(location.pathname);
+  const openNav = useContext(navBarContext).openNav;
+  const setOpenNavFunc = useContext(navBarContext).setOpenNav;
+  const [customState, setCustomState] = useState(false);
 
-  const [customState, setCustomState] = useState(showIconState);
-
-  useEffect(() => {
-    if (!onHover)
-    setCustomState(showIconState);
-  }, [showIconState]);
+  // Define the helper function
+  function getClassName(isActive) {
+    return `no-underline ${isActive ? "text-[#2A7BE4]" : "text-[#5d6e82]"}`;
+  }
 
   useEffect(() => {
-    if (onHover) {
-      setCustomState(false);
-    } else {
-      if (showIconState) {
-        setCustomState(true);
+    console.log(openNav);
+    if (openNav) console.log("nav should open");
+  }, [openNav]);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 1080) {
+        setOpenNavFunc(false);
       }
-    }
-  }, [onHover]);
+    });
+  }, []);
 
-  const padding = "h-[40px]";
-
-  React.useEffect(() => {
-    setCurrentPath(location.pathname);
-  }, [location.pathname]);
-
+  //
   return (
     <div
-      onMouseEnter={() => toggleShowState()}
-      onMouseLeave={() => toggleShowState()}
-      style={{ width: customState ? "80px" : "230px" }}
-      className={`siderbar ${!onHover && showIconState ? "close-transition" : ""} py-[1em] px-[1.5em] top-[6em] min-h-[86vh] max-h-[86vh] overflow-y-scroll fixed`}
+      className={`fixed bg-[#edf2f9f5] ${
+        openNav ? "w-[100vw] p-[2em]" : "hidden-sidebar"
+      } p-[1em] sidebar top-auto res-height `}
     >
-      <li
-        className={`${
-          currentPath === "/admin" ? "text-[#2A7BE4]" : ""
-        } flex gap-[10px]`}
-      >
-        <MdDashboard size={25} />
-        {!customState && "Dashboard"}
-      </li>
+      <NavLink className={({ isActive }) => getClassName(isActive)} to="." end>
+        <li className={`flex gap-[10px]`}>
+          <MdDashboard size={25} />
+          {!customState && "Dashboard"}
+        </li>
+      </NavLink>
 
       {/* App */}
-      <div className={`title-bar flex items-center ${padding} gap-[5px]`}>
+      <div className={`title-bar flex items-center py-[1em] gap-[5px]`}>
         {!customState && <p className="mb-[0] opacity-[0.7]">App</p>}
         <div className="h-[1.5px] w-full opacity-[0.3] bg-[#5d6e82] "></div>
       </div>
@@ -71,7 +61,13 @@ export default function MainSideBar() {
         <DropDown
           title={"Manage Users"}
           IconItem={MdManageAccounts}
-          items={[{ title: "Users", link: "", Icon: RiUserStarFill }]}
+          items={[
+            {
+              title: "Users",
+              link: "manage-users/users",
+              Icon: RiUserStarFill,
+            },
+          ]}
           showIconState={customState}
         />
         <li className="flex gap-[10px]">
@@ -84,8 +80,79 @@ export default function MainSideBar() {
         </li>
       </ul>
 
+      <ul className="p-0 flex flex-col gap-[15px]">
+        <DropDown
+          title={"Manage Users"}
+          IconItem={MdManageAccounts}
+          items={[
+            {
+              title: "Users",
+              link: "manage-users/users",
+              Icon: RiUserStarFill,
+            },
+          ]}
+          showIconState={customState}
+        />
+        <li className="flex gap-[10px]">
+          <MdWorkspacePremium size={25} />
+          {!customState && "Premiums"}
+        </li>
+        <li className="flex gap-[10px]">
+          <GiChest size={25} />
+          {!customState && "Lucky’s"}
+        </li>
+      </ul>
+
+      <ul className="p-0 flex flex-col gap-[15px]">
+        <DropDown
+          title={"Manage Users"}
+          IconItem={MdManageAccounts}
+          items={[
+            {
+              title: "Users",
+              link: "manage-users/users",
+              Icon: RiUserStarFill,
+            },
+          ]}
+          showIconState={customState}
+        />
+        <li className="flex gap-[10px]">
+          <MdWorkspacePremium size={25} />
+          {!customState && "Premiums"}
+        </li>
+        <li className="flex gap-[10px]">
+          <GiChest size={25} />
+          {!customState && "Lucky’s"}
+        </li>
+      </ul>
+
+      <ul className="p-0 flex flex-col gap-[15px]">
+        <DropDown
+          title={"Manage Users"}
+          IconItem={MdManageAccounts}
+          items={[
+            {
+              title: "Users",
+              link: "manage-users/users",
+              Icon: RiUserStarFill,
+            },
+          ]}
+          showIconState={customState}
+        />
+        <li className="flex gap-[10px]">
+          <MdWorkspacePremium size={25} />
+          {!customState && "Premiums"}
+        </li>
+        <li className="flex gap-[10px]">
+          <GiChest size={25} />
+          {!customState && "Lucky’s"}
+        </li>
+      </ul>
+
+      
+
       {/* Pages */}
-      <div className={`title-bar flex items-center ${padding} gap-[5px]`}>
+      <div className={`title-bar flex items-center py-[1em] gap-[5px]`}>
         {!customState && <p className="mb-[0] opacity-[0.7]">Pages</p>}
         <div className="h-[1.5px] w-full opacity-[0.3] bg-[#5d6e82] "></div>
       </div>
@@ -111,7 +178,7 @@ export default function MainSideBar() {
 
       {/* Admins */}
 
-      <div className={`title-bar flex items-center ${padding} gap-[5px]`}>
+      <div className={`title-bar flex items-center py-[1em] gap-[5px]`}>
         {!customState && <p className="mb-[0] opacity-[0.7]">Admins</p>}
         <div className="h-[1.5px] w-full opacity-[0.3] bg-[#5d6e82] "></div>
       </div>

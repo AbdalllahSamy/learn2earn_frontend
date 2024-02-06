@@ -1,12 +1,15 @@
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import NavBar from "./NavBar";
+import { BluredEffect } from "../../context/BluredEffect";
+
 export default function Layout() {
   const navigate = useNavigate();
   const location = useLocation();
   const prevPathRef = useRef();
+
+  const bluredEffect = useContext(BluredEffect).bluredContext;
 
   const auth = JSON.parse(localStorage.getItem("auth"));
   useEffect(() => {
@@ -30,8 +33,9 @@ export default function Layout() {
   const shouldRenderLogoutButton = !["/register", "/login"].includes(
     location.pathname
   );
+
   return (
-    <div className="relative">
+    <div>
       <Outlet></Outlet>
       {/* {shouldRenderLogoutButton && (
         <button

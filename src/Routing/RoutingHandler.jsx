@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Navigate, Route, Routes } from "react-router-dom";
+import { Link, Navigate, Outlet, Route, Routes } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 // Import the components that will be rendered based on the current location
@@ -17,13 +17,14 @@ import AdminLayoutPage from "../Component/Admin/AdminLayoutPage";
 import AdminDashboard from "../Component/Admin/AdminDashboard";
 import LoginPage from "../Component/Login/LoginPage";
 import CompleteProfile from "../Component/Login/CompleteProfile";
+import Users from "../Component/Admin/Manage Users/Users";
 
 const RoutingHandler = () => {
   const location = useLocation();
 
   return (
     // Render the routes based on the current location
-    <Routes location={location} key={location.pathname}>
+    <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Link to="/login">Login</Link>} />
         <Route path="login" element={<LoginPage />}>
@@ -43,6 +44,11 @@ const RoutingHandler = () => {
           </Route>
           <Route path="admin" element={<AdminLayoutPage />}>
             <Route index element={<AdminDashboard />} />
+            <Route path="manage-users" element={<Outlet />}>
+              <Route path="users" element={<Users />} />
+              <Route path="add-user" element={<h1>Add User</h1>} />
+              <Route path="edit-user" element={<h1>Edit User</h1>} />
+            </Route>
           </Route>
         </Route>
 

@@ -1,16 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { PiListBold } from "react-icons/pi";
 import logo from "../../assets/Learn2Earn.svg";
 import SearchComponent from "./SearchComponent";
-import { ShowIcons } from "../../context/ShowIconsOnly";
+import { navBarContext } from "../../context/openNavBar";
 
 export default function NavBar({ children }) {
-  const toggleShowIconsOnly = useContext(ShowIcons).toggleShowIconsOnly;
+  const openNavBarState = useContext(navBarContext).setOpenNav;
   return (
-    <div className="navbar-color fixed pr-[1em] w-full flex items-center justify-between">
+    <div className="fixed custom-container flex items-center justify-between bg-[#edf2f9f5] w-full">
       <div className="flex items-center gap-[40px]">
         <div className="logo flex items-center gap-[20px]">
-          <PiListBold className="cursor-pointer" onClick={()=>{toggleShowIconsOnly()}} size={25} />
+          <PiListBold
+            onClick={() => openNavBarState((prev) => !prev)}
+            className="cursor-pointer drop-down-icon"
+            size={25}
+          />
           <div className="flex gap-[10px] items-center">
             <img src={logo} alt="Learn2Earn" width={25} height={25} />
             <div style={{ lineHeight: "8px" }} className="flex flex-col h-fit">

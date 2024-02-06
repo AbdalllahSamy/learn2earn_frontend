@@ -1,0 +1,14 @@
+.res-table {
+  min-width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: inline-table;
+}
+@media screen and (max-width: 850px) {
+  .res-table {
+    min-width: 90vw;
+    max-width: 90vw;
+    display: block;
+  }
+    
+}

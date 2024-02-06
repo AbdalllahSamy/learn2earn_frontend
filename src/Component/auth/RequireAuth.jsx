@@ -20,12 +20,18 @@ const RequireAuth = ({ allowedType }) => {
 
   if (auth)
     return (
-      <>
-        <div className="py-[1.5em] px-[1.5em]">
-          <NavBar>{/* Write your custom bar here  */}</NavBar>
-        </div>
+      <div>
+        <NavBar>
+          <h1 className="hidden md:block text-[1em]">
+            Dev note : go to{" "}
+            <span style={{ fontWeight: 800 }}>RequireAuth.jsx</span> then write
+            your code inside the The
+            <span style={{ fontWeight: 800 }}> NavBar.jsx</span> as a
+            child component
+          </h1>
+        </NavBar>
         <Outlet />
-      </>
+      </div>
     );
 };
 

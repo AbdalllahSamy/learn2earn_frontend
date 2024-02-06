@@ -1,8 +1,13 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { RiArrowDropUpLine } from "react-icons/ri";
-import { ShowIcons } from "../context/ShowIconsOnly";
+import { NavLink } from "react-router-dom";
+
+// Define the helper function
+function getClassName(isActive) {
+  return `no-underline ${isActive ? "text-[#2A7BE4]" : "text-[#5d6e82]"}`;
+}
 
 export default function DropDown({ title, items, IconItem, showIconState }) {
   const [open, setOpen] = useState(false);
@@ -54,17 +59,24 @@ export default function DropDown({ title, items, IconItem, showIconState }) {
               {open && (
                 <ul>
                   {items.map((item, index) => (
-                    <motion.li
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.3, type: "tween" }}
-                      key={index}
-                      className="flex items-center gap-[10px]"
+                    <NavLink
+                      className={({ isActive }) => getClassName(isActive)}
+                      to={item.link}
+                      key={item.link}
+                      end
                     >
-                      {item.Icon && <item.Icon size={18} />}
-                      {item.title}
-                    </motion.li>
+                      <motion.li
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.3, type: "tween" }}
+                        key={index}
+                        className="flex items-center gap-[10px]"
+                      >
+                        {item.Icon && <item.Icon size={18} />}
+                        {!showIconState &&  item.title}
+                      </motion.li>
+                    </NavLink>
                   ))}
                 </ul>
               )}

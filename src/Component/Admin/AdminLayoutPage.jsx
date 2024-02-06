@@ -1,21 +1,37 @@
-import React, { useContext } from "react";
-import { Outlet } from "react-router-dom";
-import { useCheckValidation } from "../../hooks/useCheckValidation";
+import React, { useEffect, useState } from "react";
 import MainSideBar from "./MainSideBar";
-import { ShowIcons } from "../../context/ShowIconsOnly";
+import { Outlet } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 export default function AdminLayoutPage() {
-  const showIcon = useContext(ShowIcons).showIconsOnly;
-  useCheckValidation("admin");
+  const [onMobile, setOnMobile] = useState(window.innerWidth < 1080);
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth < 1080) {
+        setOnMobile(true);
+      } else setOnMobile(false);
+    });
+    return () => {
+      window.removeEventListener("resize", () => {
+        if (window.innerWidth < 1080) {
+          setOnMobile(true);
+        } else setOnMobile(false);
+      });
+    };
+  }, []);
 
   return (
-    <div className="content-transition">
+    <div className="main-layout">
       <MainSideBar />
-      <div
-        style={{ marginLeft: showIcon ? "90px" : "230px" }}
-        className={`mt-[5em] ${showIcon && " content-transition"}`}
+      <motion.div
+        initial={{ opacity: onMobile ? 1 : 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ type: "tween", duration: 0.2 }}
+        key={location.pathname}
+        className="flex "
       >
         <Outlet />
-      </div>
+      </motion.div>
     </div>
   );
 }
