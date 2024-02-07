@@ -25,8 +25,7 @@ export default function MainSideBar() {
   }
 
   useEffect(() => {
-    console.log(openNav);
-    if (openNav) console.log("nav should open");
+    if (openNav) /* console.log("nav should open") */;
   }, [openNav]);
 
   useEffect(() => {
