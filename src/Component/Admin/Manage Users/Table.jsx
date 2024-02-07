@@ -4,22 +4,48 @@ import styles from "../Admin-common.module.css";
 import { FaSort } from "react-icons/fa";
 import AdminCard from "../common/AdminCard";
 import stylesTable from "./table.module.css";
-const data = Array.from({ length: 30 }, () => ({
-  name: faker.internet.userName(),
-  email: faker.internet.email(),
-  phone: faker.phone.number(),
-  coins: faker.number.int({ min: 100, max: 1000 }),
-  userType: ["User", "Admin", "Parent", "Teacher"][
-    Math.floor(Math.random() * 4)
-  ],
-  active: faker.datatype.boolean() ? "Yes" : "No",
-  verify: faker.datatype.boolean() ? "Yes" : "No",
-  premium: faker.datatype.boolean() ? "Yes" : "No",
-  joined: faker.date.past().getFullYear(),
-}));
-
-export default function Table() {
+import toast, { Toaster } from "react-hot-toast";
+export default function Table({ data }) {
   // Generate an array of 30 rows of fake data
+
+  const [updatedUser, setUpdatedUser] = useState(null);
+  if (!data) {
+    return (
+      <div className="res-height px-[1em]">
+        <h1>No Data To Show</h1>
+      </div>
+    );
+  }
+
+  useEffect(() => {
+    if (updatedUser) {
+      toast.success("user updated successfully", {
+        position: "top-right",
+        duration: 4000,
+        style: {
+          backgroundColor: "#00FF0A",
+          color: "white",
+        },
+        iconTheme: {
+          primary: "white",
+          secondary: "#00FF0A",
+        },
+      });
+
+      const newData = sortedData.map((item) => {
+        if (item.id === updatedUser.id) {
+          item = updatedUser.data;
+        }
+        return item;
+      });
+      setSortedData([...newData]);
+      setUpdatedUser(null);
+    }
+  }, [updatedUser]);
+
+  useEffect(() => {
+    if (data) setSortedData([...data]);
+  }, [data]);
 
   const [sortField, setSortField] = useState(null);
   const [sortedData, setSortedData] = useState([...data]);
@@ -33,15 +59,15 @@ export default function Table() {
     const sortArray = (type) => {
       const sortProperty = type;
       if (
-        sortField === "active" ||
-        sortField === "verify" ||
+        sortField === "is_active" ||
+        sortField === "verified_acc" ||
         sortField === "premium"
       ) {
         const sorted = [...sortedData].sort((a, b) => {
-          if (a[sortProperty] === "Yes") {
+          if (a[sortProperty] === 1) {
             return 1;
           }
-          if (a[sortProperty] === "No") {
+          if (a[sortProperty] === 0) {
             return -1;
           }
           return 0;
@@ -71,6 +97,9 @@ export default function Table() {
 
   return (
     <>
+      <div>
+        <Toaster position="top-right" />
+      </div>
       <table
         className={`table-auto ${stylesTable["res-table"]} text-xs min-w-[80vw] max-w-[90vw] md:min-w-[100%] md:max-w-[100%] button-shadow rounded-lg mx-auto block md:inline-table overflow-x-scroll`}
       >
@@ -101,7 +130,7 @@ export default function Table() {
             </th>
             <th
               onClick={() => {
-                setSortField("active");
+                setSortField("is_active");
               }}
               className="p-2 font-[500] header-color cursor-pointer"
             >
@@ -111,7 +140,7 @@ export default function Table() {
             </th>
             <th
               onClick={() => {
-                setSortField("verify");
+                setSortField("verified_acc");
               }}
               className="p-2 font-[500] header-color cursor-pointer"
             >
@@ -143,28 +172,29 @@ export default function Table() {
         </thead>
         <tbody>
           {sortedData.map((row, index) => (
-            <tr key={index}>
+            <tr key={row.id}>
               <td className="px-[2em]">{row.name}</td>
               <td className="p-2">{row.email}</td>
               <td className="p-2">{row.phone}</td>
               <td className="p-2">{row.coins}</td>
-              <td className="p-2">{row.userType}</td>
+              <td className="p-2">{row.type_user}</td>
               <td className="p-2">
                 <button
                   onClick={() => {
                     setShowPortal({
                       type: "active",
-                      default: row.active === "No" ? 1 : 0,
+                      default: row.is_active === 0 ? 1 : 0,
                       show: true,
+                      id: row.id,
                     });
                   }}
                   className={`${
-                    row.active === "Yes"
+                    row.is_active === 1
                       ? styles["active-button"]
                       : styles["de-active-button"]
                   }`}
                 >
-                  {row.active}
+                  {row.is_active === 1 ? "Yes" : "No"}
                 </button>
               </td>
               <td className="p-2">
@@ -172,17 +202,18 @@ export default function Table() {
                   onClick={() => {
                     setShowPortal({
                       type: "verify",
-                      default: row.verify === "No" ? 1 : 0,
+                      default: row.verified_acc === 0 ? 1 : 0,
                       show: true,
+                      id: row.id,
                     });
                   }}
                   className={`${
-                    row.verify === "Yes"
+                    row.verified_acc === 1
                       ? styles["active-button"]
                       : styles["de-active-button"]
                   }`}
                 >
-                  {row.verify}
+                  {row.verified_acc === 1 ? "Yes" : "No"}
                 </button>
               </td>
               <td className="p-2">
@@ -190,20 +221,21 @@ export default function Table() {
                   onClick={() => {
                     setShowPortal({
                       type: "premium",
-                      default: row.premium === "No" ? 1 : 0,
+                      default: row.premium === 0 ? 1 : 0,
                       show: true,
+                      id: row.id,
                     });
                   }}
                   className={`${
-                    row.premium === "Yes"
+                    row.premium === 1
                       ? styles["active-button"]
                       : styles["de-active-button"]
                   }`}
                 >
-                  {row.premium}
+                  {row.premium === 1 ? "Yes" : "No"}
                 </button>
               </td>
-              <td className="px-[2em]">{row.joined}</td>
+              <td className="px-[2em]">{row.created_at}</td>
             </tr>
           ))}
         </tbody>
@@ -214,6 +246,8 @@ export default function Table() {
           type={showPortal.type}
           defaultState={showPortal.default}
           closePortal={closePortal}
+          id={showPortal.id}
+          realTimeUpdate={setUpdatedUser}
         />
       )}
     </>

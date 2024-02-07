@@ -2,8 +2,55 @@ import React, { useContext, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { BluredEffect } from "../../../context/BluredEffect";
 import ImgBg from "../../../assets/card.gif";
-export default function AdminCard({ type, closePortal, defaultState }) {
+import axios from "../../../api/axios";
+
+export default function AdminCard({
+  type,
+  closePortal,
+  defaultState,
+  id,
+  realTimeUpdate,
+}) {
   const bluredFunction = useContext(BluredEffect).setBluredContext;
+
+  useEffect(() => {
+    realTimeUpdate(null);
+  }, []);
+
+  function manageUsers(id, link, type) {
+    const authData = JSON.parse(localStorage.getItem("auth"));
+    const token = authData.accessToken;
+
+    axios
+      .post(
+        link,
+        { id },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        }
+      )
+      .then((res) => {
+        realTimeUpdate({ id, data: res.data.data.data });
+        closePortal(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }
+
+  function handleSubmit() {
+    if (type === "active") {
+      manageUsers(id, "/admin/users/manage-active", "active");
+    } else if (type === "verify") {
+      manageUsers(id, "/admin/users/manage-verify", "verify");
+    } else if (type === "premium") {
+      manageUsers(id, "/admin/users/manage-premium", "premium");
+    }
+  }
 
   useEffect(() => {
     bluredFunction(true);
@@ -19,7 +66,7 @@ export default function AdminCard({ type, closePortal, defaultState }) {
 
   const handleChildClick = (event) => {
     event.stopPropagation(); // Prevent the event from reaching the parent
-    console.log("Active Clicked");
+    handleSubmit();
     // Do something when clicked on a child
   };
 
