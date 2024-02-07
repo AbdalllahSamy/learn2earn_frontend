@@ -101,13 +101,13 @@ export default function Login() {
 
       const $userType = response.data.data.user.type_user;
       if ($userType === "admin" || $userType === "superadmin") {
-        navigateFunction("/admin/dashboard");
+        navigateFunction("/admin");
       } else if ($userType === "teacher") {
-        navigateFunction("/teacher/dashboard");
+        navigateFunction("/teacher");
       } else if ($userType === "parent") {
-        navigateFunction("/parent/dashboard");
+        navigateFunction("/parent");
       } else {
-        navigateFunction("/student/dashboard");
+        navigateFunction("/student");
       }
     } catch (error) {
       if (error.response) {

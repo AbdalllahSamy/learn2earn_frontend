@@ -79,77 +79,7 @@ export default function MainSideBar() {
           {!customState && "Lucky’s"}
         </li>
       </ul>
-
-      <ul className="p-0 flex flex-col gap-[15px]">
-        <DropDown
-          title={"Manage Users"}
-          IconItem={MdManageAccounts}
-          items={[
-            {
-              title: "Users",
-              link: "manage-users/users",
-              Icon: RiUserStarFill,
-            },
-          ]}
-          showIconState={customState}
-        />
-        <li className="flex gap-[10px]">
-          <MdWorkspacePremium size={25} />
-          {!customState && "Premiums"}
-        </li>
-        <li className="flex gap-[10px]">
-          <GiChest size={25} />
-          {!customState && "Lucky’s"}
-        </li>
-      </ul>
-
-      <ul className="p-0 flex flex-col gap-[15px]">
-        <DropDown
-          title={"Manage Users"}
-          IconItem={MdManageAccounts}
-          items={[
-            {
-              title: "Users",
-              link: "manage-users/users",
-              Icon: RiUserStarFill,
-            },
-          ]}
-          showIconState={customState}
-        />
-        <li className="flex gap-[10px]">
-          <MdWorkspacePremium size={25} />
-          {!customState && "Premiums"}
-        </li>
-        <li className="flex gap-[10px]">
-          <GiChest size={25} />
-          {!customState && "Lucky’s"}
-        </li>
-      </ul>
-
-      <ul className="p-0 flex flex-col gap-[15px]">
-        <DropDown
-          title={"Manage Users"}
-          IconItem={MdManageAccounts}
-          items={[
-            {
-              title: "Users",
-              link: "manage-users/users",
-              Icon: RiUserStarFill,
-            },
-          ]}
-          showIconState={customState}
-        />
-        <li className="flex gap-[10px]">
-          <MdWorkspacePremium size={25} />
-          {!customState && "Premiums"}
-        </li>
-        <li className="flex gap-[10px]">
-          <GiChest size={25} />
-          {!customState && "Lucky’s"}
-        </li>
-      </ul>
-
-      
+    
 
       {/* Pages */}
       <div className={`title-bar flex items-center py-[1em] gap-[5px]`}>

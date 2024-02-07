@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import MainSideBar from "./MainSideBar";
 import { Outlet } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import { useCheckValidation } from "../../hooks/useCheckValidation";
 export default function AdminLayoutPage() {
+  useCheckValidation("admin");
+
   const [onMobile, setOnMobile] = useState(window.innerWidth < 1080);
   useEffect(() => {
     window.addEventListener("resize", () => {
