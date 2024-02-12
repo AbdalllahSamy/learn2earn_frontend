@@ -13,9 +13,6 @@ export default function Users() {
     try {
       const authData = JSON.parse(localStorage.getItem("auth"));
       const token = authData.accessToken;
-
-      console.log(token);
-
       axios
         .get("/admin/users/manage", {
           headers: {
@@ -25,7 +22,6 @@ export default function Users() {
           withCredentials: true,
         })
         .then((res) => {
-          console.log(res.data.data);
           setData(res.data.data);
         })
         .catch((error) => {

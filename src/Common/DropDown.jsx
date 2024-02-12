@@ -17,7 +17,7 @@ export default function DropDown({ title, items, IconItem, showIconState }) {
 
   useEffect(() => {
     if (contentRef.current) {
-      setContentHeight(items.length * 24);
+      setContentHeight(items.length * 24 + 10);
     }
   }, [open]);
 
@@ -57,10 +57,10 @@ export default function DropDown({ title, items, IconItem, showIconState }) {
           >
             <AnimatePresence mode="wait">
               {open && (
-                <ul>
+                <ul className="flex flex-col gap-[10px]">
                   {items.map((item, index) => (
                     <NavLink
-                      className={({ isActive }) => getClassName(isActive)}
+                      className={({ isActive }) => getClassName(isActive) }
                       to={item.link}
                       key={item.link}
                       end
@@ -74,7 +74,7 @@ export default function DropDown({ title, items, IconItem, showIconState }) {
                         className="flex items-center gap-[10px]"
                       >
                         {item.Icon && <item.Icon size={18} />}
-                        {!showIconState &&  item.title}
+                        {!showIconState && item.title}
                       </motion.li>
                     </NavLink>
                   ))}
