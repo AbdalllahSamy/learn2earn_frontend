@@ -37,12 +37,12 @@ export default function TeacherSideBar() {
           items={[
             {
               title: "Manage",
-              link: "teacher/manage",
+              link: "manage",
               Icon: null,
             },
             {
               title: "Groups",
-              link: "teacher/groups",
+              link: "groups",
               Icon: null,
             },
           ]}
@@ -110,6 +110,7 @@ export default function TeacherSideBar() {
           </li>
         </NavLink>
       </ul>
+      
     </MainSideBar>
   );
 }

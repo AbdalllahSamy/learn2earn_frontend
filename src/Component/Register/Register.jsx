@@ -8,6 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 import useChangeTitle from "../../hooks/useChangeTitle";
 import { IoEye as ShowPasswordIcon } from "react-icons/io5";
 import { IoEyeOff as HidePasswordIcon } from "react-icons/io5";
+import Loading from "../Custom Components/Loading";
 export default function Register() {
   const [currentStep, setCurrentStep] = useState(1);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -520,17 +521,9 @@ export default function Register() {
                         }
                       >
                         {isLoad ? (
-                          <ThreeCircles
-                            visible={true}
-                            height="50"
-                            width="80"
-                            color="#fff"
-                            ariaLabel="three-circles-loading"
-                            wrapperStyle={{}}
-                            wrapperClass=""
-                          />
+                          <Loading />
                         ) : (
-                          "Sumbit"
+                          "Register"
                         )}
                       </button>
                     </div>

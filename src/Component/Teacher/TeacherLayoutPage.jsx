@@ -31,7 +31,7 @@ export default function AdminLayoutPage() {
         exit={{ opacity: 0 }}
         transition={{ type: "tween", duration: 0.2 }}
         key={location.pathname}
-        className="flex push-left bg-white min-h-[100vh] custom-container py-[2em] curve-shape overflow-x-hidden"
+        className="flex push-left bg-white res-height custom-container py-[2em] curve-shape overflow-x-hidden"
       >
         <Outlet />
       </motion.div>

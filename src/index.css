@@ -118,9 +118,9 @@ code {
   font-weight: 500;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 /* 
 .show-scroll::-webkit-scrollbar {
   display: block !important ;
@@ -149,7 +149,7 @@ img {
 .res-height {
   max-height: calc(100vh - 68.63px);
   min-height: calc(100vh - 68.63px);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .top-auto {

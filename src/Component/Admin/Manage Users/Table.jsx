@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { faker } from "@faker-js/faker";
 import styles from "../Admin-common.module.css";
 import { FaSort } from "react-icons/fa";
 import AdminCard from "../common/AdminCard";

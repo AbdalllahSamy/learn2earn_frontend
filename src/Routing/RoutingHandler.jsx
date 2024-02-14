@@ -18,6 +18,7 @@ import AdminDashboard from "../Component/Admin/AdminDashboard";
 import LoginPage from "../Component/Login/LoginPage";
 import CompleteProfile from "../Component/Login/CompleteProfile";
 import Users from "../Component/Admin/Manage Users/Users";
+import StudentManage from "../Component/Teacher/Manage/StudentManage";
 
 const RoutingHandler = () => {
   const location = useLocation();
@@ -35,6 +36,7 @@ const RoutingHandler = () => {
         <Route element={<RequireAuth />}>
           <Route path="teacher" element={<TeacherLayoutPage />}>
             <Route index element={<TeacherDashboard />} />
+            <Route path="manage" element={<StudentManage />} />
           </Route>
           <Route path="student" element={<StudentLayoutPage />}>
             <Route path="dashboard" element={<StudentDashboard />} />

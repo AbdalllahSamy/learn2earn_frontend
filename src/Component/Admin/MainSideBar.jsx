@@ -23,7 +23,7 @@ export default function MainSideBar({ children }) {
   //
   return (
     <div
-      className={`fixed bg-[#edf2f9f5] ${
+      className={`fixed z-[5] bg-[#edf2f9f5] overflow-auto ${
         openNav ? "w-[100vw] p-[2em]" : "hidden-sidebar w-[240px]"
       } p-[1em] sidebar top-auto res-height `}
     >

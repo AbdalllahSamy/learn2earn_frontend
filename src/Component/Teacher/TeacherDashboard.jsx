@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../api/axios";
 import PremiumCard from "./PremiumCard";
+import Loading from "../Custom Components/Loading";
 
 function TeacherDashboard() {
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     const authData = JSON.parse(localStorage.getItem("auth"));
@@ -18,12 +19,15 @@ function TeacherDashboard() {
       .then((res) => {
         setUserData(res.data.data); // Assuming the response data should be stored in userData state
       })
-      .catch((error) => {
-      });
+      .catch((error) => {});
   }, []);
 
   if (!userData) {
-    return <div>Loading...</div>;
+    return (
+      <div className="res-height w-full flex items-start py-[5em] justify-center">
+        <Loading color="#2b4cc4" size={20} />
+      </div>
+    );
   }
 
   return (
