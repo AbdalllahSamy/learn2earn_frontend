@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "../../api/axios";
 import PremiumCard from "./PremiumCard";
 import Loading from "../Custom Components/Loading";
+import useErrorHandling from "../../hooks/useErrorHandling";
 
 function TeacherDashboard() {
   const [userData, setUserData] = useState(null);
+  const [error, setError] = useErrorHandling(false);
 
   useEffect(() => {
     const authData = JSON.parse(localStorage.getItem("auth"));
@@ -19,8 +21,14 @@ function TeacherDashboard() {
       .then((res) => {
         setUserData(res.data.data); // Assuming the response data should be stored in userData state
       })
-      .catch((error) => {});
+      .catch((error) => {
+        setError(error.response.data.message);
+      });
   }, []);
+
+  if (error) {
+    return <div className="text-center text-[2rem]">{error}</div>;
+  }
 
   if (!userData) {
     return (

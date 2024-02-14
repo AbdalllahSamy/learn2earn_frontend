@@ -6,10 +6,8 @@ import toast, { Toaster } from "react-hot-toast";
 export default function DeleteStudentCard({
   handleClosePortal,
   ids,
-  realTimeRefresh,
 }) {
-  const [studentCode, setStudentCode] = useState("");
-
+  console.log(ids);
   const handleParentClick = () => {
     // Do something when clicked on the parent
     handleClosePortal(false);

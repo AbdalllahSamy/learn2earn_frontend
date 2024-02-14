@@ -6,7 +6,7 @@ import Style from "./Login.module.css";
 import axios from "../../api/axios";
 import { IoEye as ShowPasswordIcon } from "react-icons/io5";
 import { IoEyeOff as HidePasswordIcon } from "react-icons/io5";
-import GoogleLoginHandler from "../../Custom Component/GoogleLoginHandler";
+import GoogleLoginHandler from "../Custom Components/GoogleLoginHandler";
 import useChangeTitle from "../../hooks/useChangeTitle";
 import { motion } from "framer-motion";
 import Loading from "../Custom Components/Loading";

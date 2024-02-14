@@ -1,6 +1,13 @@
 import React from "react";
-import { Link, Navigate, Outlet, Route, Routes } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import {
+  Link,
+  Outlet,
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createHashRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
 
 // Import the components that will be rendered based on the current location
 import Login from "../Component/Login/Login";
@@ -19,45 +26,48 @@ import LoginPage from "../Component/Login/LoginPage";
 import CompleteProfile from "../Component/Login/CompleteProfile";
 import Users from "../Component/Admin/Manage Users/Users";
 import StudentManage from "../Component/Teacher/Manage/StudentManage";
+import ErrorHandler from "../ErrorHandler/ErrorHandler";
 
 const RoutingHandler = () => {
-  const location = useLocation();
-
-  return (
-    // Render the routes based on the current location
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Link to="/login">Login</Link>} />
-        <Route path="login" element={<LoginPage />}>
-          <Route index element={<Login />} />
-          <Route path="complete-profile" element={<CompleteProfile />} />
-        </Route>
-        <Route path="register" element={<Register />} />
-        <Route element={<RequireAuth />}>
-          <Route path="teacher" element={<TeacherLayoutPage />}>
-            <Route index element={<TeacherDashboard />} />
-            <Route path="manage" element={<StudentManage />} />
+  const router = createBrowserRouter(
+    // Define the routes
+    createRoutesFromElements(
+      <>
+        <Route path="/" errorElement={<ErrorHandler />} element={<Layout />}>
+          <Route index element={<Link to="/login">Login</Link>} />
+          <Route path="login" element={<LoginPage />}>
+            <Route index element={<Login />} />
+            <Route path="complete-profile" element={<CompleteProfile />} />
           </Route>
-          <Route path="student" element={<StudentLayoutPage />}>
-            <Route path="dashboard" element={<StudentDashboard />} />
-          </Route>
-          <Route path="parent" element={<ParentLayoutPage />}>
-            <Route path="dashboard" element={<ParentDashboard />} />
-          </Route>
-          <Route path="admin" element={<AdminLayoutPage />}>
-            <Route index element={<AdminDashboard />} />
-            <Route path="manage-users" element={<Outlet />}>
-              <Route path="users" element={<Users />} />
-              <Route path="add-user" element={<h1>Add User</h1>} />
-              <Route path="edit-user" element={<h1>Edit User</h1>} />
+          <Route path="register" element={<Register />} />
+          <Route element={<RequireAuth />}>
+            <Route path="teacher" element={<TeacherLayoutPage />}>
+              <Route index element={<TeacherDashboard />} />
+              <Route path="manage" element={<StudentManage />} />
+            </Route>
+            <Route path="student" element={<StudentLayoutPage />}>
+              <Route path="dashboard" element={<StudentDashboard />} />
+            </Route>
+            <Route path="parent" element={<ParentLayoutPage />}>
+              <Route path="dashboard" element={<ParentDashboard />} />
+            </Route>
+            <Route path="admin" element={<AdminLayoutPage />}>
+              <Route index element={<AdminDashboard />} />
+              <Route path="manage-users" element={<Outlet />}>
+                <Route path="users" element={<Users />} />
+                <Route path="add-user" element={<h1>Add User</h1>} />
+                <Route path="edit-user" element={<h1>Edit User</h1>} />
+              </Route>
             </Route>
           </Route>
-        </Route>
 
-        <Route path="*" element={<h1>Not found</h1>} />
-      </Route>
-    </Routes>
+          <Route path="*" element={<ErrorHandler />} />
+        </Route>
+      </>
+    )
   );
+
+  return <RouterProvider router={router} />;
 };
 
 export default RoutingHandler;

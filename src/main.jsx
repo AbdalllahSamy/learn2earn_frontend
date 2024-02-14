@@ -17,13 +17,9 @@ import { googleClient } from "./Component/auth/googleClient";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <GoogleOAuthProvider clientId={googleClient}>
-      <AuthProvider>
-        <Routes>
-          <Route path="/*" element={<App />} />
-        </Routes>
-      </AuthProvider>
-    </GoogleOAuthProvider>
-  </BrowserRouter>
+  <GoogleOAuthProvider clientId={googleClient}>
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  </GoogleOAuthProvider>
 );

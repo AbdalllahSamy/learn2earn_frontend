@@ -6,15 +6,11 @@ import axios from "../../../api/axios";
 import defaultAvatarMale from "../../../assets/defualtAvatarMale.jpg";
 import defaultAvatarFemale from "../../../assets/defaultAvatarFemale.jpg";
 import Loading from "../../Custom Components/Loading";
-import DeleteStudentCard from "../common/DeleteStudentCard";
-export default function TeacherTable({
-  renderDeletePortalBool,
-  toggleDeletePortal,
-  checkSelectedUsers,
-}) {
+import useErrorHandling from "../../../hooks/useErrorHandling";
+export default function TeacherTable({ trackSelectedUsers }) {
   const [students, setStudents] = useState([]);
   const [selectedUsers, setSelectedUsers] = useState([]);
-  const [realTimeRefresh, setRealTimeRefresh] = useState(false);
+  const [error, setError] = useErrorHandling();
 
   useEffect(() => {
     const authData = JSON.parse(localStorage.getItem("auth"));
@@ -30,21 +26,17 @@ export default function TeacherTable({
         setStudents(res.data.data);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        setError(error.response.data.message);
       });
   }, []);
 
   useEffect(() => {
-    checkSelectedUsers(selectedUsers.length);
-    if (realTimeRefresh) {
-      // Assuming students is an array of objects with an 'id' property
-      setStudents((prevStudents) =>
-        prevStudents.filter((student) => !selectedUsers.includes(student.id))
-      );
-      setSelectedUsers([]);
-      setRealTimeRefresh(false);
-    }
-  }, [realTimeRefresh, selectedUsers]);
+    trackSelectedUsers(selectedUsers);
+  }, [selectedUsers]);
+
+  if (error) {
+    return <div className="text-center text-[2rem]">{error}</div>;
+  }
 
   if (!students || students.length === 0) {
     return (
@@ -127,7 +119,7 @@ export default function TeacherTable({
                         />
                         {student.premium !== 0 && (
                           <img
-                            className="absolute top-[-14px] left-[-10px]"
+                            className="absolute z-[1] top-[-14px] left-[-10px]"
                             width={30}
                             height={30}
                             src={crownSvg}
@@ -157,13 +149,6 @@ export default function TeacherTable({
           </tbody>
         </table>
       </div>
-      {renderDeletePortalBool && (
-        <DeleteStudentCard
-          ids={selectedUsers}
-          handleClosePortal={toggleDeletePortal}
-          realTimeRefresh={setRealTimeRefresh}
-        />
-      )}
     </div>
   );
 }

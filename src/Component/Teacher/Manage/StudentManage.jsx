@@ -5,12 +5,23 @@ import deleteIcon from "../../../assets/Teacher/common/deleteIcon.svg";
 import TeacherTable from "./TeacherTable";
 import AddStudentCard from "../common/AddStudentCard";
 import toast, { Toaster } from "react-hot-toast";
+import DeleteStudentCard from "../common/DeleteStudentCard";
 export default function StudentManage() {
   const [addStudentPortal, setAddStudentPortal] = useState(false);
-  const [canOpenDeletePortal, setCanOpenDeletePortal] = useState(false);
   const [deleteStudentsPortal, setDeleteStudentsPortal] = useState(false);
+  const [selectedUsers, setSelectedUsers] = useState([]);
 
-  const toggleDeletePortal = (param = false) => {
+  function trackSelectedUsers(selectedUsers) {
+    setSelectedUsers(selectedUsers);
+  }
+
+  function handleClickDeleteIcon() {
+    if (selectedUsers.length > 0) {
+      setDeleteStudentsPortal(true);
+    }
+  }
+
+  function handleClosePortalDelete(param = false) {
     if (param && param.type === "success") {
       toast.success(param.message, {
         position: "top-right",
@@ -39,17 +50,10 @@ export default function StudentManage() {
         },
       });
     }
-    setDeleteStudentsPortal((prev) => !prev);
-  };
+    setDeleteStudentsPortal(false);
+  }
 
-  useEffect(() => {
-    return () => {
-      setAddStudentPortal(false);
-      setDeleteStudentsPortal(false);
-    };
-  }, []);
-
-  function handleClosePortal(param = false) {
+  function handleClosePortalAdd(param = false) {
     if (param && param.type === "success") {
       toast.success(param.message, {
         position: "top-right",
@@ -81,12 +85,6 @@ export default function StudentManage() {
     setAddStudentPortal(false);
   }
 
-  function checkSelectedUsers(param) {
-    if (param) {
-      setCanOpenDeletePortal(true);
-    } else setCanOpenDeletePortal(false);
-  }
-
   return (
     <>
       <div>
@@ -108,11 +106,7 @@ export default function StudentManage() {
             >
               <img src={addIcon} alt="add-icon" />
             </button>
-            <button
-              onClick={() => {
-                canOpenDeletePortal && setDeleteStudentsPortal((prev) => !prev);
-              }}
-            >
+            <button onClick={handleClickDeleteIcon}>
               <img
                 src={deleteIcon}
                 className="button-shadow rounded-full"
@@ -121,13 +115,15 @@ export default function StudentManage() {
             </button>
           </div>
         </div>
-        <TeacherTable
-          renderDeletePortalBool={deleteStudentsPortal}
-          checkSelectedUsers={checkSelectedUsers}
-          toggleDeletePortal={toggleDeletePortal}
-        />
+        <TeacherTable trackSelectedUsers={trackSelectedUsers} />
         {addStudentPortal && (
-          <AddStudentCard handleClosePortal={handleClosePortal} />
+          <AddStudentCard handleClosePortal={handleClosePortalAdd} />
+        )}
+        {deleteStudentsPortal && (
+          <DeleteStudentCard
+            handleClosePortal={handleClosePortalDelete}
+            ids={selectedUsers}
+          />
         )}
       </div>
     </>
