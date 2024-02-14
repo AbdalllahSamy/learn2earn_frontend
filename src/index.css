@@ -147,8 +147,8 @@ img {
   }
 }
 .res-height {
-  max-height: calc(100vh - 68.63px);
-  min-height: calc(100vh - 68.63px);
+  max-height: calc(100vh - 5em);
+  min-height: calc(100vh - 5em);
   overflow-y: auto;
 }
 

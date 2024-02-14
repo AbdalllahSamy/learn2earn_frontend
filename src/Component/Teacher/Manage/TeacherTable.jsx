@@ -55,8 +55,8 @@ export default function TeacherTable({
   }
 
   return (
-    <div className="rounded-xl overflow-hidden">
-      <div className="overflow-x-auto">
+    <div>
+      <div className="overflow-x-auto rounded-2xl">
         <table className="min-w-full border border-gray-300">
           <thead>
             <tr className="text-white">
