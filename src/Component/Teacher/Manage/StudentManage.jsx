@@ -10,6 +10,7 @@ export default function StudentManage() {
   const [addStudentPortal, setAddStudentPortal] = useState(false);
   const [deleteStudentsPortal, setDeleteStudentsPortal] = useState(false);
   const [selectedUsers, setSelectedUsers] = useState([]);
+  const [refresh, setRefresh] = useState(false);
 
   function trackSelectedUsers(selectedUsers) {
     setSelectedUsers(selectedUsers);
@@ -115,7 +116,11 @@ export default function StudentManage() {
             </button>
           </div>
         </div>
-        <TeacherTable trackSelectedUsers={trackSelectedUsers} />
+        <TeacherTable
+          refresh={refresh}
+          trackSelectedUsers={trackSelectedUsers}
+          setRefresh={setRefresh}
+        />
         {addStudentPortal && (
           <AddStudentCard handleClosePortal={handleClosePortalAdd} />
         )}
@@ -123,6 +128,7 @@ export default function StudentManage() {
           <DeleteStudentCard
             handleClosePortal={handleClosePortalDelete}
             ids={selectedUsers}
+            setRefresh={setRefresh}
           />
         )}
       </div>

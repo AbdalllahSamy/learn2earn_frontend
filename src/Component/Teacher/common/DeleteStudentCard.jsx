@@ -6,8 +6,9 @@ import toast, { Toaster } from "react-hot-toast";
 export default function DeleteStudentCard({
   handleClosePortal,
   ids,
+  setRefresh,
 }) {
-  console.log(ids);
+
   const handleParentClick = () => {
     // Do something when clicked on the parent
     handleClosePortal(false);
@@ -18,7 +19,12 @@ export default function DeleteStudentCard({
     // Do something when clicked on a child
     const authData = JSON.parse(localStorage.getItem("auth"));
     const token = authData.accessToken;
-
+    setRefresh(true);
+    handleClosePortal({
+      type: "success",
+      message: "Students Deleted successfully",
+    });
+    return 0;
     axios
       .post(
         "/teacher/student/delete-users",
@@ -33,18 +39,12 @@ export default function DeleteStudentCard({
       )
       .then((res) => {
         // Assuming the response data should be stored in userData state
-        realTimeRefresh(true);
-        handleClosePortal({
-          type: "success",
-          message: "Students Deleted successfully",
-        });
       })
       .catch((error) => {
         handleClosePortal({
           type: "error",
           message: error.response.data.message,
         });
-        console.error("Error fetching data:", error);
       });
   };
 

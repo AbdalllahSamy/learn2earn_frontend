@@ -7,10 +7,15 @@ import defaultAvatarMale from "../../../assets/defualtAvatarMale.jpg";
 import defaultAvatarFemale from "../../../assets/defaultAvatarFemale.jpg";
 import Loading from "../../Custom Components/Loading";
 import useErrorHandling from "../../../hooks/useErrorHandling";
-export default function TeacherTable({ trackSelectedUsers }) {
-  const [students, setStudents] = useState([]);
+export default function TeacherTable({
+  trackSelectedUsers,
+  refresh,
+  setRefresh,
+}) {
+  const [students, setStudents] = useState(null);
   const [selectedUsers, setSelectedUsers] = useState([]);
   const [error, setError] = useErrorHandling();
+  const firstRender = useRef(0);
 
   useEffect(() => {
     const authData = JSON.parse(localStorage.getItem("auth"));
@@ -26,7 +31,9 @@ export default function TeacherTable({ trackSelectedUsers }) {
         setStudents(res.data.data);
       })
       .catch((error) => {
-        setError(error.response.data.message);
+        if (error.response && error.response.data.message)
+          setError(error.response.data.message);
+        else setError("Check your Connection");
       });
   }, []);
 
@@ -34,14 +41,37 @@ export default function TeacherTable({ trackSelectedUsers }) {
     trackSelectedUsers(selectedUsers);
   }, [selectedUsers]);
 
+  useEffect(() => {
+    if (firstRender.current && refresh) {
+      setStudents((prevStudents) =>
+        prevStudents.filter((student) => !selectedUsers.includes(student.id))
+      );
+      setSelectedUsers([]);
+      setRefresh(false);
+    }
+    firstRender.current = 1;
+  }, [refresh]);
+
+
   if (error) {
     return <div className="text-center text-[2rem]">{error}</div>;
   }
 
-  if (!students || students.length === 0) {
+  if (!students) {
     return (
       <div className="res-height flex items-start py-[5em] justify-center">
         <Loading color="#2b4cc4" size={20} />
+      </div>
+    );
+  }
+
+  if (students.length === 0) {
+    return (
+      <div className="res-height w-fit text-center mx-auto">
+        <h1>No students found</h1>
+        <p className="text-gray-600 mt-2">
+          It seems there are no students available at the moment.
+        </p>
       </div>
     );
   }

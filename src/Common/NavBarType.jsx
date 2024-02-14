@@ -123,6 +123,9 @@ export default function NavBarType() {
                   />
                 </div>
               </li>
+              <li>
+                {/* <img src={userData} alt="" /> */}
+              </li>
             </ul>
             <button
               className="bg-red-600  hidden md:block text-white font-black rounded-lg px-[2.5em] py-[0.5em]"
