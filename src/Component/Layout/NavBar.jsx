@@ -18,10 +18,10 @@ export default function NavBar({ children }) {
           <div className="flex gap-[10px] items-center">
             <img src={logo} alt="Learn2Earn" width={25} height={25} />
             <div style={{ lineHeight: "8px" }} className="flex flex-col h-fit">
-              <h1 className="text-[1.2rem] font-[800] m-0 text-[#2E83FF]">
+              <h1 className="text-[1rem] hidden md:inline-block md:text-[1.2rem] font-[800] m-0 text-[#2E83FF]">
                 LEARN2EARN
               </h1>
-              <p className="text-[0.8rem] mb-0 italic text-[#024FA9] font-black">
+              <p className="hidden md:inline-block md:text-[0.8rem] mb-0 italic text-[#024FA9] font-black">
                 EDUCATION PLATFORM
               </p>
             </div>

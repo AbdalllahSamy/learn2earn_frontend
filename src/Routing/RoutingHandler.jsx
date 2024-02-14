@@ -34,7 +34,7 @@ const RoutingHandler = () => {
         <Route path="register" element={<Register />} />
         <Route element={<RequireAuth />}>
           <Route path="teacher" element={<TeacherLayoutPage />}>
-            <Route path="dashboard" element={<TeacherDashboard />} />
+            <Route index element={<TeacherDashboard />} />
           </Route>
           <Route path="student" element={<StudentLayoutPage />}>
             <Route path="dashboard" element={<StudentDashboard />} />

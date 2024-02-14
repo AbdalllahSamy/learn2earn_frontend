@@ -1,17 +1,5 @@
-.push-left {
-  margin-left: 240px;
-}
-
-@media screen and (max-width: 1080px) {
-  .push-left {
-    margin-left: 0;
-  }
-}
 .push-left-icons {
   margin-left: 100px;
-}
-.curve-shape {
-  border-top-left-radius: 10px;
 }
 .active-button {
   background-color: #f0fdf4;
