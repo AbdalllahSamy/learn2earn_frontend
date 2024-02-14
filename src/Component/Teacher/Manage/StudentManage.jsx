@@ -82,7 +82,6 @@ export default function StudentManage() {
   }
 
   function checkSelectedUsers(param) {
-    console.log(param);
     if (param) {
       setCanOpenDeletePortal(true);
     } else setCanOpenDeletePortal(false);

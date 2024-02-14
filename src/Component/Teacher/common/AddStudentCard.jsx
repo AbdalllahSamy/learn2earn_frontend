@@ -37,7 +37,6 @@ export default function AddStudentCard({ handleClosePortal }) {
         });
       })
       .catch((error) => {
-        console.log(error);
         handleClosePortal({
           type: "error",
           message: error.response.data.message,

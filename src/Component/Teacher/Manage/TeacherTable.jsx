@@ -27,7 +27,6 @@ export default function TeacherTable({
         },
       })
       .then((res) => {
-        console.log(res);
         setStudents(res.data.data);
       })
       .catch((error) => {
