@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import axios from "../../../api/axios";
 import toast, { Toaster } from "react-hot-toast";
+import Loading from "../../Custom Components/Loading";
 
 export default function AddStudentCard({ handleClosePortal }) {
   const [studentCode, setStudentCode] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   const handleParentClick = () => {
     // Do something when clicked on the parent
@@ -18,7 +20,7 @@ export default function AddStudentCard({ handleClosePortal }) {
 
     const authData = JSON.parse(localStorage.getItem("auth"));
     const token = authData.accessToken;
-
+    setSubmitting(true);
     axios
       .post(
         "/teacher/student/manage",
@@ -42,7 +44,10 @@ export default function AddStudentCard({ handleClosePortal }) {
           message: error.response.data.message,
         });
         console.error("Error fetching data:", error);
-      });
+      }).finally(
+        setSubmitting(false)
+      );
+
   };
 
   const preventParentClick = (event) => {
@@ -69,13 +74,19 @@ export default function AddStudentCard({ handleClosePortal }) {
           placeholder="Enter Student Code"
         />
         <div className="flex flex-row-reverse w-[100%] md:max-w-[90%] justify-around items-center mx-auto">
-          <button
-            disabled={!studentCode}
-            onClick={handleChildClick}
-            className="bg-[#2B4CC4] w-[45%] text-white p-[0.5em] px-[1em] md:px-[2.5em] rounded-full text-[1.05rem] font-[500] mt-[1em] button-shadow"
-          >
-            Submit
-          </button>
+          <div className="bg-[#2B4CC4] w-[45%] text-white p-[0.5em] px-[1em] md:px-[2.5em] rounded-full text-[1.05rem] font-[500] mt-[1em] button-shadow">
+            {submitting ?
+              <Loading className="py-[0.5em]" />
+              :
+              <button
+                disabled={!studentCode}
+                onClick={handleChildClick}
+              >
+
+                Submit
+              </button>
+            }
+          </div>
           <button
             onClick={handleParentClick}
             className="bg-transparent w-[45%] text-[#2B4CC4] border-[#2B4CC4] border-solid border-[2px] p-[0.5em] px-[1em] md:px-[2.5em] rounded-full text-[1.05rem] font-[500] mt-[1em]"
