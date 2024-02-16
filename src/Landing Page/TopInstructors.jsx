@@ -43,7 +43,7 @@ export default function TopInstructors() {
           <h1 className="text-center text-[3rem]">
             <span className="text-[#7882FF] font-normal">Meet</span> <br /> Our{" "}
             <span className="underline">Top</span>{" "}
-            <span className="text-[#7882FF] font-black">Instructors</span>
+            <span className="text-[#7882FF] font-black">Teachers</span>
           </h1>
           <p className="text-[2rem] text-center">
             Enjoy seamless collaboration tools designed to enhance communication
