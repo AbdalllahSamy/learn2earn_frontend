@@ -39,7 +39,7 @@ export default function LandingNavBar() {
 
   useMotionValueEvent(scrollY, "change", (latestScrollY) => {
     const prevScrollY = scrollY.getPrevious();
-    console.log("latest ", latestScrollY, "prev ", prevScrollY);
+    // console.log("latest ", latestScrollY, "prev ", prevScrollY);
     if (latestScrollY > prevScrollY && latestScrollY > 120) {
       setHidden(true);
     } else {

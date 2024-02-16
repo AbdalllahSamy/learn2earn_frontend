@@ -27,7 +27,7 @@ export default function NavBarType() {
         setUserData(res.data.data); // Assuming the response data should be stored in userData state
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   }, []);
 

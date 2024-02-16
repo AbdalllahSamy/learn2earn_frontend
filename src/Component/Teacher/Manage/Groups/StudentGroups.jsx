@@ -24,7 +24,7 @@ export default function StudentGroups() {
         console.log(res);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   }, []);
 
