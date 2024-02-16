@@ -4,7 +4,7 @@ import shape2 from "../assets/Landing/shape2.gif";
 
 export default function WhyUs() {
   return (
-    <section className="py-[2em] mt-[2em] relative z-[4] bg-white flex overflow-hidden justify-between">
+    <section className="py-[4em] mt-[2em] relative z-[4] bg-white flex overflow-hidden justify-between">
       <img
         src={shape2}
         className="absolute right-[-100px] top-[200px] w-[300px] h-[300px]"

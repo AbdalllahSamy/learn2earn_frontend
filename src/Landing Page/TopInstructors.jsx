@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function TopInstructors() {
   return (
-    <section className="py-[0em] lg:py-[10em] mt-[2em] relative z-[4] bg-white flex justify-between">
+    <section className="py-[3em] lg:py-[10em] mt-[2em] relative z-[4] bg-white flex justify-between">
       <div className="container-landing w-full mx-auto flex items-center justify-between flex-col-reverse xl:flex-row gap-[30px]">
         <div className="left-side flex flex-col w-full xl:w-[45%] relative text-center gap-[30px]">
           <img

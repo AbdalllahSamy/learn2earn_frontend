@@ -3,7 +3,7 @@ import Learn2EarnCycle from "../assets/Landing/learn-earn-cycle.png";
 
 export default function Learn2EarnCyclePage() {
   return (
-    <section className="py-[2em] mb-[2em] relative z-[4] bg-white">
+    <section className="py-[4em] mb-[2em] relative z-[4] bg-white">
     <div className="container-landing mx-auto flex flex-col lg:flex-row gap-[30px] items-center justify-between">
       <img
         src={Learn2EarnCycle}

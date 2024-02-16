@@ -7,7 +7,7 @@ import styles from "./style.module.css";
 import stuentCover from "../assets/Landing/student-cover.jpg";
 export default function TopStudents() {
   return (
-    <section className="py-[5em] overflow-hidden container-landing mt-[2em] sidebar relative z-[4] bg-[#edf2f8] flex justify-between">
+    <section style={{paddingTop:"3em"}} className="overflow-hidden container-landing mt-[2em] sidebar relative z-[4] bg-[#edf2f8] flex justify-between">
       <div className="flex flex-col w-full ">
         <h1 className="text-center mx-auto">
           Best Three{" "}
