@@ -39,6 +39,7 @@ body {
   backface-visibility: hidden;
   margin: 0;
   padding: 0;
+  color: #000000;
   background-color: #edf2f9f5 !important;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -218,4 +219,71 @@ tr:nth-child(odd) {
   .search-component {
     display: none;
   }
+}
+.bg-landingPage {
+  background-image: url("./assets/Landing/landingPage.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.landingpage-text {
+  text-align: left;
+}
+@media screen and (max-width: 1023px) {
+  .landingpage-text {
+    text-align: center;
+  }
+}
+.shadow-landingPage-card {
+  box-shadow: 0px 0px 249.98399353027344px 50px #92baf7;
+}
+
+.linear-card-bg-1 {
+  background: linear-gradient(180deg, #ad66ff 0%, #5c7bb3 52%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58));
+
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 108px;
+  border-bottom-left-radius: 25px;
+  border: 1px solid #00000094;
+  border-style: solid;
+  box-shadow: 8px 12px 4px 1px #7c7c7c94;
+  border-color: #00000094;
+}
+.linear-card-bg-2 {
+  background: linear-gradient(180deg, #b3c5e8 0%, #c0afe4 52%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58));
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 108px;
+  border-bottom-left-radius: 25px;
+  border: 1px solid #00000094;
+  border-style: solid;
+  box-shadow: 8px 12px 4px 1px #7c7c7c94;
+  border-color: #00000094;
+}
+.text-graident-1 {
+  background: linear-gradient(90deg, white 20%, #969ad0 52%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-graident-2 {
+  background: linear-gradient(180deg, #ad66ff 0%, #5c7bb3 52%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.card-instructor {
+  background: linear-gradient(90deg, #f8f8f8 0%, #c0afe4 40%, #b3c5e8 100%),
+  linear-gradient(0deg, rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58));
+
+  border: 1px solid #00000094;
+  border-style: solid;
+  box-shadow: 8px 12px 4px 1px #7c7c7c94;
+  border-color: #00000094;
+}
+
+.landing_login_button {
+  box-shadow: 8px 12px 4px 1px #7c7c7c94;
+
 }

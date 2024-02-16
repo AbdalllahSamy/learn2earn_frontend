@@ -27,6 +27,7 @@ import CompleteProfile from "../Component/Login/CompleteProfile";
 import Users from "../Component/Admin/Manage Users/Users";
 import StudentManage from "../Component/Teacher/Manage/StudentManage";
 import ErrorHandler from "../ErrorHandler/ErrorHandler";
+import LandingPage from "../Landing Page/LandingPage";
 
 const RoutingHandler = () => {
   const router = createBrowserRouter(
@@ -34,7 +35,7 @@ const RoutingHandler = () => {
     createRoutesFromElements(
       <>
         <Route path="/" errorElement={<ErrorHandler />} element={<Layout />}>
-          <Route index element={<Link to="/login">Login</Link>} />
+          <Route index element={<LandingPage />} />
           <Route path="login" element={<LoginPage />}>
             <Route index element={<Login />} />
             <Route path="complete-profile" element={<CompleteProfile />} />
