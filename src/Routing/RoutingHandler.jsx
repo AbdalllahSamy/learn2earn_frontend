@@ -28,6 +28,7 @@ import Users from "../Component/Admin/Manage Users/Users";
 import StudentManage from "../Component/Teacher/Manage/StudentManage";
 import ErrorHandler from "../ErrorHandler/ErrorHandler";
 import LandingPage from "../Landing Page/LandingPage";
+import StudentGroups from "../Component/Teacher/Manage/Groups/StudentGroups";
 
 const RoutingHandler = () => {
   const router = createBrowserRouter(
@@ -45,6 +46,7 @@ const RoutingHandler = () => {
             <Route path="teacher" element={<TeacherLayoutPage />}>
               <Route index element={<TeacherDashboard />} />
               <Route path="manage" element={<StudentManage />} />
+              <Route path="groups" element={<StudentGroups />} />
             </Route>
             <Route path="student" element={<StudentLayoutPage />}>
               <Route path="dashboard" element={<StudentDashboard />} />

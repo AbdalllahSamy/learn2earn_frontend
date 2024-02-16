@@ -3,6 +3,7 @@ import studentAvatar1 from "../assets/Landing/student-avatar-1.png";
 import studentAvatar2 from "../assets/Landing/student-avatar-2.png";
 import studentAvatar3 from "../assets/Landing/student-avatar-3.png";
 import shape2 from "../assets/Landing/shape2.gif";
+import styles from "./style.module.css";
 import stuentCover from "../assets/Landing/student-cover.jpg";
 export default function TopStudents() {
   return (
@@ -18,6 +19,21 @@ export default function TopStudents() {
         </p>
 
         <div className="cards-container flex justify-center items-center gap-[2em] flex-wrap">
+        <div className={styles['container']}>
+      <div className={styles['frame1']}>
+        <img
+          src="/subtract1517-j9og.svg"
+          alt="Subtract1517"
+          className={styles['subtract']}
+        />
+        <img
+          src="/ellipse21518-vw0l-200h.png"
+          alt="Ellipse21518"
+          className={styles['ellipse2']}
+        />
+      </div>
+    </div>
+
           <div className="student-card bg-white w-full lg:w-[48%] xl:w-[30%] rounded-2xl overflow-hidden">
             <div className="relative">
               <img

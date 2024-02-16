@@ -1,0 +1,32 @@
+.container {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+  }
+  .frame1 {
+    width: 366px;
+    height: 423px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 30px;
+  }
+  .subtract {
+    top: 269px;
+    left: 0px;
+    width: 379px;
+    height: 169px;
+    position: absolute;
+  }
+  .ellipse2 {
+    top: 229px;
+    left: 150px;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+  }

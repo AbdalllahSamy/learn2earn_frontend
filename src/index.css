@@ -354,6 +354,5 @@ tr:nth-child(odd) {
 @media screen and (max-width: 1279px) {
   .contact-parent-padding {
     padding-top: 0em !important;
-  }
-  
+  } 
 }
