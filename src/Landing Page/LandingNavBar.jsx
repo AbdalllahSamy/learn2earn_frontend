@@ -51,12 +51,13 @@ export default function LandingNavBar() {
     <motion.div
       variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
       animate={hidden ? "hidden" : "visible"}
+      style={{paddingTop : "1em", paddingBottom:"1em"}}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={`fixed  container-landing z-[10] ${
+      className={`fixed container-landing z-[10] ${
         onTop ? "bg-transparent" : "bg-[#ffffffdb]"
       }  backdrop-blur-sm flex items-center justify-between top-0 w-full`}
     >
-      <h1 style={{ margin: 0 }} className="font-bold w-fit md:text-[2rem]">
+      <h1 style={{ margin: 0 }} className="font-bold w-fit text-[1.2rem] md:text-[2rem]">
         {" "}
         <span className="text-[#B173F9]">Learn</span> 2{" "}
         <span className="text-black bg-[#FFFD82] px-[0em] rounded-lg">
@@ -90,7 +91,7 @@ export default function LandingNavBar() {
             size={30}
           />
           <AnimatePresence mode="wait">
-            {!showDropDown && (
+            {showDropDown && (
               <motion.div
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}

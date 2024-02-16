@@ -20,7 +20,7 @@ export default function IntroPage() {
             teachers, and as you expand your knowledge, you'll also earn
             rewards.
           </p>
-          <Link to={"/register"} className="landing_login_button text-black rounded-full my-[2em] mx-auto block lg:inline-block mt-[1em] bg-[#FFFD82] font-bold px-[3.5em] w-full lg:w-fit text-[1.4rem] py-[0.5em]">
+          <Link to={"/register"} className="landing_login_button text-black rounded-full my-[2em] mx-auto block text-center lg:inline-block mt-[1em] bg-[#FFFD82] font-bold px-[3.5em] w-full lg:w-fit text-[1.4rem] py-[0.5em]">
             Join now
           </Link>
         </div>
@@ -52,11 +52,11 @@ export default function IntroPage() {
           />
         </div>
       </div>
-      <div className="flex flex-col container-landing mx-auto gap-4 lg:flex-row items-center justify-between">
-        <div className="flex justify-between w-full lg:w-[46%]">
+      <div className="flex flex-col container-landing relative mx-auto gap-4 lg:flex-row items-center justify-between">
+        <div className="flex flex-col md:flex-row gap-[20px] justify-between w-full lg:w-[46%]">
           <div
             style={{ margin: 0 }}
-            className="bg-white rounded-lg flex flex-col justify-between w-[43%] text-center py-[0.8em] px-[1em] shadow-landingPage-card "
+            className="bg-white rounded-lg flex flex-col justify-between w-full lg:w-[43%] text-center py-[0.8em] px-[1em]"
           >
             <p style={{ margin: 0 }} className="text-[#4C6CA6] font-[700]">
               +150 Lessons
@@ -70,7 +70,7 @@ export default function IntroPage() {
           </div>
           <div
             style={{ margin: 0 }}
-            className="bg-white rounded-lg flex flex-col justify-between w-[43%] text-center py-[0.8em] px-[1em] shadow-landingPage-card "
+            className="bg-white rounded-lg flex flex-col justify-between w-full lg:w-[43%] text-center py-[0.8em] px-[1em]  "
           >
             <p style={{ margin: 0 }} className="text-[#4C6CA6] font-[700]">
               24 hour Learning
@@ -83,10 +83,10 @@ export default function IntroPage() {
             </p>
           </div>
         </div>
-        <div className="flex items-center justify-between w-full lg:w-[46%]">
+        <div className="flex items-center flex-col relative md:flex-row  gap-[20px] justify-between w-full lg:w-[46%]">
           <div
             style={{ margin: 0 }}
-            className="bg-white rounded-lg flex flex-col justify-between w-[43%] text-center py-[0.8em] px-[1em] shadow-landingPage-card "
+            className="bg-white rounded-lg flex flex-col justify-between w-full lg:w-[43%] text-center py-[0.8em] px-[1em] "
           >
             <p style={{ margin: 0 }} className="text-[#4C6CA6] font-[700]">
               Without lemitations
@@ -100,7 +100,7 @@ export default function IntroPage() {
           </div>
           <div
             style={{ margin: 0 }}
-            className="bg-white rounded-lg flex flex-col justify-between w-[43%] text-center py-[0.8em] px-[1em] shadow-landingPage-card "
+            className="bg-white rounded-lg flex flex-col justify-between w-full lg:w-[43%] text-center py-[0.8em] px-[1em] "
           >
             <p style={{ margin: 0 }} className="text-[#4C6CA6] font-[700]">
               +20 Subjects

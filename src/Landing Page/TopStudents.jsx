@@ -7,8 +7,8 @@ import styles from "./style.module.css";
 import stuentCover from "../assets/Landing/student-cover.jpg";
 export default function TopStudents() {
   return (
-    <section className="py-[5em] overflow-hidden mt-[2em] sidebar relative z-[4] bg-[#edf2f8] flex justify-between">
-      <div className="flex flex-col w-full container-landing">
+    <section className="py-[5em] overflow-hidden container-landing mt-[2em] sidebar relative z-[4] bg-[#edf2f8] flex justify-between">
+      <div className="flex flex-col w-full ">
         <h1 className="text-center mx-auto">
           Best Three{" "}
           <span className="text-[#7882FF] underline font-black">Students</span>
@@ -19,7 +19,6 @@ export default function TopStudents() {
         </p>
 
         <div className="cards-container flex justify-center items-center gap-[2em] flex-wrap">
-
           <div className="student-card bg-white w-full lg:w-[48%] xl:w-[30%] rounded-2xl overflow-hidden">
             <div className="relative">
               <img
@@ -32,49 +31,50 @@ export default function TopStudents() {
                 src={studentAvatar1}
                 width={100}
                 height={100}
-                className="rounded-full h-[100px] object-cover absolute horizontal-center bottom-[-30px]"
+                className="rounded-full h-[100px] img-profile-res absolute horizontal-center bottom-[-30px]"
                 alt=""
               />
             </div>
+            <div className="pt-[2em] text-center">
+              <div className="px-[1em]">
+                <h1 className="font-bold">Sara Soliman</h1>
+                <p className="text-green-500 text-[1.2rem] font-[500]">
+                  The Second
+                </p>
+                <div className="subs flex items-center justify-center flex-wrap gap-[10px]">
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    5 Quizzes
+                  </p>
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    150 Lucky
+                  </p>
 
-            <div className="pt-[2em] pb-[1em] px-[1em] text-center">
-              <h1 className="font-bold">Lara Mohamed</h1>
-              <p className="text-green-500 text-[1.2rem] font-[500]">
-                The First
-              </p>
-              <div className="subs flex items-center justify-center flex-wrap gap-[10px]">
-                <p
-                  style={{ margin: 0 }}
-                  className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                >
-                  5 Quizzes
-                </p>
-                <p
-                  style={{ margin: 0 }}
-                  className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                >
-                  150 Lucky
-                </p>
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    150 Answers
+                  </p>
 
-                <p
-                  style={{ margin: 0 }}
-                  className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                >
-                  150 Answers
-                </p>
-
-                <p
-                  style={{ margin: 0 }}
-                  className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                >
-                  1500 Coin
-                </p>
-              </div>
-              <div className="bio">
-                <p className="text-[1.2rem] my-[1em] text-center">
-                  Lara Mohamed is a dedicated and high-achieving student at
-                  Learn2Earn.
-                </p>
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    1500 Coin
+                  </p>
+                </div>
+                <div className="bio">
+                  <p className="text-[1.2rem] my-[1em] text-center">
+                    Sara Soliman is a dedicated and high-achieving student at
+                    Learn2Earn.
+                  </p>
+                </div>
               </div>
               <div style={{ borderTop: "2px solid #9499a0" }}>
                 <button className="py-[1em] hover:bg-[#B173F9] hover:text-white w-full rounded-b-lg transition duration-300">
@@ -95,49 +95,50 @@ export default function TopStudents() {
                 src={studentAvatar1}
                 width={100}
                 height={100}
-                className="rounded-full h-[100px] object-cover absolute horizontal-center bottom-[-30px]"
+                className="rounded-full h-[100px] img-profile-res absolute horizontal-center bottom-[-30px]"
                 alt=""
               />
             </div>
+            <div className="pt-[2em] text-center">
+              <div className="px-[1em]">
+                <h1 className="font-bold">Sara Soliman</h1>
+                <p className="text-green-500 text-[1.2rem] font-[500]">
+                  The Second
+                </p>
+                <div className="subs flex items-center justify-center flex-wrap gap-[10px]">
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    5 Quizzes
+                  </p>
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    150 Lucky
+                  </p>
 
-            <div className="pt-[2em] pb-[1em] px-[1em] text-center">
-              <h1 className="font-bold">Sara Soliman</h1>
-              <p className="text-green-500 text-[1.2rem] font-[500]">
-                The Second
-              </p>
-              <div className="subs flex items-center justify-center flex-wrap gap-[10px]">
-                <p
-                  style={{ margin: 0 }}
-                  className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                >
-                  5 Quizzes
-                </p>
-                <p
-                  style={{ margin: 0 }}
-                  className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                >
-                  150 Lucky
-                </p>
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    150 Answers
+                  </p>
 
-                <p
-                  style={{ margin: 0 }}
-                  className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                >
-                  150 Answers
-                </p>
-
-                <p
-                  style={{ margin: 0 }}
-                  className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                >
-                  1500 Coin
-                </p>
-              </div>
-              <div className="bio">
-                <p className="text-[1.2rem] my-[1em] text-center">
-                  Sara Soliman is a dedicated and high-achieving student at
-                  Learn2Earn.
-                </p>
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    1500 Coin
+                  </p>
+                </div>
+                <div className="bio">
+                  <p className="text-[1.2rem] my-[1em] text-center">
+                    Sara Soliman is a dedicated and high-achieving student at
+                    Learn2Earn.
+                  </p>
+                </div>
               </div>
               <div style={{ borderTop: "2px solid #9499a0" }}>
                 <button className="py-[1em] hover:bg-[#B173F9] hover:text-white w-full rounded-b-lg transition duration-300">
@@ -158,49 +159,50 @@ export default function TopStudents() {
                 src={studentAvatar1}
                 width={100}
                 height={100}
-                className="rounded-full h-[100px] object-cover absolute horizontal-center bottom-[-30px]"
+                className="rounded-full h-[100px] img-profile-res absolute horizontal-center bottom-[-30px]"
                 alt=""
               />
             </div>
+            <div className="pt-[2em] text-center">
+              <div className="px-[1em]">
+                <h1 className="font-bold">Sara Soliman</h1>
+                <p className="text-green-500 text-[1.2rem] font-[500]">
+                  The Second
+                </p>
+                <div className="subs flex items-center justify-center flex-wrap gap-[10px]">
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    5 Quizzes
+                  </p>
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    150 Lucky
+                  </p>
 
-            <div className="pt-[2em] pb-[1em] px-[1em] text-center">
-              <h1 className="font-bold">Jessy Ayman</h1>
-              <p className="text-green-500 text-[1.2rem] font-[500]">
-                The Third
-              </p>
-              <div className="subs flex items-center justify-center flex-wrap gap-[10px]">
-                <p
-                  style={{ margin: 0 }}
-                  className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                >
-                  5 Quizzes
-                </p>
-                <p
-                  style={{ margin: 0 }}
-                  className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                >
-                  150 Lucky
-                </p>
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    150 Answers
+                  </p>
 
-                <p
-                  style={{ margin: 0 }}
-                  className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                >
-                  150 Answers
-                </p>
-
-                <p
-                  style={{ margin: 0 }}
-                  className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                >
-                  1500 Coin
-                </p>
-              </div>
-              <div className="bio">
-                <p className="text-[1.2rem] my-[1em] text-center">
-                  Lara Mohamed is a dedicated and high-achieving student at
-                  Learn2Earn.
-                </p>
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    1500 Coin
+                  </p>
+                </div>
+                <div className="bio">
+                  <p className="text-[1.2rem] my-[1em] text-center">
+                    Sara Soliman is a dedicated and high-achieving student at
+                    Learn2Earn.
+                  </p>
+                </div>
               </div>
               <div style={{ borderTop: "2px solid #9499a0" }}>
                 <button className="py-[1em] hover:bg-[#B173F9] hover:text-white w-full rounded-b-lg transition duration-300">

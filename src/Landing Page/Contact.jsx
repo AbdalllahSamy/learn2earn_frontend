@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <section className="container-landing overflow-x-hidden mt-[2em] z-[4] bg-[#B7D3FF] xl:bg-white flex justify-between">
       <div className="w-full contact-parent-padding flex flex-col items-center gap-[50px]">
-        <div className="contact relative w-full flex flex-col xl:flex-row justify-between items-center bg-[#B7D3FF] p-[4em] rounded-xl">
+        <div className="contact relative w-full flex flex-col xl:flex-row justify-between items-center bg-[#B7D3FF] lg:p-[4em] rounded-xl">
           <div className="text-content text-center xl:text-left w-full xl:max-w-[40%] px[0.5em]">
             <h1 className="font-bold">
               Have any <span className="text-[#FFFD82]">question</span> ? send
