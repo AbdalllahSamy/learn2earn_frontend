@@ -17,7 +17,6 @@ export default function NavBarType() {
   useEffect(() => {
     const authData = JSON.parse(localStorage.getItem("auth"));
     const token = authData.accessToken;
-
     axios
       .get("/user/my-data", {
         headers: {
@@ -28,6 +27,7 @@ export default function NavBarType() {
         setUserData(res.data.data); // Assuming the response data should be stored in userData state
       })
       .catch((error) => {
+        console.log(error);
       });
   }, []);
 

@@ -11,6 +11,9 @@ function TeacherDashboard() {
   useEffect(() => {
     const authData = JSON.parse(localStorage.getItem("auth"));
     const token = authData.accessToken;
+    console.log(authData);
+
+    console.log(token);
 
     axios
       .get("/user/my-data", {
@@ -22,6 +25,7 @@ function TeacherDashboard() {
         setUserData(res.data.data); // Assuming the response data should be stored in userData state
       })
       .catch((error) => {
+        console.log(error);
         setError(error.response.data.message);
       });
   }, []);

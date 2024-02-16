@@ -9,6 +9,7 @@ export default function Layout() {
   const location = useLocation();
   const prevPathRef = useRef();
 
+
   const bluredEffect = useContext(BluredEffect).bluredContext;
 
   const auth = JSON.parse(localStorage.getItem("auth"));
@@ -33,6 +34,7 @@ export default function Layout() {
   const shouldRenderLogoutButton = !["/register", "/login"].includes(
     location.pathname
   );
+
 
   return (
     <div>

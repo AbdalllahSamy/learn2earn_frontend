@@ -32,6 +32,9 @@ ul {
   margin: 0;
   padding: 0;
 }
+a {
+  text-decoration: none !important;
+}
 body {
   -o-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -275,7 +278,7 @@ tr:nth-child(odd) {
 }
 .card-instructor {
   background: linear-gradient(90deg, #f8f8f8 0%, #c0afe4 40%, #b3c5e8 100%),
-  linear-gradient(0deg, rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58));
+    linear-gradient(0deg, rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58));
 
   border: 1px solid #00000094;
   border-style: solid;
@@ -284,6 +287,73 @@ tr:nth-child(odd) {
 }
 
 .landing_login_button {
-  box-shadow: 8px 12px 4px 1px #7c7c7c94;
+  box-shadow: 8px 13px 15px 3px #7c7c7c94;
+}
+.container-landing {
+  padding: 2em 10em;
+}
+@media (max-width: 1440px) {
+  .container-landing {
+    padding: 2em 3em;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container-landing {
+    padding: 1em 1em;
+  }
+}
+.border-custom {
+  border: 1px solid #000000;
+}
+.border-b {
+  border-bottom: 2px solid #ffffff;
+}
+.contact-form-mask-white {
+  box-shadow: 41px -22px 0px 37px white;
+}
+.landing-why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5em;
+}
 
+.card-why-us {
+  grid-column: span 1;
+  width: 100% !important;
+}
+.card-why-us-2 {
+  grid-column: 2/3;
+  width: 100% !important;
+}
+.card-why-us-3 {
+  grid-column: 3/4;
+  width: 100% !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .landing-why-us-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 500px);
+  }
+  .card-why-us-1 {
+    grid-column: -1/1;
+    width: 100% !important;
+  }
+
+  .card-why-us-2 {
+    grid-column: -1/1;
+  }
+  .card-why-us-3 {
+    grid-column: -1/1;
+  }
+}
+
+.contact-parent-padding { 
+  padding-top: 15em !important;
+}
+@media screen and (max-width: 1279px) {
+  .contact-parent-padding {
+    padding-top: 0em !important;
+  }
+  
 }

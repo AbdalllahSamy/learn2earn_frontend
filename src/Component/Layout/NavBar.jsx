@@ -6,6 +6,7 @@ import { navBarContext } from "../../context/openNavBar";
 
 export default function NavBar({ children }) {
   const openNavBarState = useContext(navBarContext).setOpenNav;
+  
   return (
     <div className="fixed custom-container z-[5] flex items-center justify-between bg-[#edf2f9f5] w-full">
       <div className="flex items-center gap-[40px]">
