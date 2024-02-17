@@ -7,7 +7,10 @@ import styles from "./style.module.css";
 import stuentCover from "../assets/Landing/student-cover.jpg";
 export default function TopStudents() {
   return (
-    <section style={{paddingTop:"3em"}} className="overflow-hidden container-landing mt-[2em] sidebar relative z-[4] bg-[#edf2f8] flex justify-between">
+    <section
+      style={{ paddingTop: "3em" }}
+      className="overflow-hidden container-landing mt-[2em] sidebar relative z-[4] bg-[#edf2f8] flex justify-between"
+    >
       <div className="flex flex-col w-full ">
         <h1 className="text-center mx-auto">
           Best Three{" "}
@@ -37,9 +40,73 @@ export default function TopStudents() {
             </div>
             <div className="pt-[2em] text-center">
               <div className="px-[1em]">
-                <h1 className="font-bold">Sara Soliman</h1>
+                <h1 className="font-bold">Ahmed Ali</h1>
                 <p className="text-green-500 text-[1.2rem] font-[500]">
                   The Second
+                </p>
+                <div className="subs flex items-center justify-center flex-wrap gap-[10px]">
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    3 Quizzes
+                  </p>
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    100 Lucky
+                  </p>
+
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    120 Answers
+                  </p>
+
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    1100 Coin
+                  </p>
+                </div>
+                <div className="bio">
+                  <p className="text-[1.2rem] my-[1em] text-center">
+                    Ahmed Ali is a dedicated and high-achieving student at
+                    Learn2Earn.
+                  </p>
+                </div>
+              </div>
+              <div style={{ borderTop: "2px solid #9499a0" }}>
+                <button className="py-[1em] hover:bg-[#B173F9] hover:text-white w-full rounded-b-lg transition duration-300">
+                  VIEW PROFILE
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="student-card bg-white w-full lg:w-[48%] xl:w-[30%] rounded-2xl overflow-hidden">
+            <div className="relative">
+              <img
+                src={stuentCover}
+                alt=""
+                className="h-[200px] rounded-2xl w-full"
+              />
+
+              <img
+                src={studentAvatar2}
+                width={100}
+                height={100}
+                className="rounded-full h-[100px] img-profile-res absolute horizontal-center bottom-[-30px]"
+                alt=""
+              />
+            </div>
+            <div className="pt-[2em] text-center">
+              <div className="px-[1em]">
+                <h1 className="font-bold">Sara Soliman</h1>
+                <p className="text-green-500 text-[1.2rem] font-[500]">
+                  The First
                 </p>
                 <div className="subs flex items-center justify-center flex-wrap gap-[10px]">
                   <p
@@ -92,7 +159,7 @@ export default function TopStudents() {
               />
 
               <img
-                src={studentAvatar1}
+                src={studentAvatar3}
                 width={100}
                 height={100}
                 className="rounded-full h-[100px] img-profile-res absolute horizontal-center bottom-[-30px]"
@@ -101,105 +168,41 @@ export default function TopStudents() {
             </div>
             <div className="pt-[2em] text-center">
               <div className="px-[1em]">
-                <h1 className="font-bold">Sara Soliman</h1>
+                <h1 className="font-bold">Khaled Osama</h1>
                 <p className="text-green-500 text-[1.2rem] font-[500]">
-                  The Second
+                  The Thrid
                 </p>
                 <div className="subs flex items-center justify-center flex-wrap gap-[10px]">
                   <p
                     style={{ margin: 0 }}
                     className="border-custom font-bold w-fit rounded-full px-[0.5em]"
                   >
-                    5 Quizzes
+                    4 Quizzes
                   </p>
                   <p
                     style={{ margin: 0 }}
                     className="border-custom font-bold w-fit rounded-full px-[0.5em]"
                   >
-                    150 Lucky
-                  </p>
-
-                  <p
-                    style={{ margin: 0 }}
-                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                  >
-                    150 Answers
+                    80 Lucky
                   </p>
 
                   <p
                     style={{ margin: 0 }}
                     className="border-custom font-bold w-fit rounded-full px-[0.5em]"
                   >
-                    1500 Coin
+                    110 Answers
+                  </p>
+
+                  <p
+                    style={{ margin: 0 }}
+                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
+                  >
+                    900 Coin
                   </p>
                 </div>
                 <div className="bio">
                   <p className="text-[1.2rem] my-[1em] text-center">
-                    Sara Soliman is a dedicated and high-achieving student at
-                    Learn2Earn.
-                  </p>
-                </div>
-              </div>
-              <div style={{ borderTop: "2px solid #9499a0" }}>
-                <button className="py-[1em] hover:bg-[#B173F9] hover:text-white w-full rounded-b-lg transition duration-300">
-                  VIEW PROFILE
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="student-card bg-white w-full lg:w-[48%] xl:w-[30%] rounded-2xl overflow-hidden">
-            <div className="relative">
-              <img
-                src={stuentCover}
-                alt=""
-                className="h-[200px] rounded-2xl w-full"
-              />
-
-              <img
-                src={studentAvatar1}
-                width={100}
-                height={100}
-                className="rounded-full h-[100px] img-profile-res absolute horizontal-center bottom-[-30px]"
-                alt=""
-              />
-            </div>
-            <div className="pt-[2em] text-center">
-              <div className="px-[1em]">
-                <h1 className="font-bold">Sara Soliman</h1>
-                <p className="text-green-500 text-[1.2rem] font-[500]">
-                  The Second
-                </p>
-                <div className="subs flex items-center justify-center flex-wrap gap-[10px]">
-                  <p
-                    style={{ margin: 0 }}
-                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                  >
-                    5 Quizzes
-                  </p>
-                  <p
-                    style={{ margin: 0 }}
-                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                  >
-                    150 Lucky
-                  </p>
-
-                  <p
-                    style={{ margin: 0 }}
-                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                  >
-                    150 Answers
-                  </p>
-
-                  <p
-                    style={{ margin: 0 }}
-                    className="border-custom font-bold w-fit rounded-full px-[0.5em]"
-                  >
-                    1500 Coin
-                  </p>
-                </div>
-                <div className="bio">
-                  <p className="text-[1.2rem] my-[1em] text-center">
-                    Sara Soliman is a dedicated and high-achieving student at
+                    Khaled is a dedicated and high-achieving student at
                     Learn2Earn.
                   </p>
                 </div>

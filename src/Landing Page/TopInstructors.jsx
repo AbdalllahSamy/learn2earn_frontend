@@ -23,18 +23,18 @@ export default function TopInstructors() {
             <div className="card-instructor flex  flex-col items-center gap-[20px] w-full p-[2em] rounded-tl-[29px] rounded-tr-[108px] rounded-bl-[108px] rounded-br-[29px] border border-solid border-black border-opacity-25 shadow-md ">
               <img src={instAvatar1} className="max-w-[200px]" alt="" />
               <h1>Darlene Robertson</h1>
-              <p className="text-[2rem]">Arabic Teacher</p>
+              <p className="text-[2rem]">Science Teacher</p>
             </div>
           </div>
           <div className="flex items-center flex-col lg:flex-row justify-between gap-[30px]">
             <div className="card-instructor flex flex-col xl:max-w-[400px] items-center gap-[20px] w-full p-[2em] rounded-tl-[29px] rounded-tr-[108px] rounded-bl-[108px] rounded-br-[29px] border border-solid border-black border-opacity-25 shadow-md ">
               <img src={instAvatar2} className="max-w-[200px]" alt="" />
-              <h1>Darlene Robertson</h1>
-              <p className="text-[2rem]">Arabic Teacher</p>
+              <h1>Maximilian</h1>
+              <p className="text-[2rem]">English Teacher</p>
             </div>
             <div className="card-instructor flex flex-col xl:max-w-[400px] items-center gap-[20px] w-full p-[2em] rounded-tl-[29px] rounded-tr-[108px] rounded-br-[108px] rounded-bl-[29px] border border-solid border-black border-opacity-25 shadow-md ">
               <img src={instAvatar3} className="max-w-[200px]" alt="" />
-              <h1>Darlene Robertson</h1>
+              <h1>Sara Mohamed</h1>
               <p className="text-[2rem]">Arabic Teacher</p>
             </div>
           </div>
