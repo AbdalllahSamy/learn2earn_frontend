@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import Loading from "../../Custom Components/Loading";
 import axios from "../../../api/axios";
 export default function DeleteGroupCard({code , handleClosePortal}) {
+
   const [submitting, setSubmitting] = useState(false);
   
   const handleParentClick = () => {

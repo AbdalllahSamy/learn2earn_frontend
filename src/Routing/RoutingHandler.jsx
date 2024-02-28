@@ -29,6 +29,7 @@ import StudentManage from "../Component/Teacher/Manage/StudentManage";
 import ErrorHandler from "../ErrorHandler/ErrorHandler";
 import LandingPage from "../Landing Page/LandingPage";
 import StudentGroups from "../Component/Teacher/Manage/Groups/StudentGroups";
+import TransitionEffect from "./TransitionEffect";
 
 const RoutingHandler = () => {
   const router = createBrowserRouter(
@@ -41,7 +42,7 @@ const RoutingHandler = () => {
             <Route index element={<Login />} />
             <Route path="complete-profile" element={<CompleteProfile />} />
           </Route>
-          <Route path="register" element={<Register />} />
+          <Route path="register" element={<TransitionEffect> <Register /> </TransitionEffect>} />
           <Route element={<RequireAuth />}>
             <Route path="teacher" element={<TeacherLayoutPage />}>
               <Route index element={<TeacherDashboard />} />

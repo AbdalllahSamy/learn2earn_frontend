@@ -38,6 +38,8 @@ export default function StudentGroups() {
       </div>
     );
   }
+
+  console.log(groupsData);
   return (
     <div className="w-full">
       <div className="flex justify-between items-center mb-[1em]">

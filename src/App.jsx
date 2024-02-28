@@ -8,9 +8,7 @@ import OpenNavBarProvider from "./context/openNavBar";
 function App() {
   return (
     <OpenNavBarProvider>
-      <BluredEffectProvider>
         <RoutingHandler />
-      </BluredEffectProvider>
     </OpenNavBarProvider>
   );
 }

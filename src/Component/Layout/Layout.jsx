@@ -10,8 +10,6 @@ export default function Layout() {
   const prevPathRef = useRef();
 
 
-  const bluredEffect = useContext(BluredEffect).bluredContext;
-
   const auth = JSON.parse(localStorage.getItem("auth"));
   useEffect(() => {
     const prevPath = prevPathRef.current;

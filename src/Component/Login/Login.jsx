@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
-import useAuth from "../../hooks/useAuth";
 import Style from "./Login.module.css";
 import axios from "../../api/axios";
 import { IoEye as ShowPasswordIcon } from "react-icons/io5";
@@ -14,7 +13,6 @@ import Loading from "../Custom Components/Loading";
 const LOGIN_URL = "/auth/login";
 
 export default function Login() {
-  const { setAuth } = useAuth();
   const navigateFunction = useNavigate();
   const userRef = useRef();
 

@@ -11,8 +11,7 @@ export default function AdminCard({
   id,
   realTimeUpdate,
 }) {
-  const bluredFunction = useContext(BluredEffect).setBluredContext;
-
+  
   useEffect(() => {
     realTimeUpdate(null);
   }, []);
@@ -52,12 +51,6 @@ export default function AdminCard({
     }
   }
 
-  useEffect(() => {
-    bluredFunction(true);
-    return () => {
-      bluredFunction(false);
-    };
-  }, []);
 
   const handleParentClick = () => {
     // Do something when clicked on the parent
