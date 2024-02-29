@@ -8,9 +8,15 @@ import TopStudents from "./TopStudents";
 import Contact from "./Contact";
 import LandingNavBar from "./LandingNavBar";
 import Footer from "./Footer";
+import { motion } from "framer-motion";
+
 export default function LandingPage() {
+  
   return (
-    <div className="min-h-[100vh]">
+    <motion.div initial= {{opacity:0, filter: `blur(${100}px)`}}
+    animate = {{opacity:1 , filter: `blur(${0}px)`}}
+    transition={{duration:0.5 , ease:"easeIn"}}
+     className="min-h-[100vh]">
       <LandingNavBar />
       <IntroPage />
       <Learn2EarnCyclePage />
@@ -19,6 +25,6 @@ export default function LandingPage() {
       <TopStudents />
       <Contact />
       <Footer />
-    </div>
+    </motion.div>
   );
 }

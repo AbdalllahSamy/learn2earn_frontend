@@ -100,6 +100,7 @@ export default function StudentManage() {
               <img src={filterIcon} alt="filter-icon" />
               Filter
             </button>
+            <div>
             <button
               onClick={() => {
                 setAddStudentPortal((prev) => !prev);
@@ -107,6 +108,7 @@ export default function StudentManage() {
             >
               <img src={addIcon} alt="add-icon" />
             </button>
+            </div>
             <button onClick={handleClickDeleteIcon}>
               <img
                 src={deleteIcon}
