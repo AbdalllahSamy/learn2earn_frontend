@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Tooltip = ({ children, title }) => {
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <div className="flex items-center group relative">
+    <div
+      className="flex items-center group relative"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       {children}
-      {/* the group-hover property does not work when trying to set opacity, must look over later */}
-      <span className="absolute hidden group-hover:block top-12 right-0 opacity-100 group-hover:opacity-0 bg-[#edf2f9f5] rounded-xl p-1.5 whitespace-nowrap transition-opacity ease-in-out duration-300">
+      <span
+        className={`absolute hidden group-hover:block top-12 right-0 ${
+          hovered ? "opacity-100" : "opacity-0"
+        } bg-[#edf2f9f5] rounded-xl p-1.5 whitespace-nowrap transition-opacity ease-in-out duration-500`}
+      >
         {title}
       </span>
     </div>
