@@ -3,6 +3,11 @@ import React, { useState } from "react";
 const Tooltip = ({ children, title }) => {
   const [hovered, setHovered] = useState(false);
 
+  {
+    /* color yet to be chosen */
+  }
+  // const toolTipColor = "bg-[#214269] ";
+  const toolTipColor = "bg-black";
   return (
     <div
       className="flex items-center group relative"
@@ -11,9 +16,9 @@ const Tooltip = ({ children, title }) => {
     >
       {children}
       <span
-        className={`absolute hidden group-hover:block top-12 right-0 ${
+        className={`text-white shadow-xl border border-black absolute hidden group-hover:block top-12 right-0 ${
           hovered ? "opacity-100" : "opacity-0"
-        } bg-[#edf2f9f5] rounded-xl p-1.5 whitespace-nowrap transition-opacity ease-in-out duration-500`}
+        } ${toolTipColor} rounded-xl p-1.5 whitespace-nowrap transition-opacity ease-in-out duration-500`}
       >
         {title}
       </span>
