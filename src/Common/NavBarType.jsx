@@ -10,6 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
 import Tooltip from "../Component/Custom Components/Tooltip";
+import UserMenu from "./UserMenu";
 
 export default function NavBarType() {
   const navigate = useNavigate();
@@ -73,12 +74,13 @@ export default function NavBarType() {
         <div>
           <Toaster position="top-right" />
         </div>
-        <button
+        <UserMenu handleLogout={handleLogout} />
+        {/* <button
           className="bg-red-600 text-white font-black rounded-lg px-[2.5em] py-[0.5em]"
           onClick={handleLogout}
         >
           Logout
-        </button>
+        </button> */}
       </NavBar>
     );
   } else if (userData.type_user === "teacher") {
@@ -138,12 +140,13 @@ export default function NavBarType() {
               </li>
               <li>{/* <img src={userData} alt="" /> */}</li>
             </ul>
-            <button
+            <UserMenu handleLogout={handleLogout} />
+            {/* <button
               className="bg-red-600  hidden md:block text-white font-black rounded-lg px-[2.5em] py-[0.5em]"
               onClick={handleLogout}
             >
               Logout
-            </button>
+            </button> */}
           </div>
         </NavBar>
       </>
@@ -152,12 +155,13 @@ export default function NavBarType() {
 
   return (
     <NavBar>
-      <button
+      <UserMenu handleLogout={handleLogout} />
+      {/* <button
         className="bg-red-600 hidden md:block text-white font-black rounded-lg px-[2.5em] py-[0.5em]"
         onClick={handleLogout}
       >
         Logout
-      </button>
+      </button> */}
     </NavBar>
   );
 }
