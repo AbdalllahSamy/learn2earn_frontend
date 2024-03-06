@@ -9,6 +9,8 @@ import ApplicationImg from "../assets/Teacher/IconsNav/application.svg";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
+import Tooltip from "../Component/Custom Components/Tooltip";
+import UserMenu from "./UserMenu";
 
 export default function NavBarType() {
   const navigate = useNavigate();
@@ -46,7 +48,6 @@ export default function NavBarType() {
           navigate("/login");
         })
         .catch((error) => {
-
           toast.error("Logout Failed", {
             position: "top-right",
             duration: 7000,
@@ -73,12 +74,13 @@ export default function NavBarType() {
         <div>
           <Toaster position="top-right" />
         </div>
-        <button
+        <UserMenu handleLogout={handleLogout} />
+        {/* <button
           className="bg-red-600 text-white font-black rounded-lg px-[2.5em] py-[0.5em]"
           onClick={handleLogout}
         >
           Logout
-        </button>
+        </button> */}
       </NavBar>
     );
   } else if (userData.type_user === "teacher") {
@@ -94,45 +96,57 @@ export default function NavBarType() {
               style={{ margin: 0, marginLeft: "0.5em", padding: 0 }}
             >
               <li className="cursor-pointer">
-                <div className="bg-white rounded-full p-[0.5em]">
-                  <img src={SettingImg} width={20} height={20} alt="cart-icon" />
-                </div>
+                <Tooltip title="Settings">
+                  <div className="bg-white rounded-full p-[0.5em]">
+                    <img
+                      src={SettingImg}
+                      width={20}
+                      height={20}
+                      alt="settings-icon"
+                    />
+                  </div>
+                </Tooltip>
               </li>
               <li className="cursor-pointer">
-                <div className="bg-white rounded-full p-[0.5em]">
-                  <img src={CartImg} width={20} height={20} alt="cart-icon" />
-                </div>
+                <Tooltip title="Cart">
+                  <div className="bg-white rounded-full p-[0.5em]">
+                    <img src={CartImg} width={20} height={20} alt="cart-icon" />
+                  </div>
+                </Tooltip>
               </li>
               <li className="cursor-pointer">
-                <div className="bg-white rounded-full p-[0.5em]">
-                  <img
-                    src={NotificationImg}
-                    width={20}
-                    height={20}
-                    alt="cart-icon"
-                  />
-                </div>
+                <Tooltip title="Notifications">
+                  <div className="bg-white rounded-full p-[0.5em]">
+                    <img
+                      src={NotificationImg}
+                      width={20}
+                      height={20}
+                      alt="notifications-icon"
+                    />
+                  </div>
+                </Tooltip>
               </li>
               <li className="cursor-pointer">
-                <div className="bg-white rounded-full p-[0.5em]">
-                  <img
-                    src={ApplicationImg}
-                    width={20}
-                    height={20}
-                    alt="cart-icon"
-                  />
-                </div>
+                <Tooltip title="Applications">
+                  <div className="bg-white rounded-full p-[0.5em]">
+                    <img
+                      src={ApplicationImg}
+                      width={20}
+                      height={20}
+                      alt="application-icon"
+                    />
+                  </div>
+                </Tooltip>
               </li>
-              <li>
-                {/* <img src={userData} alt="" /> */}
-              </li>
+              <li>{/* <img src={userData} alt="" /> */}</li>
             </ul>
-            <button
+            <UserMenu handleLogout={handleLogout} />
+            {/* <button
               className="bg-red-600  hidden md:block text-white font-black rounded-lg px-[2.5em] py-[0.5em]"
               onClick={handleLogout}
             >
               Logout
-            </button>
+            </button> */}
           </div>
         </NavBar>
       </>
@@ -141,12 +155,13 @@ export default function NavBarType() {
 
   return (
     <NavBar>
-      <button
+      <UserMenu handleLogout={handleLogout} />
+      {/* <button
         className="bg-red-600 hidden md:block text-white font-black rounded-lg px-[2.5em] py-[0.5em]"
         onClick={handleLogout}
       >
         Logout
-      </button>
+      </button> */}
     </NavBar>
   );
 }

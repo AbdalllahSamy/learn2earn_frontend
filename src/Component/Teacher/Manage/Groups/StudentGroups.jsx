@@ -5,6 +5,7 @@ import Loading from "../../../Custom Components/Loading";
 import filterIcon from "../../../../assets/Teacher/common/filterIcon.svg";
 import SearchComponent from "../../../Layout/SearchComponent";
 import { IoMdAdd } from "react-icons/io";
+import SecondarySearchComponent from "../../../Layout/SecondarySearchComponent";
 
 export default function StudentGroups() {
   const [groupsData, setGroupsData] = useState(null);
@@ -47,8 +48,7 @@ export default function StudentGroups() {
           <img src={filterIcon} alt="filter-icon" />
           Filter
         </button>
-        <div className="flex items-center gap-[20px]">
-          <SearchComponent />
+        <div className="flex items-center gap-[10px]">
           <div
             onClick={() => {
               setAddGroupPortal((prev) => !prev);
@@ -57,6 +57,7 @@ export default function StudentGroups() {
           >
             <IoMdAdd color="#2B4CC4" />
           </div>
+          <SecondarySearchComponent />
         </div>
       </div>
       {groupsData.map((item, index) => {

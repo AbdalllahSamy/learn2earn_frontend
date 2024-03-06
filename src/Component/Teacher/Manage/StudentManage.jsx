@@ -6,6 +6,7 @@ import TeacherTable from "./TeacherTable";
 import AddStudentCard from "../common/AddStudentCard";
 import toast, { Toaster } from "react-hot-toast";
 import DeleteStudentCard from "../common/DeleteStudentCard";
+import ToolTip from "../../Custom Components/Tooltip";
 export default function StudentManage() {
   const [addStudentPortal, setAddStudentPortal] = useState(false);
   const [deleteStudentsPortal, setDeleteStudentsPortal] = useState(false);
@@ -100,22 +101,24 @@ export default function StudentManage() {
               <img src={filterIcon} alt="filter-icon" />
               Filter
             </button>
-            <div>
-            <button
-              onClick={() => {
-                setAddStudentPortal((prev) => !prev);
-              }}
-            >
-              <img src={addIcon} alt="add-icon" />
-            </button>
-            </div>
-            <button onClick={handleClickDeleteIcon}>
-              <img
-                src={deleteIcon}
-                className="button-shadow rounded-full"
-                alt="delete-icon"
-              />
-            </button>
+            <ToolTip title="Add Students">
+              <button
+                onClick={() => {
+                  setAddStudentPortal((prev) => !prev);
+                }}
+              >
+                <img src={addIcon} alt="add-icon" />
+              </button>
+            </ToolTip>
+            <ToolTip title="Delete Students">
+              <button onClick={handleClickDeleteIcon}>
+                <img
+                  src={deleteIcon}
+                  className="button-shadow rounded-full"
+                  alt="delete-icon"
+                />
+              </button>
+            </ToolTip>
           </div>
         </div>
         <TeacherTable
