@@ -5,7 +5,7 @@ const SecondarySearchComponent = () => {
 
   return (
     <div
-      className={`${searchBarColor} flex rounded-[20px] h-[40px] px-4 w-[234px] flex-row justify-between items-center`}
+      className={`${searchBarColor} flex rounded-[20px] h-[40px] px-4 w-[150px] md:w-[234px]  flex-row justify-between items-center`}
     >
       <CiSearch color="grey" size={25} />
 
