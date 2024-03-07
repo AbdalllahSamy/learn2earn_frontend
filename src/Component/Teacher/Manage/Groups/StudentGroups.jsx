@@ -4,7 +4,7 @@ import axios from "../../../../api/axios";
 import Loading from "../../../Custom Components/Loading";
 import filterIcon from "../../../../assets/Teacher/common/filterIcon.svg";
 import SearchComponent from "../../../Layout/SearchComponent";
-import { IoMdAdd } from "react-icons/io";
+import { TiPlusOutline } from "react-icons/ti";
 import SecondarySearchComponent from "../../../Layout/SecondarySearchComponent";
 
 export default function StudentGroups() {
@@ -55,7 +55,7 @@ export default function StudentGroups() {
             }}
             className="p-[0.5em] cursor-pointer rounded-full bg-[#F4F4F4]"
           >
-            <IoMdAdd color="#2B4CC4" />
+            <TiPlusOutline size={24} color="#2B4CC4" />
           </div>
           <SecondarySearchComponent />
         </div>
