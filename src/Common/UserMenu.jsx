@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Avatar from "../assets/Landing/instructor-avatar-2.png";
 import { FaCrown } from "react-icons/fa";
 const UserMenu = ({ handleLogout }) => {
@@ -20,7 +20,7 @@ const UserMenu = ({ handleLogout }) => {
   }, [isOpen]);
 
   return (
-    <div className=" relative" ref={menuRef}>
+    <div className="relative" ref={menuRef}>
       <img
         src={Avatar}
         width={36}

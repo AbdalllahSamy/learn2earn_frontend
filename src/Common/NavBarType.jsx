@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import NavBar from "../Component/Layout/NavBar";
 
 // teacher
@@ -138,9 +138,11 @@ export default function NavBarType() {
                   </div>
                 </Tooltip>
               </li>
+              <li className="cursor-pointer">
+                <UserMenu handleLogout={handleLogout} />
+              </li>
               <li>{/* <img src={userData} alt="" /> */}</li>
             </ul>
-            <UserMenu handleLogout={handleLogout} />
             {/* <button
               className="bg-red-600  hidden md:block text-white font-black rounded-lg px-[2.5em] py-[0.5em]"
               onClick={handleLogout}
