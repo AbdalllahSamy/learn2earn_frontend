@@ -23,8 +23,8 @@ const UserMenu = ({ handleLogout }) => {
     <div className=" relative" ref={menuRef}>
       <img
         src={Avatar}
-        width={30}
-        height={30}
+        width={36}
+        height={36}
         className=" rounded-full cursor-pointer"
         alt="user-avatar"
         onClick={() => setIsOpen(!isOpen)}
