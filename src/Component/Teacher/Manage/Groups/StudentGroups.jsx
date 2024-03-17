@@ -24,6 +24,23 @@ export default function StudentGroups() {
         setGroupsData(res.data.data);
         console.log(res);
       })
+      .then(() => {
+        //ADDED TEST GROUP DATA!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        if (!groupsData) {
+          console.log("test");
+          setGroupsData((oldGroup) => {
+            return [
+              ...oldGroup,
+              {
+                name: "Learn2Earn",
+                max_students: 20,
+                sum_students: 18,
+                code: 1,
+              },
+            ];
+          });
+        }
+      })
       .catch((error) => {
         // console.log(error);
       });
