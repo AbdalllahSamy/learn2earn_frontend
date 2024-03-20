@@ -10,6 +10,7 @@ export default function GroupItem({
   maxStudents = 20,
   numOfStudents = 18,
   code = 1,
+  handleDeleteGroup,
 }) {
   const [deleteGroupPortal, setDeleteGroupPortal] = useState(false);
   const [editMode, setEditMode] = useState(false);
@@ -33,6 +34,7 @@ export default function GroupItem({
           secondary: "#00FF0A",
         },
       });
+      handleDeleteGroup(groupCode);
     }
     if (param && param.type === "error") {
       toast.error(param.message, {

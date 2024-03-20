@@ -3,10 +3,11 @@ import { createPortal } from "react-dom";
 import Loading from "../../Custom Components/Loading";
 import axios from "../../../api/axios";
 
-export default function AddGroupCard({ handleClosePortal }) {
+export default function AddGroupCard({ handleClosePortal, setIsAdded }) {
   const [submitting, setSubmitting] = useState(false);
   const [name, setName] = useState("");
   const [studentNum, setStudentNum] = useState(3);
+
   const handleParentClick = () => {
     // Do something when clicked on the parent
     handleClosePortal(false);
@@ -40,6 +41,7 @@ export default function AddGroupCard({ handleClosePortal }) {
           type: "success",
           message: res.data.message,
         });
+        setIsAdded(true);
       })
       .catch((error) => {
         handleClosePortal({

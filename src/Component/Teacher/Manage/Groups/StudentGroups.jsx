@@ -14,6 +14,13 @@ import AddGroupCard from "../../common/AddGroupCard";
 export default function StudentGroups() {
   const [groupsData, setGroupsData] = useState(null);
   const [addGroupPortal, setAddGroupPortal] = useState(false);
+  const [isAdded, setIsAdded] = useState(false);
+  const handleDeleteGroup = (deletedCode) => {
+    const updatedGroupsData = groupsData.filter(
+      (group) => group.code !== deletedCode
+    );
+    setGroupsData(updatedGroupsData);
+  };
 
   function handleClosePortalAddGroup(param = false) {
     if (param && param.type === "success") {
@@ -64,7 +71,7 @@ export default function StudentGroups() {
       .catch((error) => {
         // console.log(error);
       });
-  }, []);
+  }, [isAdded]); //discuss dependency array rendering the toaster twice with mina
 
   if (!groupsData) {
     return <Loading className="w-full" color="#2B4CC4" />;
@@ -106,6 +113,7 @@ export default function StudentGroups() {
               code={item.code}
               name={item.name}
               key={item.code}
+              handleDeleteGroup={handleDeleteGroup}
             />
           </div>
         );
@@ -114,7 +122,7 @@ export default function StudentGroups() {
         {addGroupPortal && (
           <AddGroupCard
             handleClosePortal={handleClosePortalAddGroup}
-            setAddGroupPortal={setAddGroupPortal}
+            setIsAdded={setIsAdded}
           />
         )}
       </div>
