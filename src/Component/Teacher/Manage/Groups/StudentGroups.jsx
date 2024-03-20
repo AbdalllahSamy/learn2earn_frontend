@@ -57,7 +57,6 @@ export default function StudentGroups() {
   useEffect(() => {
     const authData = JSON.parse(localStorage.getItem("auth"));
     const token = authData.accessToken;
-    console.log("running");
     axios
       .get("/teacher/group/manage", {
         headers: {
@@ -66,7 +65,6 @@ export default function StudentGroups() {
       })
       .then((res) => {
         setGroupsData(res.data.data);
-        console.log(res);
       })
       .catch((error) => {
         // console.log(error);
@@ -84,7 +82,6 @@ export default function StudentGroups() {
     );
   }
 
-  console.log(groupsData);
   return (
     <div className="w-full">
       <div className="flex justify-between items-center mb-[1em]">
