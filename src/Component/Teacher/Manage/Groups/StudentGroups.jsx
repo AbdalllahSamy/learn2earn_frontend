@@ -4,16 +4,53 @@ import axios from "../../../../api/axios";
 import Loading from "../../../Custom Components/Loading";
 import filterIcon from "../../../../assets/Teacher/common/filterIcon.svg";
 import SearchComponent from "../../../Layout/SearchComponent";
+import setAddGroupPortal from "../../common/AddGroupCard";
+import { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { TiPlusOutline } from "react-icons/ti";
 import SecondarySearchComponent from "../../../Layout/SecondarySearchComponent";
+import AddGroupCard from "../../common/AddGroupCard";
 
 export default function StudentGroups() {
   const [groupsData, setGroupsData] = useState(null);
+  const [addGroupPortal, setAddGroupPortal] = useState(false);
+
+  function handleClosePortalAddGroup(param = false) {
+    if (param && param.type === "success") {
+      toast.success(param.message, {
+        position: "top-right",
+        duration: 4000,
+        style: {
+          backgroundColor: "#00FF0A",
+          color: "white",
+        },
+        iconTheme: {
+          primary: "white",
+          secondary: "#00FF0A",
+        },
+      });
+    }
+    if (param && param.type === "error") {
+      toast.error(param.message, {
+        position: "top-right",
+        duration: 4000,
+        style: {
+          backgroundColor: "#FF0000",
+          color: "white",
+        },
+        iconTheme: {
+          primary: "white",
+          secondary: "#FF0000",
+        },
+      });
+    }
+    setAddGroupPortal(false);
+  }
 
   useEffect(() => {
     const authData = JSON.parse(localStorage.getItem("auth"));
     const token = authData.accessToken;
-
+    console.log("running");
     axios
       .get("/teacher/group/manage", {
         headers: {
@@ -73,6 +110,14 @@ export default function StudentGroups() {
           </div>
         );
       })}
+      <div>
+        {addGroupPortal && (
+          <AddGroupCard
+            handleClosePortal={handleClosePortalAddGroup}
+            setAddGroupPortal={setAddGroupPortal}
+          />
+        )}
+      </div>
     </div>
   );
 }

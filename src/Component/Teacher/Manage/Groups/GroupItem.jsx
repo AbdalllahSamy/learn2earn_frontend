@@ -53,7 +53,6 @@ export default function GroupItem({
 
   function toggleEditGroupItem() {
     setEditMode((prev) => !prev);
-    console.log("done");
   }
 
   function itemUpdate() {
