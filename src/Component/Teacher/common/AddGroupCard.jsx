@@ -115,13 +115,19 @@ export default function AddGroupCard({ handleClosePortal, onGroupAdded }) {
           </div>
         </div>
         <div className="flex flex-row-reverse w-[100%] md:max-w-[90%] justify-around items-center mx-auto">
-          <div className="bg-blue-600 text-white w-[45%] p-[0.5em] px-[1em] md:px-[2.5em] rounded-full text-[1.05rem] font-[500] mt-[1em] button-shadow">
-            {submitting ? (
+          {submitting ? (
+            <div className="bg-blue-600  text-white w-[45%] p-[0.5em] px-[1em] md:px-[2.5em] rounded-full text-[1.05rem] font-[500] mt-[1em] button-shadow">
               <Loading className="py-[0.5em]" />
-            ) : (
-              <button onClick={handleChildClick}>Add</button>
-            )}
-          </div>
+            </div>
+          ) : (
+            <button
+              className="bg-blue-600  text-white w-[45%] p-[0.5em] px-[1em] md:px-[2.5em] rounded-full text-[1.05rem] font-[500] mt-[1em] button-shadow"
+              onClick={handleChildClick}
+            >
+              Add
+            </button>
+          )}
+
           <button
             onClick={handleParentClick}
             className="bg-transparent w-[45%] text-[#2B4CC4] border-[#2B4CC4] border-solid border-[2px] p-[0.5em] px-[1em] md:px-[2.5em] rounded-full text-[1.05rem] font-[500] mt-[1em]"
