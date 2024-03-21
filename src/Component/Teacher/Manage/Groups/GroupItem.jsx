@@ -64,9 +64,6 @@ export default function GroupItem({
 
   return (
     <>
-      <div>
-        <Toaster />
-      </div>
       <div className="flex flex-col md:flex-row items-center mb-[1em] gap-[20px] p-[1em] md:p-[2em] bg-[#F4F4F4] rounded-3xl">
         <div className="w-full flex flex-col gap-[20px]">
           <div className="flex w-full max-w-[800px] justify-between">
