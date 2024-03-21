@@ -28,6 +28,7 @@ export default function GroupItem({
         style: {
           backgroundColor: "#00FF0A",
           color: "white",
+          boxShadow: "none",
         },
         iconTheme: {
           primary: "white",

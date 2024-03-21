@@ -23,7 +23,6 @@ function TeacherDashboard() {
         setUserData(res.data.data); // Assuming the response data should be stored in userData state
       })
       .catch((error) => {
-        console.log("b" + "a" + + "a" + "a");
         setError(error.response.data.message);
       });
   }, []);
