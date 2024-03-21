@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { createPortal } from "react-dom";
 import Loading from "../../Custom Components/Loading";
 import axios from "../../../api/axios";
-
-export default function AddGroupCard({ handleClosePortal, setIsAdded }) {
+import toast from "react-hot-toast";
+export default function AddGroupCard({ handleClosePortal, onGroupAdded }) {
   const [submitting, setSubmitting] = useState(false);
   const [name, setName] = useState("");
   const [studentNum, setStudentNum] = useState(3);
@@ -17,8 +17,20 @@ export default function AddGroupCard({ handleClosePortal, setIsAdded }) {
     event.stopPropagation(); // Prevent the event from reaching the parent
     // Do something when clicked on a child
     if (!name.match(/^[a-zA-Z ]+$/) || name.length > 30) {
-      alert(
-        "Invalid name format. Please enter only letters and spaces, and make sure the length does not exceed 30 characters."
+      toast.error(
+        "Your Group Name has to be less than 30 characters with no numbers.",
+        {
+          position: "top-right",
+          duration: 4000,
+          style: {
+            backgroundColor: "#FF0000",
+            color: "white",
+          },
+          iconTheme: {
+            primary: "white",
+            secondary: "#FF0000",
+          },
+        }
       );
       return;
     }
@@ -36,12 +48,22 @@ export default function AddGroupCard({ handleClosePortal, setIsAdded }) {
         }
       )
       .then((res) => {
-        // Assuming the response data should be stored in userData state
-        handleClosePortal({
-          type: "success",
-          message: res.data.message,
+        toast.success(res.data.message, {
+          position: "top-right",
+          duration: 4000,
+          style: {
+            backgroundColor: "#00FF0A",
+            color: "white",
+            boxShadow: "none",
+          },
+          iconTheme: {
+            primary: "white",
+            secondary: "#00FF0A",
+          },
         });
-        setIsAdded(true);
+        // Execute the callback function to notify parent component
+        onGroupAdded();
+        handleClosePortal();
       })
       .catch((error) => {
         handleClosePortal({
@@ -50,7 +72,7 @@ export default function AddGroupCard({ handleClosePortal, setIsAdded }) {
         });
         console.error("Error fetching data:", error);
       })
-      .finally(setSubmitting(false));
+      .finally(() => setSubmitting(false));
   };
 
   const preventParentClick = (event) => {
