@@ -16,7 +16,7 @@ export default function AddGroupCard({ handleClosePortal, onGroupAdded }) {
   const handleChildClick = (event) => {
     event.stopPropagation(); // Prevent the event from reaching the parent
     // Do something when clicked on a child
-    if (!name.match(/^[a-zA-Z ]+$/) || name.length > 30) {
+    if (!name.match(/^[a-zA-Z0-9 ]+$/) || name.length > 30) {
       toast.error(
         "Your Group Name has to be less than 30 characters with no numbers.",
         {
@@ -32,6 +32,21 @@ export default function AddGroupCard({ handleClosePortal, onGroupAdded }) {
           },
         }
       );
+      return;
+    }
+    if (studentNum < 3) {
+      toast.error("Your Group must have at least 3 students.", {
+        position: "top-right",
+        duration: 4000,
+        style: {
+          backgroundColor: "#FF0000",
+          color: "white",
+        },
+        iconTheme: {
+          primary: "white",
+          secondary: "#FF0000",
+        },
+      });
       return;
     }
     const authData = JSON.parse(localStorage.getItem("auth"));
@@ -108,7 +123,6 @@ export default function AddGroupCard({ handleClosePortal, onGroupAdded }) {
               value={studentNum}
               onChange={(e) => setStudentNum(e.target.value)}
               type="number"
-              placeholder="Group Name"
               min={3}
               className="p-2 mx-2 rounded-2xl w-16 text-center border-slate-600 border-1"
             />
