@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import Loading from "../../Custom Components/Loading";
 import axios from "../../../api/axios";
-export default function DeleteGroupCard({code , handleClosePortal}) {
-
+export default function DeleteGroupCard({ code, handleClosePortal }) {
   const [submitting, setSubmitting] = useState(false);
-  
+
   const handleParentClick = () => {
     // Do something when clicked on the parent
     handleClosePortal(false);
@@ -49,8 +48,6 @@ export default function DeleteGroupCard({code , handleClosePortal}) {
     event.stopPropagation(); // Prevent the event from reaching the parent
   };
 
-
-  
   return createPortal(
     <div
       onClick={handleParentClick}
@@ -65,15 +62,20 @@ export default function DeleteGroupCard({code , handleClosePortal}) {
         </h3>
 
         <div className="flex flex-row-reverse w-[100%] md:max-w-[90%] justify-around items-center mx-auto">
-          <div className="bg-red-600 text-white w-[45%] p-[0.5em] px-[1em] md:px-[2.5em] rounded-full text-[1.05rem] font-[500] mt-[1em] button-shadow">
-            {submitting ? (
+          {submitting ? (
+            <div className="bg-red-600 text-white w-[45%] p-[0.5em] px-[1em] md:px-[2.5em] rounded-full text-[1.05rem] font-[500] mt-[1em] button-shadow">
               <Loading className="py-[0.5em]" />
-            ) : (
-              <button disabled={!code} onClick={handleChildClick}>
-                Delete
-              </button>
-            )}
-          </div>
+            </div>
+          ) : (
+            <button
+              className="bg-red-600 text-white w-[45%] p-[0.5em] px-[1em] md:px-[2.5em] rounded-full text-[1.05rem] font-[500] mt-[1em] button-shadow"
+              disabled={!code}
+              onClick={handleChildClick}
+            >
+              Delete
+            </button>
+          )}
+
           <button
             onClick={handleParentClick}
             className="bg-transparent w-[45%] text-[#2B4CC4] border-[#2B4CC4] border-solid border-[2px] p-[0.5em] px-[1em] md:px-[2.5em] rounded-full text-[1.05rem] font-[500] mt-[1em]"
